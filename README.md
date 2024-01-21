@@ -1,1 +1,3 @@
-# Proyecto
+# Diseño de un sistema económico IoT de monitorización de invernaderos de cannabis medicinal
+
+En este proyecto, se diseña e implementa un prototipo de sistema IoT de bajo coste que monitoriza la luminosidad, temperatura, humedad ambiente y humedad de suelo dentro del invernadero. Este sistema permite ajustar de manera precisa estas condiciones, fundamentales para el desarrollo saludable de las plantas de cannabis. Además, se propone una solución económica y eficiente para que el cultivador monitoree y controle el estado del invernadero de forma remota, utilizando su Smartphone y un bot de Telegram.
