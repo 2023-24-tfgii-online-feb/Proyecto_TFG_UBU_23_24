@@ -4,7 +4,7 @@ En este proyecto, se diseña e implementa un prototipo de sistema IoT de bajo co
 
 # Descripción del Proyecto
 
-El objetivo de este proyecto es utilizar una Raspberry Pi Pico para obtener mediciones del ambiente y mostrarlas en una pantalla OLED.
+El objetivo de este proyecto es utilizar una Raspberry Pi Pico para obtener mediciones del ambiente y mostrarlas en una pantalla OLED y también en una plataforma web.
 
 El programa ejecuta las siguientes tareas:
 
