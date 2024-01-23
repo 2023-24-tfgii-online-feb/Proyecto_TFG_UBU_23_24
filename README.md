@@ -8,7 +8,7 @@ El objetivo de este proyecto es utilizar una Raspberry Pi Pico para obtener medi
 
 El programa ejecuta las siguientes tareas:
 
-* Se inicializan los sensores DHT11 (temperatura y humedad), BH1750 (intensidad de luz) y el sensor de humedad del suelo.
+* Se inicializan los sensores DHT22 (temperatura y humedad), BH1750 (intensidad de luz) y el sensor de humedad del suelo.
 * Obtener las lecturas de los sensores.
 * Mostrar los datos en la pantalla OLED.
 * Enviar actualizaciones a la plataforma web en intervalos predefinidos.
