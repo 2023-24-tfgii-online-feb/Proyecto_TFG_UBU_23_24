@@ -1,10 +1,10 @@
 # Componenes Utilizados
 
-* Raspberry Pi Pico W, placa microcontroladora con capacidad WiFi.
-* Sensor de temperatura y humedad (DHT11).
-* Sensor de intensidad de luz (BH1750).
-* Sensor de humedad del suelo.
-* Pantalla OLED (128x64 píxeles).
+* [Raspberry Pi Pico W, placa microcontroladora con capacidad WiFi.](images/picow-pinout.png)
+* [Sensor de temperatura y humedad (DHT22).](images/DHT22.png)
+* [Sensor de intensidad de luz (BH1750).](images/BH1750.png)
+* [Sensor de humedad del suelo.](images/Sensor_humedad_suelo.png)
+* [Pantalla OLED (128x64 píxeles).](images/oled.png)
 
 # Diagrama de Conexión
 
