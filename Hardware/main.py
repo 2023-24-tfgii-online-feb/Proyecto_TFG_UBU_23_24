@@ -39,22 +39,22 @@ class OLEDDisplay_I2C:
     def mostrar(self):
         self.oled.show()
         self.oled.fill(0) #limpiar
-class SensorHumedadSuelo:
+class SensorAnalogico:
     def __init__(self, pin):
         self.soil = ADC(Pin(pin))
         self.min_value  = 0
         self.max_value  = 65535
         self.adc_16bits = None
-        self.humedad    = None
+        self.valor      = None
         self.actualizar_valor()
     def actualizar_valor(self):
         adc_16bits      = self.soil.read_u16()
-        self.humedad    = (self.max_value - adc_16bits) * 100 / (self.max_value - self.min_value)
-        self.humedad    = "%.2f" % self.humedad
-        return self.humedad
+        self.valor      = (self.max_value - adc_16bits) * 100 / (self.max_value - self.min_value)
+        self.valor      = "%.2f" % self.valor
+        return self.valor
     def mostrar_valor(self):
         self.actualizar_valor()
-        print(f"Humedad: {self.humedad}")
+        print(f"valor: {self.valor}")
     def mostrar_valor_continuamente(self, delay):
         while True:
             self.mostrar_valor()
@@ -73,16 +73,18 @@ class Sensor_nivel_luz:
         while True:
             self.mostrar_valor()
 if __name__ == "__main__":
-    oled = OLEDDisplay_I2C(0,Pin(9),Pin(8),400000,128, 64, 0x3c)
-    dht= DHTSensor(tipo_sensor="dht11", pin=3)
-    suelo = SensorHumedadSuelo(pin=26)
-    nivel_luz = Sensor_nivel_luz(0,Pin(9), Pin(8),400000,0x23) #address = 0x23
+    oled            = OLEDDisplay_I2C(0,Pin(9),Pin(8),400000,128, 64, 0x3c)
+    dht             = DHTSensor(tipo_sensor="dht11", pin=3)
+    humedad_suelo   = SensorAnalogico(pin=26)
+    calidad_aire    = SensorAnalogico(pin=27)
+    nivel_luz       = Sensor_nivel_luz(0,Pin(9), Pin(8),400000,0x23) #address = 0x23
     while True:
         dht.actualizar_valores()
-        suelo.actualizar_valor()
+        humedad_suelo.actualizar_valor()
         nivel_luz.actualizar_valor()
         oled.colocar_texto("TEMPERATURA: "+str(dht.temperatura_celsius), 0, 0)
         oled.colocar_texto("HUMEDAD: "+str(dht.humedad), 0, 10)
-        oled.colocar_texto("SUELO: "+str(suelo.humedad), 0, 20)
+        oled.colocar_texto("SUELO: "+str(humedad_suelo.valor), 0, 20)
         oled.colocar_texto("LUZ: "+str(nivel_luz.intensidad), 0, 30)
+        oled.colocar_texto("AIRE: "+str(calidad_aire.valor), 0, 40)
         oled.mostrar()
