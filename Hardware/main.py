@@ -55,7 +55,7 @@ class SensorAnalogico:
     def mostrar_valor(self):
         self.actualizar_valor()
         print(f"valor: {self.valor}")
-    def mostrar_valor_continuamente(self, delay):
+    def mostrar_valor_continuamente(self):
         while True:
             self.mostrar_valor()
 class Sensor_nivel_luz:
@@ -81,6 +81,7 @@ if __name__ == "__main__":
     while True:
         dht.actualizar_valores()
         humedad_suelo.actualizar_valor()
+        calidad_aire.actualizar_valor()
         nivel_luz.actualizar_valor()
         oled.colocar_texto("TEMPERATURA: "+str(dht.temperatura_celsius), 0, 0)
         oled.colocar_texto("HUMEDAD: "+str(dht.humedad), 0, 10)
