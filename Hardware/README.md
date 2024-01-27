@@ -6,6 +6,7 @@
 * [Sensor de humedad del suelo.](images/Sensor_humedad_suelo.png)
 * [Sensor de calidad del aire (MQ-135).](images/MQ-135.png)
 * [Pantalla OLED (128x64 píxeles).](images/oled.png)
+* [Batería li-ion 3.7V 9800mAh (18650).](images/bateria_li_ion.png)
 
 # Diagrama de Conexión
 
