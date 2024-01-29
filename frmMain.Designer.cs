@@ -30,31 +30,38 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             grbMonitor = new GroupBox();
-            grbDatosSensores = new GroupBox();
-            this.grbUmbrales = new GroupBox();
-            lblUmbrales = new Label();
-            lblTemperatura = new Label();
-            lblHumAmb = new Label();
-            lblLuminosidad = new Label();
-            lblHumSuelo = new Label();
-            txtTemperatura = new TextBox();
-            txtHumAmb = new TextBox();
-            txtLuminosidad = new TextBox();
-            txtHumSuelo = new TextBox();
             btnConectar = new Button();
+            grbDatosSensores = new GroupBox();
+            txtHumSuelo = new TextBox();
+            txtLuminosidad = new TextBox();
+            txtHumAmb = new TextBox();
+            txtTemperatura = new TextBox();
+            lblHumSuelo = new Label();
+            lblLuminosidad = new Label();
+            lblHumAmb = new Label();
+            lblTemperatura = new Label();
+            grbUmbrales = new GroupBox();
+            lblUmbrales = new Label();
             grbMonitor.SuspendLayout();
             grbDatosSensores.SuspendLayout();
-            this.grbUmbrales.SuspendLayout();
+            grbUmbrales.SuspendLayout();
             SuspendLayout();
             // 
             // grbMonitor
             // 
             resources.ApplyResources(grbMonitor, "grbMonitor");
+            grbMonitor.Controls.Add(grbUmbrales);
             grbMonitor.Controls.Add(btnConectar);
-            grbMonitor.Controls.Add(this.grbUmbrales);
             grbMonitor.Controls.Add(grbDatosSensores);
             grbMonitor.Name = "grbMonitor";
             grbMonitor.TabStop = false;
+            // 
+            // btnConectar
+            // 
+            resources.ApplyResources(btnConectar, "btnConectar");
+            btnConectar.Name = "btnConectar";
+            btnConectar.UseVisualStyleBackColor = true;
+            btnConectar.Click += btnConectar_Click;
             // 
             // grbDatosSensores
             // 
@@ -70,64 +77,57 @@
             grbDatosSensores.Name = "grbDatosSensores";
             grbDatosSensores.TabStop = false;
             // 
-            // grbUmbrales
+            // txtHumSuelo
             // 
-            resources.ApplyResources(this.grbUmbrales, "grbUmbrales");
-            this.grbUmbrales.Controls.Add(lblUmbrales);
-            this.grbUmbrales.Name = "grbUmbrales";
-            this.grbUmbrales.TabStop = false;
-            // 
-            // lblUmbrales
-            // 
-            resources.ApplyResources(lblUmbrales, "lblUmbrales");
-            lblUmbrales.Name = "lblUmbrales";
-            // 
-            // lblTemperatura
-            // 
-            resources.ApplyResources(lblTemperatura, "lblTemperatura");
-            lblTemperatura.Name = "lblTemperatura";
-            // 
-            // lblHumAmb
-            // 
-            resources.ApplyResources(lblHumAmb, "lblHumAmb");
-            lblHumAmb.Name = "lblHumAmb";
-            // 
-            // lblLuminosidad
-            // 
-            resources.ApplyResources(lblLuminosidad, "lblLuminosidad");
-            lblLuminosidad.Name = "lblLuminosidad";
-            // 
-            // lblHumSuelo
-            // 
-            resources.ApplyResources(lblHumSuelo, "lblHumSuelo");
-            lblHumSuelo.Name = "lblHumSuelo";
-            // 
-            // txtTemperatura
-            // 
-            resources.ApplyResources(txtTemperatura, "txtTemperatura");
-            txtTemperatura.Name = "txtTemperatura";
-            // 
-            // txtHumAmb
-            // 
-            resources.ApplyResources(txtHumAmb, "txtHumAmb");
-            txtHumAmb.Name = "txtHumAmb";
+            resources.ApplyResources(txtHumSuelo, "txtHumSuelo");
+            txtHumSuelo.Name = "txtHumSuelo";
             // 
             // txtLuminosidad
             // 
             resources.ApplyResources(txtLuminosidad, "txtLuminosidad");
             txtLuminosidad.Name = "txtLuminosidad";
             // 
-            // txtHumSuelo
+            // txtHumAmb
             // 
-            resources.ApplyResources(txtHumSuelo, "txtHumSuelo");
-            txtHumSuelo.Name = "txtHumSuelo";
+            resources.ApplyResources(txtHumAmb, "txtHumAmb");
+            txtHumAmb.Name = "txtHumAmb";
             // 
-            // btnConectar
+            // txtTemperatura
             // 
-            resources.ApplyResources(btnConectar, "btnConectar");
-            btnConectar.Name = "btnConectar";
-            btnConectar.UseVisualStyleBackColor = true;
-            btnConectar.Click += btnConectar_Click;
+            resources.ApplyResources(txtTemperatura, "txtTemperatura");
+            txtTemperatura.Name = "txtTemperatura";
+            // 
+            // lblHumSuelo
+            // 
+            resources.ApplyResources(lblHumSuelo, "lblHumSuelo");
+            lblHumSuelo.Name = "lblHumSuelo";
+            // 
+            // lblLuminosidad
+            // 
+            resources.ApplyResources(lblLuminosidad, "lblLuminosidad");
+            lblLuminosidad.Name = "lblLuminosidad";
+            // 
+            // lblHumAmb
+            // 
+            resources.ApplyResources(lblHumAmb, "lblHumAmb");
+            lblHumAmb.Name = "lblHumAmb";
+            // 
+            // lblTemperatura
+            // 
+            resources.ApplyResources(lblTemperatura, "lblTemperatura");
+            lblTemperatura.Name = "lblTemperatura";
+            // 
+            // grbUmbrales
+            // 
+            resources.ApplyResources(grbUmbrales, "grbUmbrales");
+            grbUmbrales.Controls.Add(lblUmbrales);
+            grbUmbrales.Name = "grbUmbrales";
+            grbUmbrales.TabStop = false;
+            // 
+            // lblUmbrales
+            // 
+            resources.ApplyResources(lblUmbrales, "lblUmbrales");
+            lblUmbrales.Name = "lblUmbrales";
             // 
             // frmMain
             // 
@@ -139,8 +139,8 @@
             grbMonitor.ResumeLayout(false);
             grbDatosSensores.ResumeLayout(false);
             grbDatosSensores.PerformLayout();
-            this.grbUmbrales.ResumeLayout(false);
-            this.grbUmbrales.PerformLayout();
+            grbUmbrales.ResumeLayout(false);
+            grbUmbrales.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -149,7 +149,6 @@
         private GroupBox grbMonitor;
         private GroupBox groupBox2;
         private GroupBox grbDatosSensores;
-        private Label lblUmbrales;
         private Label lblHumSuelo;
         private Label lblLuminosidad;
         private Label lblHumAmb;
@@ -159,5 +158,7 @@
         private TextBox txtHumAmb;
         private TextBox txtTemperatura;
         private Button btnConectar;
+        private GroupBox grbUmbrales;
+        private Label lblUmbrales;
     }
 }
