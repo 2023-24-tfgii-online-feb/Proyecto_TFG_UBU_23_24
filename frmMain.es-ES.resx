@@ -140,11 +140,75 @@
   <data name="grbUmbrales.Text" xml:space="preserve">
     <value> Umbrales: </value>
   </data>
+  <data name="btnConectar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>669, 46</value>
+  </data>
   <data name="btnConectar.Size" type="System.Drawing.Size, System.Drawing">
     <value>105, 32</value>
   </data>
   <data name="btnConectar.Text" xml:space="preserve">
     <value>Conectar</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnHumSuelo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnHumSuelo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>361, 160</value>
+  </data>
+  <data name="btnHumSuelo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 30</value>
+  </data>
+  <data name="btnHumSuelo.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="btnHumSuelo.Text" xml:space="preserve">
+    <value>Activar humedad suelo</value>
+  </data>
+  <data name="btnLuminosidad.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnLuminosidad.Location" type="System.Drawing.Point, System.Drawing">
+    <value>361, 119</value>
+  </data>
+  <data name="btnLuminosidad.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 30</value>
+  </data>
+  <data name="btnLuminosidad.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="btnLuminosidad.Text" xml:space="preserve">
+    <value>Activar luminosidad</value>
+  </data>
+  <data name="btnHumAmb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnHumAmb.Location" type="System.Drawing.Point, System.Drawing">
+    <value>361, 78</value>
+  </data>
+  <data name="btnHumAmb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 30</value>
+  </data>
+  <data name="btnHumAmb.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="btnHumAmb.Text" xml:space="preserve">
+    <value>Activar humedad ambiente</value>
+  </data>
+  <data name="btnTemp.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnTemp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>361, 37</value>
+  </data>
+  <data name="btnTemp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 30</value>
+  </data>
+  <data name="btnTemp.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="btnTemp.Text" xml:space="preserve">
+    <value>Activar Temperatura</value>
   </data>
   <data name="txtHumSuelo.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 30</value>
@@ -161,7 +225,6 @@
   <data name="lblHumSuelo.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblHumSuelo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -208,7 +271,7 @@
     <value>Temperatura:</value>
   </data>
   <data name="grbDatosSensores.Size" type="System.Drawing.Size, System.Drawing">
-    <value>495, 236</value>
+    <value>611, 236</value>
   </data>
   <data name="grbDatosSensores.Text" xml:space="preserve">
     <value> Datos sensores en tiempo real. </value>
