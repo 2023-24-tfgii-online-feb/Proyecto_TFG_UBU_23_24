@@ -15,39 +15,61 @@ namespace InverIoT
             InitializeMqtt();
         }
 
-            private IMqttClient mqttClient;
-            private MqttClientOptions mqttClientOptions;
+        private IMqttClient mqttClient;
+        private MqttClientOptions mqttClientOptions;
 
-            private void InitializeMqtt()
+        private void InitializeMqtt()
+        {
+            var mqttFactory = new MqttFactory();
+            mqttClient = mqttFactory.CreateMqttClient();
+
+            mqttClientOptions = new MqttClientOptionsBuilder()
+                .WithTcpServer("46.24.8.196", 1883) // Asegúrate de que el puerto es correcto
+                .Build();
+        }
+
+        private async void btnConectar_Click(object sender, EventArgs e)
+        {
+            try
             {
-                var mqttFactory = new MqttFactory();
-                mqttClient = mqttFactory.CreateMqttClient();
+                await mqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None);
 
-                mqttClientOptions = new MqttClientOptionsBuilder()
-                    .WithTcpServer("46.24.8.196", 1883) // Asegúrate de que el puerto es correcto
+                var applicationMessage = new MqttApplicationMessageBuilder()
+                    .WithTopic("invernadero/sensores")
+                    .WithPayload("19.5")
                     .Build();
+
+                await mqttClient.PublishAsync(applicationMessage, CancellationToken.None);
+
+                // Considera mantener la conexión abierta si planeas enviar/recibir más mensajes
+                await mqttClient.DisconnectAsync();
             }
-
-            private async void btnConectar_Click(object sender, EventArgs e)
+            catch (Exception ex)
             {
-                try
-                {
-                    await mqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None);
+                MessageBox.Show($"Error al conectar: {ex.Message}");
+            }
+        }
 
-                    var applicationMessage = new MqttApplicationMessageBuilder()
-                        .WithTopic("invernadero/sensores")
-                        .WithPayload("19.5")
-                        .Build();
+        private async void btnTemp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                await mqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None);
 
-                    await mqttClient.PublishAsync(applicationMessage, CancellationToken.None);
+                var applicationMessage = new MqttApplicationMessageBuilder()
+                    .WithTopic("invernadero/ordenes")
+                    .WithPayload("/t_ON")
+                    .Build();
 
-                    // Considera mantener la conexión abierta si planeas enviar/recibir más mensajes
-                     await mqttClient.DisconnectAsync();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error al conectar: {ex.Message}");
-                }
+                await mqttClient.PublishAsync(applicationMessage, CancellationToken.None);
+
+                // Considera mantener la conexión abierta si planeas enviar/recibir más mensajes
+                await mqttClient.DisconnectAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al conectar: {ex.Message}");
             }
         }
     }
+}

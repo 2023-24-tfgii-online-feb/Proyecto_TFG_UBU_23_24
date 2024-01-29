@@ -142,6 +142,7 @@
             resources.ApplyResources(btnTemp, "btnTemp");
             btnTemp.Name = "btnTemp";
             btnTemp.UseVisualStyleBackColor = true;
+            btnTemp.Click += btnTemp_Click;
             // 
             // btnHumAmb
             // 
