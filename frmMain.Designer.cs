@@ -46,7 +46,6 @@
             lblLuminosidad = new Label();
             lblHumAmb = new Label();
             lblTemperatura = new Label();
-            lblMqtt = new Label();
             grbMonitor.SuspendLayout();
             grbUmbrales.SuspendLayout();
             grbDatosSensores.SuspendLayout();
@@ -55,7 +54,6 @@
             // grbMonitor
             // 
             resources.ApplyResources(grbMonitor, "grbMonitor");
-            grbMonitor.Controls.Add(lblMqtt);
             grbMonitor.Controls.Add(grbUmbrales);
             grbMonitor.Controls.Add(btnRecibirMqtt);
             grbMonitor.Controls.Add(grbDatosSensores);
@@ -131,21 +129,25 @@
             // 
             resources.ApplyResources(txtHumSuelo, "txtHumSuelo");
             txtHumSuelo.Name = "txtHumSuelo";
+            txtHumSuelo.ReadOnly = true;
             // 
             // txtLuminosidad
             // 
             resources.ApplyResources(txtLuminosidad, "txtLuminosidad");
             txtLuminosidad.Name = "txtLuminosidad";
+            txtLuminosidad.ReadOnly = true;
             // 
             // txtHumAmb
             // 
             resources.ApplyResources(txtHumAmb, "txtHumAmb");
             txtHumAmb.Name = "txtHumAmb";
+            txtHumAmb.ReadOnly = true;
             // 
             // txtTemperatura
             // 
             resources.ApplyResources(txtTemperatura, "txtTemperatura");
             txtTemperatura.Name = "txtTemperatura";
+            txtTemperatura.ReadOnly = true;
             // 
             // lblHumSuelo
             // 
@@ -167,19 +169,14 @@
             resources.ApplyResources(lblTemperatura, "lblTemperatura");
             lblTemperatura.Name = "lblTemperatura";
             // 
-            // lblMqtt
-            // 
-            resources.ApplyResources(lblMqtt, "lblMqtt");
-            lblMqtt.Name = "lblMqtt";
-            // 
             // frmMain
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(grbMonitor);
+            MaximizeBox = false;
             Name = "frmMain";
             grbMonitor.ResumeLayout(false);
-            grbMonitor.PerformLayout();
             grbUmbrales.ResumeLayout(false);
             grbUmbrales.PerformLayout();
             grbDatosSensores.ResumeLayout(false);
@@ -207,6 +204,5 @@
         private Button btnLuminosidad;
         private Button btnHumAmb;
         private Button btnTemp;
-        private Label lblMqtt;
     }
 }

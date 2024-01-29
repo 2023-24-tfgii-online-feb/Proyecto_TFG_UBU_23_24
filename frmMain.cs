@@ -30,6 +30,8 @@ namespace InverIoT
 
         }
 
+
+        /*
         private void UpdateLabel(string message)
         {
             if (InvokeRequired)
@@ -39,8 +41,27 @@ namespace InverIoT
             }
 
             lblMqtt.Text = message;
-        }
+        }*/
 
+        private void UpdateLabel(string message)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action<string>(UpdateLabel), message);
+                return;
+            }
+
+            // Dividir el mensaje en partes
+            var parts = message.Split(',');
+            if (parts.Length >= 6) // Asegúrate de que el mensaje tenga suficientes partes
+            {
+                // Asignar cada parte a su TextBox correspondiente, agregando las unidades adecuadas
+                txtTemperatura.Text = parts[2] + " °C";     // Temperatura
+                txtHumAmb.Text = parts[3] + " %";           // Humedad Ambiente
+                txtLuminosidad.Text = parts[4] + " lux";    // Luminosidad
+                txtHumSuelo.Text = parts[5] + " %";         // Humedad del Suelo
+            }
+        }
 
         private async void btnRecibirMqtt_Click(object sender, EventArgs e)
         {

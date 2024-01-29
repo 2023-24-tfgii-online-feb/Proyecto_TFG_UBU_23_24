@@ -118,25 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblMqtt.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblMqtt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>342, 287</value>
-  </data>
-  <data name="lblMqtt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 23</value>
-  </data>
-  <data name="lblMqtt.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="lblMqtt.Text" xml:space="preserve">
-    <value>lblMqtt</value>
-  </data>
   <data name="lblUmbrales.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lblUmbrales.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 79</value>
   </data>
@@ -146,14 +131,17 @@
   <data name="lblUmbrales.Text" xml:space="preserve">
     <value>label1</value>
   </data>
+  <data name="grbUmbrales.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 248</value>
+  </data>
   <data name="grbUmbrales.Size" type="System.Drawing.Size, System.Drawing">
-    <value>330, 287</value>
+    <value>330, 310</value>
   </data>
   <data name="grbUmbrales.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="grbUmbrales.Text" xml:space="preserve">
-    <value> Umbrales: </value>
+    <value> Umbrales ideales: </value>
   </data>
   <data name="btnRecibirMqtt.Size" type="System.Drawing.Size, System.Drawing">
     <value>105, 32</value>
@@ -165,6 +153,9 @@
   <data name="btnHumSuelo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="btnHumSuelo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>300, 160</value>
+  </data>
   <data name="btnHumSuelo.Size" type="System.Drawing.Size, System.Drawing">
     <value>230, 30</value>
   </data>
@@ -173,6 +164,9 @@
   </data>
   <data name="btnLuminosidad.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="btnLuminosidad.Location" type="System.Drawing.Point, System.Drawing">
+    <value>300, 119</value>
   </data>
   <data name="btnLuminosidad.Size" type="System.Drawing.Size, System.Drawing">
     <value>230, 30</value>
@@ -183,6 +177,9 @@
   <data name="btnHumAmb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="btnHumAmb.Location" type="System.Drawing.Point, System.Drawing">
+    <value>300, 78</value>
+  </data>
   <data name="btnHumAmb.Size" type="System.Drawing.Size, System.Drawing">
     <value>230, 30</value>
   </data>
@@ -192,6 +189,9 @@
   <data name="btnTemp.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="btnTemp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>300, 37</value>
+  </data>
   <data name="btnTemp.Size" type="System.Drawing.Size, System.Drawing">
     <value>230, 30</value>
   </data>
@@ -199,16 +199,16 @@
     <value>Activar Temperatura</value>
   </data>
   <data name="txtHumSuelo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 30</value>
+    <value>90, 30</value>
   </data>
   <data name="txtLuminosidad.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 30</value>
+    <value>90, 30</value>
   </data>
   <data name="txtHumAmb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 30</value>
+    <value>90, 30</value>
   </data>
   <data name="txtTemperatura.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 30</value>
+    <value>90, 30</value>
   </data>
   <data name="lblHumSuelo.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -259,7 +259,7 @@
     <value>Temperatura:</value>
   </data>
   <data name="grbDatosSensores.Size" type="System.Drawing.Size, System.Drawing">
-    <value>611, 236</value>
+    <value>548, 213</value>
   </data>
   <data name="grbDatosSensores.Text" xml:space="preserve">
     <value> Datos sensores en tiempo real. </value>
