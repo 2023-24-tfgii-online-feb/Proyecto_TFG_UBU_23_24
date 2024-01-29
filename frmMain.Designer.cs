@@ -32,7 +32,7 @@
             grbMonitor = new GroupBox();
             grbUmbrales = new GroupBox();
             lblUmbrales = new Label();
-            btnConectar = new Button();
+            btnRecibirMqtt = new Button();
             grbDatosSensores = new GroupBox();
             btnHumSuelo = new Button();
             btnLuminosidad = new Button();
@@ -46,6 +46,7 @@
             lblLuminosidad = new Label();
             lblHumAmb = new Label();
             lblTemperatura = new Label();
+            lblMqtt = new Label();
             grbMonitor.SuspendLayout();
             grbUmbrales.SuspendLayout();
             grbDatosSensores.SuspendLayout();
@@ -54,8 +55,9 @@
             // grbMonitor
             // 
             resources.ApplyResources(grbMonitor, "grbMonitor");
+            grbMonitor.Controls.Add(lblMqtt);
             grbMonitor.Controls.Add(grbUmbrales);
-            grbMonitor.Controls.Add(btnConectar);
+            grbMonitor.Controls.Add(btnRecibirMqtt);
             grbMonitor.Controls.Add(grbDatosSensores);
             grbMonitor.Name = "grbMonitor";
             grbMonitor.TabStop = false;
@@ -72,12 +74,12 @@
             resources.ApplyResources(lblUmbrales, "lblUmbrales");
             lblUmbrales.Name = "lblUmbrales";
             // 
-            // btnConectar
+            // btnRecibirMqtt
             // 
-            resources.ApplyResources(btnConectar, "btnConectar");
-            btnConectar.Name = "btnConectar";
-            btnConectar.UseVisualStyleBackColor = true;
-            btnConectar.Click += btnConectar_Click;
+            resources.ApplyResources(btnRecibirMqtt, "btnRecibirMqtt");
+            btnRecibirMqtt.Name = "btnRecibirMqtt";
+            btnRecibirMqtt.UseVisualStyleBackColor = true;
+            btnRecibirMqtt.Click += btnRecibirMqtt_Click;
             // 
             // grbDatosSensores
             // 
@@ -165,6 +167,11 @@
             resources.ApplyResources(lblTemperatura, "lblTemperatura");
             lblTemperatura.Name = "lblTemperatura";
             // 
+            // lblMqtt
+            // 
+            resources.ApplyResources(lblMqtt, "lblMqtt");
+            lblMqtt.Name = "lblMqtt";
+            // 
             // frmMain
             // 
             resources.ApplyResources(this, "$this");
@@ -172,6 +179,7 @@
             Controls.Add(grbMonitor);
             Name = "frmMain";
             grbMonitor.ResumeLayout(false);
+            grbMonitor.PerformLayout();
             grbUmbrales.ResumeLayout(false);
             grbUmbrales.PerformLayout();
             grbDatosSensores.ResumeLayout(false);
@@ -192,12 +200,13 @@
         private TextBox txtLuminosidad;
         private TextBox txtHumAmb;
         private TextBox txtTemperatura;
-        private Button btnConectar;
+        private Button btnRecibirMqtt;
         private GroupBox grbUmbrales;
         private Label lblUmbrales;
         private Button btnHumSuelo;
         private Button btnLuminosidad;
         private Button btnHumAmb;
         private Button btnTemp;
+        private Label lblMqtt;
     }
 }
