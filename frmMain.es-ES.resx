@@ -153,14 +153,8 @@
   <data name="btnHumSuelo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="btnHumSuelo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>361, 160</value>
-  </data>
   <data name="btnHumSuelo.Size" type="System.Drawing.Size, System.Drawing">
     <value>230, 30</value>
-  </data>
-  <data name="btnHumSuelo.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
   </data>
   <data name="btnHumSuelo.Text" xml:space="preserve">
     <value>Activar humedad suelo</value>
@@ -168,14 +162,8 @@
   <data name="btnLuminosidad.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="btnLuminosidad.Location" type="System.Drawing.Point, System.Drawing">
-    <value>361, 119</value>
-  </data>
   <data name="btnLuminosidad.Size" type="System.Drawing.Size, System.Drawing">
     <value>230, 30</value>
-  </data>
-  <data name="btnLuminosidad.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
   </data>
   <data name="btnLuminosidad.Text" xml:space="preserve">
     <value>Activar luminosidad</value>
@@ -183,14 +171,8 @@
   <data name="btnHumAmb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="btnHumAmb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>361, 78</value>
-  </data>
   <data name="btnHumAmb.Size" type="System.Drawing.Size, System.Drawing">
     <value>230, 30</value>
-  </data>
-  <data name="btnHumAmb.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
   </data>
   <data name="btnHumAmb.Text" xml:space="preserve">
     <value>Activar humedad ambiente</value>
@@ -198,14 +180,8 @@
   <data name="btnTemp.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="btnTemp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>361, 37</value>
-  </data>
   <data name="btnTemp.Size" type="System.Drawing.Size, System.Drawing">
     <value>230, 30</value>
-  </data>
-  <data name="btnTemp.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
   </data>
   <data name="btnTemp.Text" xml:space="preserve">
     <value>Activar Temperatura</value>

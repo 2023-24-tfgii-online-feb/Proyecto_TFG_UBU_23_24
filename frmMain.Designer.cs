@@ -34,6 +34,10 @@
             lblUmbrales = new Label();
             btnConectar = new Button();
             grbDatosSensores = new GroupBox();
+            btnHumSuelo = new Button();
+            btnLuminosidad = new Button();
+            btnHumAmb = new Button();
+            btnTemp = new Button();
             txtHumSuelo = new TextBox();
             txtLuminosidad = new TextBox();
             txtHumAmb = new TextBox();
@@ -42,10 +46,6 @@
             lblLuminosidad = new Label();
             lblHumAmb = new Label();
             lblTemperatura = new Label();
-            btnTemp = new Button();
-            btnHumAmb = new Button();
-            btnLuminosidad = new Button();
-            btnHumSuelo = new Button();
             grbMonitor.SuspendLayout();
             grbUmbrales.SuspendLayout();
             grbDatosSensores.SuspendLayout();
@@ -97,6 +97,34 @@
             grbDatosSensores.Name = "grbDatosSensores";
             grbDatosSensores.TabStop = false;
             // 
+            // btnHumSuelo
+            // 
+            resources.ApplyResources(btnHumSuelo, "btnHumSuelo");
+            btnHumSuelo.Name = "btnHumSuelo";
+            btnHumSuelo.UseVisualStyleBackColor = true;
+            btnHumSuelo.Click += btnHumSuelo_Click;
+            // 
+            // btnLuminosidad
+            // 
+            resources.ApplyResources(btnLuminosidad, "btnLuminosidad");
+            btnLuminosidad.Name = "btnLuminosidad";
+            btnLuminosidad.UseVisualStyleBackColor = true;
+            btnLuminosidad.Click += btnLuminosidad_Click;
+            // 
+            // btnHumAmb
+            // 
+            resources.ApplyResources(btnHumAmb, "btnHumAmb");
+            btnHumAmb.Name = "btnHumAmb";
+            btnHumAmb.UseVisualStyleBackColor = true;
+            btnHumAmb.Click += btnHumAmb_Click;
+            // 
+            // btnTemp
+            // 
+            resources.ApplyResources(btnTemp, "btnTemp");
+            btnTemp.Name = "btnTemp";
+            btnTemp.UseVisualStyleBackColor = true;
+            btnTemp.Click += btnTemp_Click;
+            // 
             // txtHumSuelo
             // 
             resources.ApplyResources(txtHumSuelo, "txtHumSuelo");
@@ -136,31 +164,6 @@
             // 
             resources.ApplyResources(lblTemperatura, "lblTemperatura");
             lblTemperatura.Name = "lblTemperatura";
-            // 
-            // btnTemp
-            // 
-            resources.ApplyResources(btnTemp, "btnTemp");
-            btnTemp.Name = "btnTemp";
-            btnTemp.UseVisualStyleBackColor = true;
-            btnTemp.Click += btnTemp_Click;
-            // 
-            // btnHumAmb
-            // 
-            resources.ApplyResources(btnHumAmb, "btnHumAmb");
-            btnHumAmb.Name = "btnHumAmb";
-            btnHumAmb.UseVisualStyleBackColor = true;
-            // 
-            // btnLuminosidad
-            // 
-            resources.ApplyResources(btnLuminosidad, "btnLuminosidad");
-            btnLuminosidad.Name = "btnLuminosidad";
-            btnLuminosidad.UseVisualStyleBackColor = true;
-            // 
-            // btnHumSuelo
-            // 
-            resources.ApplyResources(btnHumSuelo, "btnHumSuelo");
-            btnHumSuelo.Name = "btnHumSuelo";
-            btnHumSuelo.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 

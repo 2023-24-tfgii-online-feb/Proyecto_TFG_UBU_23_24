@@ -28,6 +28,7 @@ namespace InverIoT
                 .Build();
         }
 
+
         private async void btnConectar_Click(object sender, EventArgs e)
         {
             try
@@ -59,6 +60,73 @@ namespace InverIoT
                 var applicationMessage = new MqttApplicationMessageBuilder()
                     .WithTopic("invernadero/ordenes")
                     .WithPayload("/t_ON")
+                    .Build();
+
+                await mqttClient.PublishAsync(applicationMessage, CancellationToken.None);
+
+                // Considera mantener la conexión abierta si planeas enviar/recibir más mensajes
+                await mqttClient.DisconnectAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al conectar: {ex.Message}");
+            }
+        }
+
+        private async void btnHumAmb_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                await mqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None);
+
+                var applicationMessage = new MqttApplicationMessageBuilder()
+                    .WithTopic("invernadero/ordenes")
+                    .WithPayload("/ha_ON")
+                    .Build();
+
+                await mqttClient.PublishAsync(applicationMessage, CancellationToken.None);
+
+                // Considera mantener la conexión abierta si planeas enviar/recibir más mensajes
+                await mqttClient.DisconnectAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al conectar: {ex.Message}");
+            }
+        }
+
+        // ACTIVA MECANISMO, en este caso, enciende led verde luminosidad
+        private async void btnLuminosidad_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                await mqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None);
+
+                var applicationMessage = new MqttApplicationMessageBuilder()
+                    .WithTopic("invernadero/ordenes")
+                    .WithPayload("/l_ON")
+                    .Build();
+
+                await mqttClient.PublishAsync(applicationMessage, CancellationToken.None);
+
+                // Considera mantener la conexión abierta si planeas enviar/recibir más mensajes
+                await mqttClient.DisconnectAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al conectar: {ex.Message}");
+            }
+        }
+
+        private async void btnHumSuelo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                await mqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None);
+
+                var applicationMessage = new MqttApplicationMessageBuilder()
+                    .WithTopic("invernadero/ordenes")
+                    .WithPayload("/hs_ON")
                     .Build();
 
                 await mqttClient.PublishAsync(applicationMessage, CancellationToken.None);
