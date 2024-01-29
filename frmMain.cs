@@ -6,5 +6,10 @@ namespace InverIoT
         {
             InitializeComponent();
         }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            lblUmbrales.Text = "Hola";
+        }
     }
 }
