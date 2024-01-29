@@ -117,7 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnConectar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>605, 80</value>
+  </data>
+  <data name="btnConectar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 32</value>
+  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnConectar.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnConectar.Text" xml:space="preserve">
+    <value>Conectar</value>
+  </data>
   <data name="lblUmbrales.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -125,7 +138,6 @@
   <data name="lblUmbrales.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lblUmbrales.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 65</value>
   </data>
@@ -147,6 +159,42 @@
   <data name="grbUmbrales.Text" xml:space="preserve">
     <value> Umbrales. </value>
   </data>
+  <data name="txtHumSuelo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>190, 160</value>
+  </data>
+  <data name="txtHumSuelo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 30</value>
+  </data>
+  <data name="txtHumSuelo.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="txtLuminosidad.Location" type="System.Drawing.Point, System.Drawing">
+    <value>190, 119</value>
+  </data>
+  <data name="txtLuminosidad.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 30</value>
+  </data>
+  <data name="txtLuminosidad.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="txtHumAmb.Location" type="System.Drawing.Point, System.Drawing">
+    <value>190, 78</value>
+  </data>
+  <data name="txtHumAmb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 30</value>
+  </data>
+  <data name="txtHumAmb.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="txtTemperatura.Location" type="System.Drawing.Point, System.Drawing">
+    <value>190, 37</value>
+  </data>
+  <data name="txtTemperatura.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 30</value>
+  </data>
+  <data name="txtTemperatura.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
   <data name="lblHumSuelo.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -154,7 +202,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblHumSuelo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>50, 140</value>
+    <value>50, 163</value>
   </data>
   <data name="lblHumSuelo.Size" type="System.Drawing.Size, System.Drawing">
     <value>134, 23</value>
@@ -172,7 +220,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblLuminosidad.Location" type="System.Drawing.Point, System.Drawing">
-    <value>73, 106</value>
+    <value>73, 122</value>
   </data>
   <data name="lblLuminosidad.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 23</value>
@@ -190,7 +238,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblHumAmb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 72</value>
+    <value>18, 81</value>
   </data>
   <data name="lblHumAmb.Size" type="System.Drawing.Size, System.Drawing">
     <value>166, 23</value>
@@ -208,7 +256,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblTemperatura.Location" type="System.Drawing.Point, System.Drawing">
-    <value>74, 38</value>
+    <value>74, 40</value>
   </data>
   <data name="lblTemperatura.Size" type="System.Drawing.Size, System.Drawing">
     <value>110, 23</value>
@@ -230,24 +278,6 @@
   </data>
   <data name="grbDatosSensores.Text" xml:space="preserve">
     <value> Datos sensores en tiempo real. </value>
-  </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>639, 242</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>244, 23</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Datos sensores en tiempo real.</value>
   </data>
   <data name="grbMonitor.Size" type="System.Drawing.Size, System.Drawing">
     <value>936, 564</value>

@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             grbMonitor = new GroupBox();
-            label1 = new Label();
             grbDatosSensores = new GroupBox();
             this.grbUmbrales = new GroupBox();
             lblUmbrales = new Label();
@@ -38,6 +37,11 @@
             lblHumAmb = new Label();
             lblLuminosidad = new Label();
             lblHumSuelo = new Label();
+            txtTemperatura = new TextBox();
+            txtHumAmb = new TextBox();
+            txtLuminosidad = new TextBox();
+            txtHumSuelo = new TextBox();
+            btnConectar = new Button();
             grbMonitor.SuspendLayout();
             grbDatosSensores.SuspendLayout();
             this.grbUmbrales.SuspendLayout();
@@ -46,20 +50,19 @@
             // grbMonitor
             // 
             resources.ApplyResources(grbMonitor, "grbMonitor");
+            grbMonitor.Controls.Add(btnConectar);
             grbMonitor.Controls.Add(this.grbUmbrales);
             grbMonitor.Controls.Add(grbDatosSensores);
-            grbMonitor.Controls.Add(label1);
             grbMonitor.Name = "grbMonitor";
             grbMonitor.TabStop = false;
-            // 
-            // label1
-            // 
-            resources.ApplyResources(label1, "label1");
-            label1.Name = "label1";
             // 
             // grbDatosSensores
             // 
             resources.ApplyResources(grbDatosSensores, "grbDatosSensores");
+            grbDatosSensores.Controls.Add(txtHumSuelo);
+            grbDatosSensores.Controls.Add(txtLuminosidad);
+            grbDatosSensores.Controls.Add(txtHumAmb);
+            grbDatosSensores.Controls.Add(txtTemperatura);
             grbDatosSensores.Controls.Add(lblHumSuelo);
             grbDatosSensores.Controls.Add(lblLuminosidad);
             grbDatosSensores.Controls.Add(lblHumAmb);
@@ -99,6 +102,33 @@
             resources.ApplyResources(lblHumSuelo, "lblHumSuelo");
             lblHumSuelo.Name = "lblHumSuelo";
             // 
+            // txtTemperatura
+            // 
+            resources.ApplyResources(txtTemperatura, "txtTemperatura");
+            txtTemperatura.Name = "txtTemperatura";
+            // 
+            // txtHumAmb
+            // 
+            resources.ApplyResources(txtHumAmb, "txtHumAmb");
+            txtHumAmb.Name = "txtHumAmb";
+            // 
+            // txtLuminosidad
+            // 
+            resources.ApplyResources(txtLuminosidad, "txtLuminosidad");
+            txtLuminosidad.Name = "txtLuminosidad";
+            // 
+            // txtHumSuelo
+            // 
+            resources.ApplyResources(txtHumSuelo, "txtHumSuelo");
+            txtHumSuelo.Name = "txtHumSuelo";
+            // 
+            // btnConectar
+            // 
+            resources.ApplyResources(btnConectar, "btnConectar");
+            btnConectar.Name = "btnConectar";
+            btnConectar.UseVisualStyleBackColor = true;
+            btnConectar.Click += btnConectar_Click;
+            // 
             // frmMain
             // 
             resources.ApplyResources(this, "$this");
@@ -107,7 +137,6 @@
             Name = "frmMain";
             Load += frmMain_Load;
             grbMonitor.ResumeLayout(false);
-            grbMonitor.PerformLayout();
             grbDatosSensores.ResumeLayout(false);
             grbDatosSensores.PerformLayout();
             this.grbUmbrales.ResumeLayout(false);
@@ -120,11 +149,15 @@
         private GroupBox grbMonitor;
         private GroupBox groupBox2;
         private GroupBox grbDatosSensores;
-        private Label label1;
         private Label lblUmbrales;
         private Label lblHumSuelo;
         private Label lblLuminosidad;
         private Label lblHumAmb;
         private Label lblTemperatura;
+        private TextBox txtHumSuelo;
+        private TextBox txtLuminosidad;
+        private TextBox txtHumAmb;
+        private TextBox txtTemperatura;
+        private Button btnConectar;
     }
 }

@@ -11,5 +11,10 @@ namespace InverIoT
         {
             lblUmbrales.Text = "Hola";
         }
+
+        private void btnConectar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
