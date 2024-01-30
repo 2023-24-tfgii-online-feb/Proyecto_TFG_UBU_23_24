@@ -14,12 +14,13 @@ namespace InverIoT
         {
             InitializeComponent();
             InitializeMqtt();
+
         }
 
         private IMqttClient mqttClient;
         private MqttClientOptions mqttClientOptions;
 
-        private void InitializeMqtt()
+        private async void InitializeMqtt()
         {
             var mqttFactory = new MqttFactory();
             mqttClient = mqttFactory.CreateMqttClient();
@@ -28,20 +29,22 @@ namespace InverIoT
                 .WithTcpServer("46.24.8.196", 1883) // Asegúrate de que el puerto es correcto
                 .Build();
 
-        }
 
+            // Configura el manejador de mensajes recibidos
+            mqttClient.ApplicationMessageReceivedAsync += MqttClient_ApplicationMessageReceived;
 
-        /*
-        private void UpdateLabel(string message)
-        {
-            if (InvokeRequired)
+            try
             {
-                Invoke(new Action<string>(UpdateLabel), message);
-                return;
+                await mqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None);
+                await mqttClient.SubscribeAsync("invernadero/sensores");
+                //MessageBox.Show("Conectado y suscrito a 'invernadero/sensores'. Esperando mensajes...");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al conectar: {ex.Message}");
             }
 
-            lblMqtt.Text = message;
-        }*/
+        }
 
         private void UpdateLabel(string message)
         {
@@ -63,26 +66,6 @@ namespace InverIoT
             }
         }
 
-        private async void btnRecibirMqtt_Click(object sender, EventArgs e)
-        {
-            var mqttFactory = new MqttFactory();
-            var mqttClient = mqttFactory.CreateMqttClient();
-
-            // Configura el manejador de mensajes recibidos
-            mqttClient.ApplicationMessageReceivedAsync += MqttClient_ApplicationMessageReceived;
-
-            try
-            {
-                await mqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None);
-                await mqttClient.SubscribeAsync("invernadero/sensores");
-                MessageBox.Show("Conectado y suscrito a 'invernadero/sensores'. Esperando mensajes...");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al conectar: {ex.Message}");
-            }
-        }
-
         private Task MqttClient_ApplicationMessageReceived(MqttApplicationMessageReceivedEventArgs e)
         {
             var message = Encoding.UTF8.GetString(e.ApplicationMessage.Payload);
@@ -94,17 +77,17 @@ namespace InverIoT
         {
             try
             {
-                await mqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None);
+                //await mqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None);
 
                 var applicationMessage = new MqttApplicationMessageBuilder()
                     .WithTopic("invernadero/ordenes")
-                    .WithPayload("/t_ON")
+                    .WithPayload("/t_ON") // Manda esta orden y ya la procesa la raspberry
                     .Build();
 
                 await mqttClient.PublishAsync(applicationMessage, CancellationToken.None);
 
                 // Considera mantener la conexión abierta si planeas enviar/recibir más mensajes
-                await mqttClient.DisconnectAsync();
+                //await mqttClient.DisconnectAsync();
             }
             catch (Exception ex)
             {
@@ -116,17 +99,17 @@ namespace InverIoT
         {
             try
             {
-                await mqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None);
+                //await mqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None);
 
                 var applicationMessage = new MqttApplicationMessageBuilder()
                     .WithTopic("invernadero/ordenes")
-                    .WithPayload("/ha_ON")
+                    .WithPayload("/ha_ON") // Manda esta orden y ya la procesa la raspberry
                     .Build();
 
                 await mqttClient.PublishAsync(applicationMessage, CancellationToken.None);
 
                 // Considera mantener la conexión abierta si planeas enviar/recibir más mensajes
-                await mqttClient.DisconnectAsync();
+                //await mqttClient.DisconnectAsync();
             }
             catch (Exception ex)
             {
@@ -139,17 +122,17 @@ namespace InverIoT
         {
             try
             {
-                await mqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None);
+                //await mqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None);
 
                 var applicationMessage = new MqttApplicationMessageBuilder()
                     .WithTopic("invernadero/ordenes")
-                    .WithPayload("/l_ON")
+                    .WithPayload("/l_ON") // Manda esta orden y ya la procesa la raspberry
                     .Build();
 
                 await mqttClient.PublishAsync(applicationMessage, CancellationToken.None);
 
                 // Considera mantener la conexión abierta si planeas enviar/recibir más mensajes
-                await mqttClient.DisconnectAsync();
+                //await mqttClient.DisconnectAsync();
             }
             catch (Exception ex)
             {
@@ -161,7 +144,7 @@ namespace InverIoT
         {
             try
             {
-                await mqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None);
+                //await mqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None);
 
                 var applicationMessage = new MqttApplicationMessageBuilder()
                     .WithTopic("invernadero/ordenes")
@@ -171,7 +154,7 @@ namespace InverIoT
                 await mqttClient.PublishAsync(applicationMessage, CancellationToken.None);
 
                 // Considera mantener la conexión abierta si planeas enviar/recibir más mensajes
-                await mqttClient.DisconnectAsync();
+                //await mqttClient.DisconnectAsync();
             }
             catch (Exception ex)
             {

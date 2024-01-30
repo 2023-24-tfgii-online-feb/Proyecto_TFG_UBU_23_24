@@ -117,37 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="txtUmbrales.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblUmbrales.AutoSize" type="System.Boolean, mscorlib">
+  <data name="txtUmbrales.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblUmbrales.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 79</value>
+  <data name="txtUmbrales.Size" type="System.Drawing.Size, System.Drawing">
+    <value>358, 178</value>
   </data>
-  <data name="lblUmbrales.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 23</value>
-  </data>
-  <data name="lblUmbrales.Text" xml:space="preserve">
-    <value>label1</value>
+  <data name="txtUmbrales.Text" xml:space="preserve">
+    <value>* Fondo azul: por debajo del valor ideal.
+* Fondo rojo: por encima del valor ideal.
+
+Temperatura: 30°C - 35°C.
+Humedad Ambiente: 30% - 70%.
+Luminosidad: 30 Lux - 150 Lux.
+Humedad del Suelo: 20% - 80%.</value>
   </data>
   <data name="grbUmbrales.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 248</value>
+    <value>560, 29</value>
   </data>
   <data name="grbUmbrales.Size" type="System.Drawing.Size, System.Drawing">
-    <value>330, 310</value>
+    <value>370, 213</value>
   </data>
   <data name="grbUmbrales.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="grbUmbrales.Text" xml:space="preserve">
     <value> Umbrales ideales: </value>
-  </data>
-  <data name="btnRecibirMqtt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 32</value>
-  </data>
-  <data name="btnRecibirMqtt.Text" xml:space="preserve">
-    <value>Recibir</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnHumSuelo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -265,7 +265,7 @@
     <value> Datos sensores en tiempo real. </value>
   </data>
   <data name="grbMonitor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>936, 564</value>
+    <value>936, 292</value>
   </data>
   <data name="grbMonitor.Text" xml:space="preserve">
     <value> Monitorización </value>

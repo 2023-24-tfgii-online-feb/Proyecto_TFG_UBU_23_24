@@ -31,8 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             grbMonitor = new GroupBox();
             grbUmbrales = new GroupBox();
-            lblUmbrales = new Label();
-            btnRecibirMqtt = new Button();
+            txtUmbrales = new TextBox();
             grbDatosSensores = new GroupBox();
             btnHumSuelo = new Button();
             btnLuminosidad = new Button();
@@ -55,7 +54,6 @@
             // 
             resources.ApplyResources(grbMonitor, "grbMonitor");
             grbMonitor.Controls.Add(grbUmbrales);
-            grbMonitor.Controls.Add(btnRecibirMqtt);
             grbMonitor.Controls.Add(grbDatosSensores);
             grbMonitor.Name = "grbMonitor";
             grbMonitor.TabStop = false;
@@ -63,21 +61,16 @@
             // grbUmbrales
             // 
             resources.ApplyResources(grbUmbrales, "grbUmbrales");
-            grbUmbrales.Controls.Add(lblUmbrales);
+            grbUmbrales.Controls.Add(txtUmbrales);
             grbUmbrales.Name = "grbUmbrales";
             grbUmbrales.TabStop = false;
             // 
-            // lblUmbrales
+            // txtUmbrales
             // 
-            resources.ApplyResources(lblUmbrales, "lblUmbrales");
-            lblUmbrales.Name = "lblUmbrales";
-            // 
-            // btnRecibirMqtt
-            // 
-            resources.ApplyResources(btnRecibirMqtt, "btnRecibirMqtt");
-            btnRecibirMqtt.Name = "btnRecibirMqtt";
-            btnRecibirMqtt.UseVisualStyleBackColor = true;
-            btnRecibirMqtt.Click += btnRecibirMqtt_Click;
+            resources.ApplyResources(txtUmbrales, "txtUmbrales");
+            txtUmbrales.BorderStyle = BorderStyle.FixedSingle;
+            txtUmbrales.Name = "txtUmbrales";
+            txtUmbrales.ReadOnly = true;
             // 
             // grbDatosSensores
             // 
@@ -128,24 +121,32 @@
             // txtHumSuelo
             // 
             resources.ApplyResources(txtHumSuelo, "txtHumSuelo");
+            txtHumSuelo.BackColor = SystemColors.ButtonFace;
+            txtHumSuelo.BorderStyle = BorderStyle.FixedSingle;
             txtHumSuelo.Name = "txtHumSuelo";
             txtHumSuelo.ReadOnly = true;
             // 
             // txtLuminosidad
             // 
             resources.ApplyResources(txtLuminosidad, "txtLuminosidad");
+            txtLuminosidad.BackColor = SystemColors.ButtonFace;
+            txtLuminosidad.BorderStyle = BorderStyle.FixedSingle;
             txtLuminosidad.Name = "txtLuminosidad";
             txtLuminosidad.ReadOnly = true;
             // 
             // txtHumAmb
             // 
             resources.ApplyResources(txtHumAmb, "txtHumAmb");
+            txtHumAmb.BackColor = SystemColors.ButtonFace;
+            txtHumAmb.BorderStyle = BorderStyle.FixedSingle;
             txtHumAmb.Name = "txtHumAmb";
             txtHumAmb.ReadOnly = true;
             // 
             // txtTemperatura
             // 
             resources.ApplyResources(txtTemperatura, "txtTemperatura");
+            txtTemperatura.BackColor = SystemColors.ButtonFace;
+            txtTemperatura.BorderStyle = BorderStyle.FixedSingle;
             txtTemperatura.Name = "txtTemperatura";
             txtTemperatura.ReadOnly = true;
             // 
@@ -197,12 +198,11 @@
         private TextBox txtLuminosidad;
         private TextBox txtHumAmb;
         private TextBox txtTemperatura;
-        private Button btnRecibirMqtt;
         private GroupBox grbUmbrales;
-        private Label lblUmbrales;
         private Button btnHumSuelo;
         private Button btnLuminosidad;
         private Button btnHumAmb;
         private Button btnTemp;
+        private TextBox txtUmbrales;
     }
 }
