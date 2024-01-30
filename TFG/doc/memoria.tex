@@ -314,6 +314,7 @@
 \makeatletter
 \usepackage{xcolor}
 \newcommand{\tutor}[1]{\def\@tutor{#1}}
+\newcommand{\tutors}[1]{\def\@tutors{#1}}
 \newcommand{\course}[1]{\def\@course{#1}}
 \definecolor{cpardoBox}{HTML}{E6E6FF}
 \def\maketitle{
@@ -345,6 +346,7 @@
     Presentado por \@author{}\\ 
     en Universidad de Burgos --- \@date{}\\
     Tutor: \@tutor{}\\
+	Tutor: \@tutors{}\\
   }%
   \end{center}%
   \null
@@ -352,13 +354,14 @@
   }
 \makeatother
 
-\newcommand{\nombre}{Nombre del alumno} %%% cambio de comando
+\newcommand{\nombre}{José Luis Caballero Martínez-Quintanilla} %%% cambio de comando
 
 % Datos de portada
 \title{Diseño de un sistema económico IoT de monitorización de invernaderos de cannabis medicinal}
 \author{\nombre}
-\tutor{nombre tutor}
-\date{\today}
+\tutor{Alejandro Merino Gómez}
+\tutors{Carlos Cambra Baseca}
+\date{16 de febrero de 2024}
 
 \begin{document}
 
@@ -374,16 +377,16 @@
 
 \noindent\includegraphics[width=\textwidth]{cabecera}\vspace{1cm}
 
-\noindent D. nombre tutor, profesor del departamento de nombre departamento, área de nombre área.
+\noindent D. Alejandro Merino Gómez, profesor del departamento de Digitalización, área de Systems Engineering and Automation y D. Carlos Cambra Baseca, profesor del departamento de Digitalización del área de Computer Science and Artificial Intelligence, 
 
-\noindent Expone:
+\noindent Exponen:
 
-\noindent Que el alumno D. \nombre, con DNI dni, ha realizado el Trabajo final de Grado en Ingeniería Informática titulado título de TFG. 
+\noindent Que el alumno D. \nombre, con DNI 48471169-A, ha realizado el Trabajo final de Grado en Ingeniería Informática titulado Diseño de un sistema económico IoT de monitorización de invernaderos de cannabis medicinal. 
 
 \noindent Y que dicho trabajo ha sido realizado por el alumno bajo la dirección del que suscribe, en virtud de lo cual se autoriza su presentación y defensa.
 
 \begin{center} %\large
-En Burgos, {\large \today}
+En Burgos, {\large 16 de febrero de 2024}
 \end{center}
 
 \vfill\vfill\vfill
@@ -392,14 +395,14 @@ En Burgos, {\large \today}
 \begin{minipage}{0.45\textwidth}
 \begin{flushleft} %\large
 Vº. Bº. del Tutor:\\[2cm]
-D. nombre tutor
+D. Merino Gómez, Alejandro
 \end{flushleft}
 \end{minipage}
 \hfill
 \begin{minipage}{0.45\textwidth}
 \begin{flushleft} %\large
 Vº. Bº. del co-tutor:\\[2cm]
-D. nombre co-tutor
+D. Cambra Baseca, Carlos 
 \end{flushleft}
 \end{minipage}
 \hfill
