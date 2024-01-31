@@ -204,7 +204,7 @@ namespace InverIoT
             }
         }
 
-        private void btnActualizaUmb_Click(object sender, EventArgs e)
+        private async void btnActualizaUmb_Click(object sender, EventArgs e)
         {
             // Mostrar el MessageBox con las opciones Sí y No
             var result = MessageBox.Show("¿Actualizar los umbrales?", "Actualizar los umbrales", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -212,13 +212,52 @@ namespace InverIoT
             // Verificar cuál botón fue presionado y actuar en consecuencia
             if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Sí");
+                try
+                {
+                    using (var connection = new MySqlConnection("server=46.24.8.196;port=3307;uid=joseluis;pwd=UBU_tfg_23_24;database=TFG_UBU"))
+                    {
+                        await connection.OpenAsync();
+
+                        var query = $@"UPDATE umbrales SET 
+                                temperatura_minima = @temperaturaMinima, 
+                                temperatura_maxima = @temperaturaMaxima, 
+                                humedad_ambiente_minima = @humedadAmbMin, 
+                                humedad_ambiente_maxima = @humedadAmbMax, 
+                                luminosidad_minima = @luminosidadMin, 
+                                luminosidad_maxima = @luminosidadMax, 
+                                humedad_suelo_minima = @humedadSueloMin, 
+                                humedad_suelo_maxima = @humedadSueloMax";
+
+                        using (var cmd = new MySqlCommand(query, connection))
+                        {
+                            // Asegúrate de que los nombres de los parámetros coincidan con los nombres en tu consulta SQL
+                            cmd.Parameters.AddWithValue("@temperaturaMinima", Convert.ToSingle(txtTemperaturaMin.Text));
+                            cmd.Parameters.AddWithValue("@temperaturaMaxima", Convert.ToSingle(txtTemperaturaMax.Text));
+                            cmd.Parameters.AddWithValue("@humedadAmbMin", Convert.ToSingle(txtHumAmbMin.Text));
+                            cmd.Parameters.AddWithValue("@humedadAmbMax", Convert.ToSingle(txtHumAmbMax.Text));
+                            cmd.Parameters.AddWithValue("@luminosidadMin", Convert.ToSingle(txtLuminosidadMin.Text));
+                            cmd.Parameters.AddWithValue("@luminosidadMax", Convert.ToSingle(txtLuminosidadMax.Text));
+                            cmd.Parameters.AddWithValue("@humedadSueloMin", Convert.ToSingle(txtHumSueloMin.Text));
+                            cmd.Parameters.AddWithValue("@humedadSueloMax", Convert.ToSingle(txtHumSueloMax.Text));
+
+                            await cmd.ExecuteNonQueryAsync();
+                        }
+
+                        MessageBox.Show("Los umbrales han sido actualizados correctamente.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al actualizar los umbrales: {ex.Message}");
+                }
             }
             else if (result == DialogResult.No)
             {
-                MessageBox.Show("No");
+                // Acción cancelada por el usuario
+                MessageBox.Show("No se han actualizado los umbrales.");
             }
         }
+
 
         private void txtTemperaturaMin_KeyPress(object sender, KeyPressEventArgs e)
         {
