@@ -1,83 +1,98 @@
 \capitulo{3}{Conceptos teóricos}
 
-En aquellos proyectos que necesiten para su comprensión y desarrollo de unos conceptos teóricos de una determinada materia o de un determinado dominio de conocimiento, debe existir un apartado que sintetice dichos conceptos.
+%En aquellos proyectos que necesiten para su comprensión y desarrollo de unos conceptos teóricos de una determinada materia o de un determinado dominio de conocimiento, debe existir un apartado que sintetice dichos conceptos.
 
-Algunos conceptos teóricos de \LaTeX{} \footnote{Créditos a los proyectos de Álvaro López Cantero: Configurador de Presupuestos y Roberto Izquierdo Amo: PLQuiz}.
+%Algunos conceptos teóricos de \LaTeX{} \footnote{Créditos a los proyectos de Álvaro López Cantero: Configurador de Presupuestos y Roberto Izquierdo Amo: PLQuiz}.
 
-\section{Secciones}
+%\section{Referencias}
+%Las referencias se incluyen en el texto usando cite~\cite{wiki:latex}. Para citar webs, artículos o libros~\cite{koza92}, si se desean citar más de uno en el mismo lugar~\cite{bortolot2005, koza92}.
 
-Las secciones se incluyen con el comando section.
-
-\subsection{Subsecciones}
-
-Además de secciones tenemos subsecciones.
-
-\subsubsection{Subsubsecciones}
-
-Y subsecciones. 
-
-
-\section{Referencias}
-
-Las referencias se incluyen en el texto usando cite~\cite{wiki:latex}. Para citar webs, artículos o libros~\cite{koza92}, si se desean citar más de uno en el mismo lugar~\cite{bortolot2005, koza92}.
-
-
-\section{Imágenes}
-
-Se pueden incluir imágenes con los comandos standard de \LaTeX, pero esta plantilla dispone de comandos propios como por ejemplo el siguiente:
-
-\imagen{escudoInfor}{Autómata para una expresión vacía}{.5}
-
-
-
-\section{Listas de items}
-
-Existen tres posibilidades:
-
-\begin{itemize}
-	\item primer item.
-	\item segundo item.
-\end{itemize}
-
-\begin{enumerate}
-	\item primer item.
-	\item segundo item.
-\end{enumerate}
-
-\begin{description}
-	\item[Primer item] más información sobre el primer item.
-	\item[Segundo item] más información sobre el segundo item.
-\end{description}
+%\imagen{escudoInfor}{Autómata para una expresión vacía}{.5} %imagenes
 	
+%\section{Tablas}
+%Igualmente se pueden usar los comandos específicos de \LaTeX o bien usar alguno de los comandos de la plantilla.
+%\tablaSmall{Herramientas y tecnologías utilizadas en cada parte del proyecto}{l c c c c}{herramientasportipodeuso}
+%{ \multicolumn{1}{l}{Herramientas} & App AngularJS & API REST & BD & Memoria \\}{ 
+%HTML5 & X & & &\\
+%CSS3 & X & & &\\
+%BOOTSTRAP & X & & &\\
+%JavaScript & X & & &\\
+%AngularJS & X & & &\\
+%Bower & X & & &\\
+%PHP & & X & &\\
+%Karma + Jasmine & X & & &\\
+%Slim framework & & X & &\\
+%Idiorm & & X & &\\
+%Composer & & X & &\\
+%JSON & X & X & &\\
+%PhpStorm & X & X & &\\
+%MySQL & & & X &\\
+%PhpMyAdmin & & & X &\\
+%Git + BitBucket & X & X & X & X\\
+%Mik\TeX{} & & & & X\\
+%\TeX{}Maker & & & & X\\
+%Astah & & & & X\\
+%Balsamiq Mockups & X & & &\\
+%VersionOne & X & X & X & X\\
+%} 
+\section{Domótica}\label{concepto:Domótica}
+La domótica se refiere a la aplicación de tecnologías de la información y la comunicación (TIC) para automatizar y gestionar de manera inteligente diferentes aspectos de una vivienda o edificio. El objetivo principal de la domótica es mejorar la calidad de vida, proporcionando mayor comodidad, seguridad, eficiencia energética y accesibilidad a sus habitantes.
+
+Los sistemas domóticos suelen integrar dispositivos electrónicos, sensores, actuadores y redes de comunicación para permitir la supervisión y control remoto de las funciones del hogar. Estas funciones pueden incluir la gestión de la iluminación, calefacción, ventilación, sistemas de seguridad, electrodomésticos, entre otros. A través de la interconexión de estos elementos, los usuarios pueden controlar y programar diversas tareas de forma centralizada, a menudo a través de interfaces intuitivas como aplicaciones móviles o paneles de control.
+
+La domótica no solo busca la automatización de tareas cotidianas, sino también la adaptación del entorno a las necesidades y preferencias individuales. Además, puede contribuir significativamente a la eficiencia energética al permitir la optimización del consumo de recursos en el hogar. En resumen, la domótica se centra en crear ambientes inteligentes que respondan de manera proactiva y eficiente a las demandas y rutinas de los usuarios.
+
+\section{Internet de las cosas (IoT)}
+Se refiere a la interconexión de dispositivos físicos a través de internet, permitiéndoles recopilar y compartir datos.
+
+
+\section{Raspberry Pi Pico W}
+La Raspberry Pi Pico W~\cite{misc:RPiPicoW} es una placa de desarrollo de bajo costo que combina versatilidad y conectividad inalámbrica. Se elige como unidad central para el sistema, actuando como el cerebro que controla y coordina la recopilación y transmisión de datos.
+
+\section{MicroPython}
+MicroPython~\cite{wiki:micropython} es una implementación del lenguaje de programación Python diseñada para sistemas embebidos y microcontroladores como la Raspberry Pi Pico W. Permite una programación sencilla y eficiente de la unidad central, facilitando el desarrollo de aplicaciones en entornos limitados.
+
+\section{GPIO}\label{concepto:GPIO}
+GPIO~\cite{misc:gpio}, por sus siglas en inglés, General Purpose Input/Output, se refiere a los pines de propósito general presentes en microcontroladores y sistemas embebidos. Estos pines son versátiles y pueden configurarse tanto como entradas como salidas, permitiendo la interacción del microcontrolador con el entorno externo.
 \begin{itemize}
-\item 
+	\item \textbf{Entradas (Input):} En modo de entrada, un pin GPIO puede recibir señales eléctricas del exterior, como las provenientes de sensores o interruptores. Estos pines detectan y leen el estado de la señal, que puede ser alto (1) o bajo (0), dependiendo de la presencia de voltaje.
+
+	\item \textbf{Salidas (Output):} En modo de salida, un pin GPIO puede enviar señales eléctricas al exterior, como las necesarias para controlar actuadores, LEDs u otros dispositivos. El microcontrolador puede controlar el estado del pin, estableciendo un voltaje alto o bajo según sea necesario.
+\end{itemize}
+La flexibilidad de los pines GPIO permite a los desarrolladores adaptar el comportamiento del microcontrolador a una amplia variedad de aplicaciones. La manipulación directa de estos pines a través de código facilita la interconexión con componentes externos y la implementación de funciones específicas en proyectos de hardware. En el contexto de la Raspberry Pi Pico W~\cite{misc:RPiPicoW} y otros dispositivos similares, la gestión de los pines GPIO es esencial para controlar y coordinar la interacción con sensores, actuadores y otros periféricos.
+
+\section{Sensores (DHT22, BH1750, Sensor de Humedad de Suelo)}
+Los sensores seleccionados desempeñan roles cruciales en la monitorización del entorno del invernadero. El DHT22~\cite{manual:DHT22} mide la temperatura y humedad ambiente, el BH1750~\cite{manual:BH1750} evalúa la intensidad lumínica, y el sensor de humedad de suelo~\cite{wiki:SensorHumedadSuelo} monitorea las condiciones de la tierra.
+
+\section{Interfaz de Usuario}
+La interfaz de usuario proporciona una plataforma visual para la interpretación de datos recopilados. Su diseño debe ser intuitivo, permitiendo acceder y comprender fácilmente la información relevante sobre el estado del invernadero.
+
+\section{Protocolos de Comunicación}
+Los protocolos de comunicación son conjuntos de reglas y estándares que especifican cómo los dispositivos deben intercambiar información entre sí. Estos protocolos definen el formato, la secuencia y el significado de los mensajes que se envían y reciben, facilitando la comunicación efectiva entre sistemas o dispositivos electrónicos. Los protocolos son esenciales para garantizar la interoperabilidad y la correcta transmisión de datos en entornos tecnológicos diversos.
+
+Existen diferentes tipos de protocolos de comunicación, cada uno diseñado para propósitos específicos y adaptado a diferentes situaciones. Algunos ejemplos comunes incluyen:
+\begin{itemize}
+\item \textbf{Protocolos de Red}:
+Estos protocolos se utilizan para la transmisión de datos a través de redes de computadoras. Ejemplos incluyen el Protocolo de Internet (IP) para direccionamiento y enrutamiento, y el Protocolo de Control de Transmisión (TCP) para la gestión de conexiones fiables.
+
+\item \textbf{Protocolos de Comunicación Inalámbrica:}
+	Para la comunicación sin cables, existen protocolos específicos como el estándar IEEE 802.11 (Wi-Fi)~\cite{manual:IEEE802.11} para redes inalámbricas y el Bluetooth para la conexión de dispositivos cercanos.
+
+\item \textbf{Protocolos de Comunicación Serie:}
+	En entornos donde se requiere una comunicación punto a punto, se utilizan protocolos serie como UART (Universal Asynchronous Receiver-Transmitter)~\cite{manual:UART} y SPI (Serial Peripheral Interface)~\cite{manual:SPI-I2C}.
+
+\item \textbf{Protocolos de Comunicación de Periféricos:}
+Para la interconexión de periféricos y componentes electrónicos, se utilizan protocolos como I2C (Inter-Integrated Circuit) y SPI para la transmisión de datos entre microcontroladores, sensores y otros dispositivos.
+
+\item \textbf{Protocolos de Aplicación:}
+	Estos protocolos se centran en la comunicación a nivel de aplicación y pueden incluir estándares como HTTP (Hypertext Transfer Protocol)~\cite{manual:HTTP} para la transmisión de datos en la web y MQTT (Message Queuing Telemetry Transport)~\cite{manual:MQTT} para la comunicación en el Internet de las cosas (IoT).
 \end{itemize}
 
-\section{Tablas}
+En cuanto a normativas, algunas organizaciones como el IEEE (Instituto de Ingenieros Eléctricos y Electrónicos)~\cite{misc:IEEE} establecen estándares para varios protocolos de comunicación, garantizando la consistencia y la interoperabilidad en la industria. Por ejemplo, el IEEE 802.3 ~\cite{misc:IEEE802_3} define estándares para Ethernet, mientras que el IEEE 802.15 ~\cite{misc:IEEE802_15} se centra en protocolos para redes inalámbricas de área personal (WPAN), como Bluetooth. Estas normativas son esenciales para la creación de sistemas y dispositivos que puedan comunicarse de manera efectiva y sin problemas.
 
-Igualmente se pueden usar los comandos específicos de \LaTeX o bien usar alguno de los comandos de la plantilla.
+\section{WiFi}\label{concepto:WIFI}
+Wi-Fi, derivado de "Wireless Fidelity," es una tecnología de comunicación inalámbrica que permite la conexión de dispositivos electrónicos a una red local o a Internet sin necesidad de cables físicos. Esta tecnología utiliza ondas de radio para la transmisión de datos entre dispositivos compatibles, siguiendo los estándares establecidos por el Instituto de Ingenieros Eléctricos y Electrónicos (IEEE), específicamente dentro de la familia de normas 802.11.
 
-\tablaSmall{Herramientas y tecnologías utilizadas en cada parte del proyecto}{l c c c c}{herramientasportipodeuso}
-{ \multicolumn{1}{l}{Herramientas} & App AngularJS & API REST & BD & Memoria \\}{ 
-HTML5 & X & & &\\
-CSS3 & X & & &\\
-BOOTSTRAP & X & & &\\
-JavaScript & X & & &\\
-AngularJS & X & & &\\
-Bower & X & & &\\
-PHP & & X & &\\
-Karma + Jasmine & X & & &\\
-Slim framework & & X & &\\
-Idiorm & & X & &\\
-Composer & & X & &\\
-JSON & X & X & &\\
-PhpStorm & X & X & &\\
-MySQL & & & X &\\
-PhpMyAdmin & & & X &\\
-Git + BitBucket & X & X & X & X\\
-Mik\TeX{} & & & & X\\
-\TeX{}Maker & & & & X\\
-Astah & & & & X\\
-Balsamiq Mockups & X & & &\\
-VersionOne & X & X & X & X\\
-} 
+La norma \underline{IEEE 802.11}~\cite{manual:IEEE802.11} abarca diversas versiones, cada una con mejoras y características específicas. Por ejemplo, las variantes más comunes incluyen 802.11a, 802.11b, 802.11g, 802.11n, 802.11ac, y 802.11ax. Cada una de estas normas define aspectos técnicos como la velocidad de transmisión, el rango de frecuencias utilizadas, y las características de seguridad.
+
+La conexión a una red Wi-Fi implica que los dispositivos inalámbricos cumplen con estas normas para garantizar una comunicación eficiente y segura. Los routers Wi-Fi, que actúan como puntos de acceso, son fundamentales para establecer y gestionar estas conexiones inalámbricas, permitiendo que múltiples dispositivos se conecten y compartan recursos en un área determinada.
