@@ -10,8 +10,13 @@ De esta manera, si un valor está por debajo del valor ideal, el fondo del texbo
 
 # Imagenes de la aplicación.
 
-![InverIoT_Desktop](https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/assets/127446383/cbc94b98-22d1-4df4-924e-0f3bbcb5105e)
+![InverIoT_Desktop](https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/assets/127446383/4ef8faed-c5b4-45b1-8103-5fa0446f055f)
+![InverIoT_Histórico](https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/assets/127446383/3f90ce65-1fa5-434f-a41b-99b01af60217)
+![InverIoT_Gráficas](https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/assets/127446383/a424f066-3d7e-4bf1-a5bc-4fe084fd51fb)
 
+
+
+Pruebas hechas con pantalla de aplicación v1.
 ![IMG_1443](https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/assets/127446383/1bb64560-8f46-417b-80a2-a5d7c634a3be)
 
 ![IMG_1444](https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/assets/127446383/948b443b-0701-4106-b8f5-42cd9529347f)
