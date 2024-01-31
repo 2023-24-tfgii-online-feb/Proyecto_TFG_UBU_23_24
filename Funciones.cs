@@ -14,7 +14,8 @@ namespace InverIoT
         }
     }
 
-    internal class Funciones
+    public class Funciones
     {
+        public static string conexionMySQL = "server=46.24.8.196;port=3307;uid=joseluis;pwd=UBU_tfg_23_24;database=TFG_UBU";
     }
 }

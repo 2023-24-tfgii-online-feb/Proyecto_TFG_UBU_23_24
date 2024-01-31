@@ -31,7 +31,7 @@ namespace InverIoT
         }
         private void CargarDatosSensores()
         {
-            string connectionString = "server=46.24.8.196;port=3307;uid=joseluis;pwd=UBU_tfg_23_24;database=TFG_UBU";
+            string connectionString = Funciones.conexionMySQL;
             string query = "SELECT * FROM sensores";
 
             using (var connection = new MySqlConnection(connectionString))

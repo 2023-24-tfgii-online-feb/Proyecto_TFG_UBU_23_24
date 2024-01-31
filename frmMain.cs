@@ -11,6 +11,7 @@ namespace InverIoT
     {
         // Controlar si la ventana de histórico está abierta.
         private frmHistorico historicoForm = null;
+        private frmGraficas graficasForm = null;
 
         public frmMain()
         {
@@ -24,7 +25,7 @@ namespace InverIoT
 
         private void cargarUmbrales()
         {
-            string connectionString = "server=46.24.8.196;port=3307;uid=joseluis;pwd=UBU_tfg_23_24;database=TFG_UBU";
+            string connectionString = Funciones.conexionMySQL;
 
             using (var connection = new MySqlConnection(connectionString))
             {
@@ -527,5 +528,33 @@ namespace InverIoT
             }
         }
 
+        private void btnGraficas_Click(object sender, EventArgs e)
+        {
+            // Si el formulario ya está abierto, tráelo al frente
+            if (graficasForm != null && !graficasForm.IsDisposed)
+            {
+                graficasForm.BringToFront();
+            }
+            else
+            {
+                // Si el formulario no está abierto o ha sido cerrado, crea una nueva instancia y muéstrala
+                graficasForm = new frmGraficas();
+                graficasForm.Show();
+            }
+        }
+
+        private void btnAutor_Click(object sender, EventArgs e)
+        {
+            string mensaje = "* Inver IoT * v2.1. Aplicación creada por:\n" +
+                 "José Luis Caballero Martínez-Quintanilla.\n" +
+                 "© 2023 - 2024 - TFG - UBU.\n\n" +
+                 "Contacto: jlcaballeromq@gmail.com\n" +
+                 "Aplicación para monitorizar invernadero de cultivo de cannabis medicinal.\n" +
+                 "Desarrollada y diseñada como parte de Trabajo Fin de Grado - Ingeniería Informática.";
+
+            string titulo = "Información del Autor";
+
+            MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

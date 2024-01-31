@@ -51,6 +51,9 @@
             lblUHa = new Label();
             lblUTemp = new Label();
             grbUmbrales = new GroupBox();
+            btnAutor = new Button();
+            btnGraficas = new Button();
+            btnHistorico = new Button();
             txtUmbralesI = new TextBox();
             grbDatosSensores = new GroupBox();
             btnHumSueloOff = new Button();
@@ -69,7 +72,6 @@
             lblLuminosidad = new Label();
             lblHumAmb = new Label();
             lblTemperatura = new Label();
-            btnHistorico = new Button();
             grbMonitor.SuspendLayout();
             grbActUmbrales.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -222,10 +224,34 @@
             // grbUmbrales
             // 
             resources.ApplyResources(grbUmbrales, "grbUmbrales");
+            grbUmbrales.Controls.Add(btnAutor);
+            grbUmbrales.Controls.Add(btnGraficas);
             grbUmbrales.Controls.Add(btnHistorico);
             grbUmbrales.Controls.Add(txtUmbralesI);
             grbUmbrales.Name = "grbUmbrales";
             grbUmbrales.TabStop = false;
+            // 
+            // btnAutor
+            // 
+            resources.ApplyResources(btnAutor, "btnAutor");
+            btnAutor.BackColor = SystemColors.InactiveCaption;
+            btnAutor.Name = "btnAutor";
+            btnAutor.UseVisualStyleBackColor = false;
+            btnAutor.Click += btnAutor_Click;
+            // 
+            // btnGraficas
+            // 
+            resources.ApplyResources(btnGraficas, "btnGraficas");
+            btnGraficas.Name = "btnGraficas";
+            btnGraficas.UseVisualStyleBackColor = true;
+            btnGraficas.Click += btnGraficas_Click;
+            // 
+            // btnHistorico
+            // 
+            resources.ApplyResources(btnHistorico, "btnHistorico");
+            btnHistorico.Name = "btnHistorico";
+            btnHistorico.UseVisualStyleBackColor = true;
+            btnHistorico.Click += btnHistorico_Click;
             // 
             // txtUmbralesI
             // 
@@ -364,13 +390,6 @@
             resources.ApplyResources(lblTemperatura, "lblTemperatura");
             lblTemperatura.Name = "lblTemperatura";
             // 
-            // btnHistorico
-            // 
-            resources.ApplyResources(btnHistorico, "btnHistorico");
-            btnHistorico.Name = "btnHistorico";
-            btnHistorico.UseVisualStyleBackColor = true;
-            btnHistorico.Click += btnHistorico_Click;
-            // 
             // frmMain
             // 
             resources.ApplyResources(this, "$this");
@@ -434,5 +453,7 @@
         private Button btnLuminosidadOff;
         private Button btnHumAmbOff;
         private Button btnHistorico;
+        private Button btnGraficas;
+        private Button btnAutor;
     }
 }
