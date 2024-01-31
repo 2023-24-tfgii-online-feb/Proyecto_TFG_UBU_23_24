@@ -9,6 +9,8 @@ namespace InverIoT
 {
     public partial class frmMain : Form
     {
+        // Controlar si la ventana de histórico está abierta.
+        private frmHistorico historicoForm = null;
 
         public frmMain()
         {
@@ -509,5 +511,21 @@ namespace InverIoT
                 MessageBox.Show($"Error al conectar: {ex.Message}");
             }
         }
+
+        private void btnHistorico_Click(object sender, EventArgs e)
+        {
+            // Si el formulario ya está abierto, tráelo al frente
+            if (historicoForm != null && !historicoForm.IsDisposed)
+            {
+                historicoForm.BringToFront();
+            }
+            else
+            {
+                // Si el formulario no está abierto o ha sido cerrado, crea una nueva instancia y muéstrala
+                historicoForm = new frmHistorico();
+                historicoForm.Show();
+            }
+        }
+
     }
 }
