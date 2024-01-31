@@ -1,5 +1,6 @@
 using MQTTnet;
 using MQTTnet.Client;
+using MySql.Data.MySqlClient;
 using System;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,11 +15,52 @@ namespace InverIoT
         {
             InitializeComponent();
             InitializeMqtt();
-
+            cargarUmbrales();
         }
 
         private IMqttClient mqttClient;
         private MqttClientOptions mqttClientOptions;
+
+        private void cargarUmbrales()
+        {
+            string connectionString = "server=46.24.8.196;port=3307;uid=joseluis;pwd=UBU_tfg_23_24;database=TFG_UBU";
+
+            using (var connection = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "SELECT * FROM umbrales ORDER BY fecha_actualizacion DESC LIMIT 1";
+
+                    using (var cmd = new MySqlCommand(query, connection))
+                    {
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                txtTemperaturaMin.Text = reader["temperatura_minima"].ToString();
+                                txtTemperaturaMax.Text = reader["temperatura_maxima"].ToString();
+                                txtHumAmbMin.Text = reader["humedad_ambiente_minima"].ToString();
+                                txtHumAmbMax.Text = reader["humedad_ambiente_maxima"].ToString();
+                                txtLuminosidadMin.Text = reader["luminosidad_minima"].ToString();
+                                txtLuminosidadMax.Text = reader["luminosidad_maxima"].ToString();
+                                txtHumSueloMin.Text = reader["humedad_suelo_minima"].ToString();
+                                txtHumSueloMax.Text = reader["humedad_suelo_maxima"].ToString();
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se encontraron registros.");
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al conectar a la base de datos: {ex.Message}");
+                }
+            }
+        }
+
 
         private async void InitializeMqtt()
         {
@@ -162,6 +204,148 @@ namespace InverIoT
             }
         }
 
-        
+        private void btnActualizaUmb_Click(object sender, EventArgs e)
+        {
+            // Mostrar el MessageBox con las opciones Sí y No
+            var result = MessageBox.Show("¿Actualizar los umbrales?", "Actualizar los umbrales", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Verificar cuál botón fue presionado y actuar en consecuencia
+            if (result == DialogResult.Yes)
+            {
+                MessageBox.Show("Sí");
+            }
+            else if (result == DialogResult.No)
+            {
+                MessageBox.Show("No");
+            }
+        }
+
+        private void txtTemperaturaMin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir números, control de backspace, y un punto decimal
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true; // No aceptar el carácter
+            }
+
+            // Solo permitir un punto decimal
+            TextBox textBox = sender as TextBox;
+            if ((e.KeyChar == '.') && (textBox.Text.IndexOf('.') > -1))
+            {
+                e.Handled = true; // No aceptar un segundo punto decimal
+            }
+        }
+
+        private void txtTemperaturaMax_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir números, control de backspace, y un punto decimal
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true; // No aceptar el carácter
+            }
+
+            // Solo permitir un punto decimal
+            TextBox textBox = sender as TextBox;
+            if ((e.KeyChar == '.') && (textBox.Text.IndexOf('.') > -1))
+            {
+                e.Handled = true; // No aceptar un segundo punto decimal
+            }
+        }
+
+        private void txtHumAmbMin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir números, control de backspace, y un punto decimal
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true; // No aceptar el carácter
+            }
+
+            // Solo permitir un punto decimal
+            TextBox textBox = sender as TextBox;
+            if ((e.KeyChar == '.') && (textBox.Text.IndexOf('.') > -1))
+            {
+                e.Handled = true; // No aceptar un segundo punto decimal
+            }
+        }
+
+        private void txtHumAmbMax_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir números, control de backspace, y un punto decimal
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true; // No aceptar el carácter
+            }
+
+            // Solo permitir un punto decimal
+            TextBox textBox = sender as TextBox;
+            if ((e.KeyChar == '.') && (textBox.Text.IndexOf('.') > -1))
+            {
+                e.Handled = true; // No aceptar un segundo punto decimal
+            }
+        }
+
+        private void txtLuminosidadMin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir números, control de backspace, y un punto decimal
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true; // No aceptar el carácter
+            }
+
+            // Solo permitir un punto decimal
+            TextBox textBox = sender as TextBox;
+            if ((e.KeyChar == '.') && (textBox.Text.IndexOf('.') > -1))
+            {
+                e.Handled = true; // No aceptar un segundo punto decimal
+            }
+        }
+
+        private void txtLuminosidadMax_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir números, control de backspace, y un punto decimal
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true; // No aceptar el carácter
+            }
+
+            // Solo permitir un punto decimal
+            TextBox textBox = sender as TextBox;
+            if ((e.KeyChar == '.') && (textBox.Text.IndexOf('.') > -1))
+            {
+                e.Handled = true; // No aceptar un segundo punto decimal
+            }
+        }
+
+        private void txtHumSueloMin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir números, control de backspace, y un punto decimal
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true; // No aceptar el carácter
+            }
+
+            // Solo permitir un punto decimal
+            TextBox textBox = sender as TextBox;
+            if ((e.KeyChar == '.') && (textBox.Text.IndexOf('.') > -1))
+            {
+                e.Handled = true; // No aceptar un segundo punto decimal
+            }
+        }
+
+        private void txtHumSueloMax_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir números, control de backspace, y un punto decimal
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true; // No aceptar el carácter
+            }
+
+            // Solo permitir un punto decimal
+            TextBox textBox = sender as TextBox;
+            if ((e.KeyChar == '.') && (textBox.Text.IndexOf('.') > -1))
+            {
+                e.Handled = true; // No aceptar un segundo punto decimal
+            }
+        }
     }
 }

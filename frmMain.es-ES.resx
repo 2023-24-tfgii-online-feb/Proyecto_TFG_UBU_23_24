@@ -118,24 +118,190 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="txtUmbrales.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
+  <data name="txtHumSueloMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 30</value>
+  </data>
+  <data name="txtLuminosidadMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 30</value>
+  </data>
+  <data name="txtHumAmbMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 30</value>
+  </data>
+  <data name="txtTemperaturaMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 30</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="txtUmbrales.Multiline" type="System.Boolean, mscorlib">
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="txtUmbrales.Size" type="System.Drawing.Size, System.Drawing">
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 23</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Humedad suelo máxima:</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 23</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Luminosidad máxima:</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 23</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Humedad ambiente máxima:</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 23</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Temperatura máxima:</value>
+  </data>
+  <data name="btnActualizaUmb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnActualizaUmb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 40</value>
+  </data>
+  <data name="btnActualizaUmb.Text" xml:space="preserve">
+    <value>Actualizar umbrales</value>
+  </data>
+  <data name="txtTextoActUmbrales.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 7.5pt</value>
+  </data>
+  <data name="txtTextoActUmbrales.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtTextoActUmbrales.Size" type="System.Drawing.Size, System.Drawing">
+    <value>250, 64</value>
+  </data>
+  <data name="txtTextoActUmbrales.Text" xml:space="preserve">
+    <value>Actualiza los umbrales con los valores que ponemos en los textbox de la izquierda.
+</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>662, 17</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>256, 172</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value> Actualizar umbrales: </value>
+  </data>
+  <data name="txtHumSueloMin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 30</value>
+  </data>
+  <data name="txtLuminosidadMin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 30</value>
+  </data>
+  <data name="txtHumAmbMin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 30</value>
+  </data>
+  <data name="txtTemperaturaMin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 30</value>
+  </data>
+  <data name="lblUHs.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblUHs.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblUHs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>39, 162</value>
+  </data>
+  <data name="lblUHs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 23</value>
+  </data>
+  <data name="lblUHs.Text" xml:space="preserve">
+    <value>Humedad suelo mínima:</value>
+  </data>
+  <data name="lblULum.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblULum.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblULum.Location" type="System.Drawing.Point, System.Drawing">
+    <value>62, 121</value>
+  </data>
+  <data name="lblULum.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 23</value>
+  </data>
+  <data name="lblULum.Text" xml:space="preserve">
+    <value>Luminosidad mínima:</value>
+  </data>
+  <data name="lblUHa.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblUHa.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblUHa.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 80</value>
+  </data>
+  <data name="lblUHa.Size" type="System.Drawing.Size, System.Drawing">
+    <value>228, 23</value>
+  </data>
+  <data name="lblUHa.Text" xml:space="preserve">
+    <value>Humedad ambiente mínima:</value>
+  </data>
+  <data name="lblUTemp.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblUTemp.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblUTemp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>63, 39</value>
+  </data>
+  <data name="lblUTemp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 23</value>
+  </data>
+  <data name="lblUTemp.Text" xml:space="preserve">
+    <value>Temperatura mínima:</value>
+  </data>
+  <data name="grbActUmbrales.Size" type="System.Drawing.Size, System.Drawing">
+    <value>924, 294</value>
+  </data>
+  <data name="grbActUmbrales.Text" xml:space="preserve">
+    <value> Actualizar umbrales: </value>
+  </data>
+  <data name="txtUmbralesI.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="txtUmbralesI.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtUmbralesI.Size" type="System.Drawing.Size, System.Drawing">
     <value>358, 178</value>
   </data>
-  <data name="txtUmbrales.Text" xml:space="preserve">
+  <data name="txtUmbralesI.Text" xml:space="preserve">
     <value>* Fondo azul: por debajo del valor ideal.
 * Fondo rojo: por encima del valor ideal.
-
-Temperatura: 30°C - 35°C.
-Humedad Ambiente: 30% - 70%.
-Luminosidad: 30 Lux - 150 Lux.
-Humedad del Suelo: 20% - 80%.</value>
+</value>
   </data>
   <data name="grbUmbrales.Location" type="System.Drawing.Point, System.Drawing">
     <value>560, 29</value>
@@ -149,7 +315,6 @@ Humedad del Suelo: 20% - 80%.</value>
   <data name="grbUmbrales.Text" xml:space="preserve">
     <value> Umbrales ideales: </value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnHumSuelo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -265,7 +430,7 @@ Humedad del Suelo: 20% - 80%.</value>
     <value> Datos sensores en tiempo real. </value>
   </data>
   <data name="grbMonitor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>936, 292</value>
+    <value>936, 564</value>
   </data>
   <data name="grbMonitor.Text" xml:space="preserve">
     <value> Monitorización </value>
