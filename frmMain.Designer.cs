@@ -53,6 +53,10 @@
             grbUmbrales = new GroupBox();
             txtUmbralesI = new TextBox();
             grbDatosSensores = new GroupBox();
+            btnHumSueloOff = new Button();
+            btnLuminosidadOff = new Button();
+            btnHumAmbOff = new Button();
+            btnTempOff = new Button();
             btnHumSuelo = new Button();
             btnLuminosidad = new Button();
             btnHumAmb = new Button();
@@ -231,6 +235,10 @@
             // grbDatosSensores
             // 
             resources.ApplyResources(grbDatosSensores, "grbDatosSensores");
+            grbDatosSensores.Controls.Add(btnHumSueloOff);
+            grbDatosSensores.Controls.Add(btnLuminosidadOff);
+            grbDatosSensores.Controls.Add(btnHumAmbOff);
+            grbDatosSensores.Controls.Add(btnTempOff);
             grbDatosSensores.Controls.Add(btnHumSuelo);
             grbDatosSensores.Controls.Add(btnLuminosidad);
             grbDatosSensores.Controls.Add(btnHumAmb);
@@ -245,6 +253,34 @@
             grbDatosSensores.Controls.Add(lblTemperatura);
             grbDatosSensores.Name = "grbDatosSensores";
             grbDatosSensores.TabStop = false;
+            // 
+            // btnHumSueloOff
+            // 
+            resources.ApplyResources(btnHumSueloOff, "btnHumSueloOff");
+            btnHumSueloOff.Name = "btnHumSueloOff";
+            btnHumSueloOff.UseVisualStyleBackColor = true;
+            btnHumSueloOff.Click += btnHumSueloOff_Click;
+            // 
+            // btnLuminosidadOff
+            // 
+            resources.ApplyResources(btnLuminosidadOff, "btnLuminosidadOff");
+            btnLuminosidadOff.Name = "btnLuminosidadOff";
+            btnLuminosidadOff.UseVisualStyleBackColor = true;
+            btnLuminosidadOff.Click += btnLuminosidadOff_Click;
+            // 
+            // btnHumAmbOff
+            // 
+            resources.ApplyResources(btnHumAmbOff, "btnHumAmbOff");
+            btnHumAmbOff.Name = "btnHumAmbOff";
+            btnHumAmbOff.UseVisualStyleBackColor = true;
+            btnHumAmbOff.Click += btnHumAmbOff_Click;
+            // 
+            // btnTempOff
+            // 
+            resources.ApplyResources(btnTempOff, "btnTempOff");
+            btnTempOff.Name = "btnTempOff";
+            btnTempOff.UseVisualStyleBackColor = true;
+            btnTempOff.Click += btnTempOff_Click;
             // 
             // btnHumSuelo
             // 
@@ -280,7 +316,7 @@
             txtHumSuelo.BackColor = SystemColors.ButtonFace;
             txtHumSuelo.BorderStyle = BorderStyle.FixedSingle;
             txtHumSuelo.Name = "txtHumSuelo";
-            txtHumSuelo.ReadOnly = true;
+            txtHumSuelo.TextChanged += txtHumSuelo_TextChanged;
             // 
             // txtLuminosidad
             // 
@@ -288,7 +324,7 @@
             txtLuminosidad.BackColor = SystemColors.ButtonFace;
             txtLuminosidad.BorderStyle = BorderStyle.FixedSingle;
             txtLuminosidad.Name = "txtLuminosidad";
-            txtLuminosidad.ReadOnly = true;
+            txtLuminosidad.TextChanged += txtLuminosidad_TextChanged;
             // 
             // txtHumAmb
             // 
@@ -296,7 +332,7 @@
             txtHumAmb.BackColor = SystemColors.ButtonFace;
             txtHumAmb.BorderStyle = BorderStyle.FixedSingle;
             txtHumAmb.Name = "txtHumAmb";
-            txtHumAmb.ReadOnly = true;
+            txtHumAmb.TextChanged += txtHumAmb_TextChanged;
             // 
             // txtTemperatura
             // 
@@ -304,7 +340,7 @@
             txtTemperatura.BackColor = SystemColors.ButtonFace;
             txtTemperatura.BorderStyle = BorderStyle.FixedSingle;
             txtTemperatura.Name = "txtTemperatura";
-            txtTemperatura.ReadOnly = true;
+            txtTemperatura.TextChanged += txtTemperatura_TextChanged;
             // 
             // lblHumSuelo
             // 
@@ -384,5 +420,9 @@
         private Label label2;
         private Label label3;
         private Label label4;
+        private Button btnTempOff;
+        private Button btnHumSueloOff;
+        private Button btnLuminosidadOff;
+        private Button btnHumAmbOff;
     }
 }

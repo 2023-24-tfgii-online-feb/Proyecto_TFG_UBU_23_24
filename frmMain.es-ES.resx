@@ -118,6 +118,37 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="grbActUmbrales.Size" type="System.Drawing.Size, System.Drawing">
+    <value>924, 205</value>
+  </data>
+  <data name="grbActUmbrales.Text" xml:space="preserve">
+    <value> Actualizar umbrales: </value>
+  </data>
+  <data name="grbUmbrales.Location" type="System.Drawing.Point, System.Drawing">
+    <value>560, 29</value>
+  </data>
+  <data name="grbUmbrales.Size" type="System.Drawing.Size, System.Drawing">
+    <value>370, 213</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="grbUmbrales.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="grbUmbrales.Text" xml:space="preserve">
+    <value> Umbrales ideales: </value>
+  </data>
+  <data name="grbDatosSensores.Size" type="System.Drawing.Size, System.Drawing">
+    <value>548, 213</value>
+  </data>
+  <data name="grbDatosSensores.Text" xml:space="preserve">
+    <value> Datos sensores en tiempo real. </value>
+  </data>
+  <data name="grbMonitor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>936, 462</value>
+  </data>
+  <data name="grbMonitor.Text" xml:space="preserve">
+    <value> Monitorización </value>
+  </data>
   <data name="txtHumSueloMax.Size" type="System.Drawing.Size, System.Drawing">
     <value>90, 30</value>
   </data>
@@ -130,7 +161,6 @@
   <data name="txtTemperaturaMax.Size" type="System.Drawing.Size, System.Drawing">
     <value>90, 30</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -180,6 +210,15 @@
   <data name="label4.Text" xml:space="preserve">
     <value>Temperatura máxima:</value>
   </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>662, 17</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>256, 172</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value> Actualizar umbrales: </value>
+  </data>
   <data name="btnActualizaUmb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -201,15 +240,6 @@
   <data name="txtTextoActUmbrales.Text" xml:space="preserve">
     <value>Actualiza los umbrales con los valores que ponemos en los textbox de la izquierda.
 </value>
-  </data>
-  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>662, 17</value>
-  </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>256, 172</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value> Actualizar umbrales: </value>
   </data>
   <data name="txtHumSueloMin.Size" type="System.Drawing.Size, System.Drawing">
     <value>90, 30</value>
@@ -283,12 +313,6 @@
   <data name="lblUTemp.Text" xml:space="preserve">
     <value>Temperatura mínima:</value>
   </data>
-  <data name="grbActUmbrales.Size" type="System.Drawing.Size, System.Drawing">
-    <value>924, 294</value>
-  </data>
-  <data name="grbActUmbrales.Text" xml:space="preserve">
-    <value> Actualizar umbrales: </value>
-  </data>
   <data name="txtUmbralesI.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
@@ -299,21 +323,46 @@
     <value>358, 178</value>
   </data>
   <data name="txtUmbralesI.Text" xml:space="preserve">
-    <value>* Fondo azul: por debajo del valor ideal.
-* Fondo rojo: por encima del valor ideal.
+    <value>* Fondo gris: Dentro del umbral ideal.
+* Fondo azul: Por debajo del valor ideal.
+* Fondo rojo: Por encima del valor ideal.
 </value>
   </data>
-  <data name="grbUmbrales.Location" type="System.Drawing.Point, System.Drawing">
-    <value>560, 29</value>
+  <data name="btnHumSueloOff.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="grbUmbrales.Size" type="System.Drawing.Size, System.Drawing">
-    <value>370, 213</value>
+  <data name="btnHumSueloOff.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 30</value>
   </data>
-  <data name="grbUmbrales.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="btnHumSueloOff.Text" xml:space="preserve">
+    <value>Desactivar</value>
   </data>
-  <data name="grbUmbrales.Text" xml:space="preserve">
-    <value> Umbrales ideales: </value>
+  <data name="btnLuminosidadOff.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnLuminosidadOff.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 30</value>
+  </data>
+  <data name="btnLuminosidadOff.Text" xml:space="preserve">
+    <value>Desactivar</value>
+  </data>
+  <data name="btnHumAmbOff.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnHumAmbOff.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 30</value>
+  </data>
+  <data name="btnHumAmbOff.Text" xml:space="preserve">
+    <value>Desactivar</value>
+  </data>
+  <data name="btnTempOff.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnTempOff.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 30</value>
+  </data>
+  <data name="btnTempOff.Text" xml:space="preserve">
+    <value>Desactivar</value>
   </data>
   <data name="btnHumSuelo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -322,10 +371,10 @@
     <value>300, 160</value>
   </data>
   <data name="btnHumSuelo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 30</value>
+    <value>110, 30</value>
   </data>
   <data name="btnHumSuelo.Text" xml:space="preserve">
-    <value>Activar humedad suelo</value>
+    <value>Activar</value>
   </data>
   <data name="btnLuminosidad.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -334,10 +383,10 @@
     <value>300, 119</value>
   </data>
   <data name="btnLuminosidad.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 30</value>
+    <value>110, 30</value>
   </data>
   <data name="btnLuminosidad.Text" xml:space="preserve">
-    <value>Activar luminosidad</value>
+    <value>Activar</value>
   </data>
   <data name="btnHumAmb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -346,10 +395,10 @@
     <value>300, 78</value>
   </data>
   <data name="btnHumAmb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 30</value>
+    <value>110, 30</value>
   </data>
   <data name="btnHumAmb.Text" xml:space="preserve">
-    <value>Activar humedad ambiente</value>
+    <value>Activar</value>
   </data>
   <data name="btnTemp.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -358,10 +407,10 @@
     <value>300, 37</value>
   </data>
   <data name="btnTemp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 30</value>
+    <value>110, 30</value>
   </data>
   <data name="btnTemp.Text" xml:space="preserve">
-    <value>Activar Temperatura</value>
+    <value>Activar</value>
   </data>
   <data name="txtHumSuelo.Size" type="System.Drawing.Size, System.Drawing">
     <value>90, 30</value>
@@ -423,20 +472,8 @@
   <data name="lblTemperatura.Text" xml:space="preserve">
     <value>Temperatura:</value>
   </data>
-  <data name="grbDatosSensores.Size" type="System.Drawing.Size, System.Drawing">
-    <value>548, 213</value>
-  </data>
-  <data name="grbDatosSensores.Text" xml:space="preserve">
-    <value> Datos sensores en tiempo real. </value>
-  </data>
-  <data name="grbMonitor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>936, 564</value>
-  </data>
-  <data name="grbMonitor.Text" xml:space="preserve">
-    <value> Monitorización </value>
-  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>960, 588</value>
+    <value>960, 490</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -700,7 +737,10 @@
 </value>
   </data>
   <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>980, 640</value>
+    <value>980, 542</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>980, 542</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Inver IoT - Monitorización de invernadero.</value>

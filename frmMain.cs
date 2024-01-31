@@ -2,9 +2,8 @@ using MQTTnet;
 using MQTTnet.Client;
 using MySql.Data.MySqlClient;
 using System;
+using System.Globalization;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace InverIoT
 {
@@ -60,6 +59,38 @@ namespace InverIoT
                 }
             }
         }
+
+        //private void UpdateTextBoxColor(TextBox textBox, TextBox minTextBox, TextBox maxTextBox)
+        private void UpdateTextBoxColor(TextBox textBox, TextBox minTextBox, TextBox maxTextBox, string unit)
+        {
+            // Remover la unidad del final de cada valor de TextBox
+            string valueStr = textBox.Text.EndsWith(unit) ? textBox.Text.Substring(0, textBox.Text.Length - unit.Length) : textBox.Text;
+            string minStr = minTextBox.Text.EndsWith(unit) ? minTextBox.Text.Substring(0, minTextBox.Text.Length - unit.Length) : minTextBox.Text;
+            string maxStr = maxTextBox.Text.EndsWith(unit) ? maxTextBox.Text.Substring(0, maxTextBox.Text.Length - unit.Length) : maxTextBox.Text;
+
+            if (float.TryParse(valueStr, NumberStyles.Any, CultureInfo.InvariantCulture, out float value) &&
+                float.TryParse(minStr, NumberStyles.Any, CultureInfo.InvariantCulture, out float minValue) &&
+                float.TryParse(maxStr, NumberStyles.Any, CultureInfo.InvariantCulture, out float maxValue))
+            {
+                if (value < minValue)
+                {
+                    textBox.BackColor = SystemColors.GradientActiveCaption;
+                }
+                else if (value > maxValue)
+                {
+                    textBox.BackColor = Color.Coral;
+                }
+                else
+                {
+                    textBox.BackColor = SystemColors.ButtonFace;
+                }
+            }
+            else
+            {
+                textBox.BackColor = SystemColors.ButtonFace; // Valor no válido
+            }
+        }
+
 
 
         private async void InitializeMqtt()
@@ -384,6 +415,98 @@ namespace InverIoT
             if ((e.KeyChar == '.') && (textBox.Text.IndexOf('.') > -1))
             {
                 e.Handled = true; // No aceptar un segundo punto decimal
+            }
+        }
+
+        private void txtTemperatura_TextChanged(object sender, EventArgs e)
+        {
+            //UpdateTextBoxColor(txtTemperatura, txtTemperaturaMin, txtTemperaturaMax);
+            UpdateTextBoxColor(txtTemperatura, txtTemperaturaMin, txtTemperaturaMax, " °C");
+        }
+
+        private void txtHumAmb_TextChanged(object sender, EventArgs e)
+        {
+            UpdateTextBoxColor(txtHumAmb, txtHumAmbMin, txtHumAmbMax, " %");
+            //UpdateTextBoxColor(txtHumAmb, txtHumAmbMin, txtHumAmbMax);
+        }
+
+        private void txtLuminosidad_TextChanged(object sender, EventArgs e)
+        {
+            UpdateTextBoxColor(txtLuminosidad, txtLuminosidadMin, txtLuminosidadMax, " lux");
+            //UpdateTextBoxColor(txtLuminosidad, txtLuminosidadMin, txtLuminosidadMax);
+        }
+
+        private void txtHumSuelo_TextChanged(object sender, EventArgs e)
+        {
+            UpdateTextBoxColor(txtHumSuelo, txtHumSueloMin, txtHumSueloMax, " %");
+            //UpdateTextBoxColor(txtHumSuelo, txtHumSueloMin, txtHumSueloMax);
+        }
+
+        private async void btnTempOff_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var applicationMessage = new MqttApplicationMessageBuilder()
+                    .WithTopic("invernadero/ordenes")
+                    .WithPayload("/t_OFF") // Manda esta orden y ya la procesa la raspberry
+                    .Build();
+
+                await mqttClient.PublishAsync(applicationMessage, CancellationToken.None);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al conectar: {ex.Message}");
+            }
+        }
+
+        private async void btnHumAmbOff_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var applicationMessage = new MqttApplicationMessageBuilder()
+                    .WithTopic("invernadero/ordenes")
+                    .WithPayload("/ha_OFF") // Manda esta orden y ya la procesa la raspberry
+                    .Build();
+
+                await mqttClient.PublishAsync(applicationMessage, CancellationToken.None);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al conectar: {ex.Message}");
+            }
+        }
+
+        private async void btnLuminosidadOff_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var applicationMessage = new MqttApplicationMessageBuilder()
+                    .WithTopic("invernadero/ordenes")
+                    .WithPayload("/l_OFF") // Manda esta orden y ya la procesa la raspberry
+                    .Build();
+
+                await mqttClient.PublishAsync(applicationMessage, CancellationToken.None);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al conectar: {ex.Message}");
+            }
+        }
+
+        private async void btnHumSueloOff_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var applicationMessage = new MqttApplicationMessageBuilder()
+                    .WithTopic("invernadero/ordenes")
+                    .WithPayload("/hs_OFF") // Manda esta orden y ya la procesa la raspberry
+                    .Build();
+
+                await mqttClient.PublishAsync(applicationMessage, CancellationToken.None);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al conectar: {ex.Message}");
             }
         }
     }
