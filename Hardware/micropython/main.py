@@ -3,7 +3,6 @@ from time import sleep
 import dht
 import ssd1306
 from bh1750 import BH1750
-from mq135 import MQ135
 class DHTSensor:
     def __init__(self, tipo_sensor, pin):
         if(tipo_sensor == "dht11"): self.sensor = dht.DHT11(Pin(pin))
@@ -77,7 +76,6 @@ if __name__ == "__main__":
     oled            = OLEDDisplay_I2C(0,Pin(9),Pin(8),400000,128, 64, 0x3c)
     dht             = DHTSensor(tipo_sensor="dht11", pin=3)
     humedad_suelo   = SensorHumedadSuelo(pin=26)
-    calidad_aire    = MQ135(27)
     nivel_luz       = Sensor_nivel_luz(0,Pin(9), Pin(8),400000,0x23) #address = 0x23
     while True:
         dht.actualizar_valores()
@@ -87,5 +85,4 @@ if __name__ == "__main__":
         oled.colocar_texto("HUMEDAD: "+str(dht.humedad), 0, 10)
         oled.colocar_texto("SUELO: "+str(humedad_suelo.humedad), 0, 20)
         oled.colocar_texto("LUZ: "+str(nivel_luz.intensidad), 0, 30)
-        oled.colocar_texto("AIRE: "+str(calidad_aire.get_corrected_ppm(22,60)), 0, 40)
         oled.mostrar()
