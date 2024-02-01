@@ -1,9 +1,0 @@
-\babel@toc {spanish}{}\relax 
-\babel@toc {spanish}{}\relax 
-\contentsline {chapter}{\'{I}ndice general}{\es@scroman {iii}}{section*.1}%
-\contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {iv}}{section*.2}%
-\contentsline {chapter}{\'{I}ndice de tablas}{\es@scroman {v}}{section*.3}%
-\contentsline {chapter}{4.\hskip .5em\relax Técnicas y herramientas}{1}{chapter*.4}%
-\contentsline {section}{\numberline {4.1}Entorno Software}{1}{section.4.1}%
-\contentsline {subsection}{Thonny}{1}{section*.5}%
-\contentsline {chapter}{Bibliograf\'{\i }a}{3}{chapter*.6}%
