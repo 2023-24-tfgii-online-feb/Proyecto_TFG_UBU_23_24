@@ -83,19 +83,19 @@
         let charts = {
             temperatura: new Chart(document.getElementById('chartTemperatura').getContext('2d'), {
                 type: 'line',
-                data: { labels: [], datasets: [{ label: "Temperatura °C", data: [], fill: false, borderColor: 'red', tension: 0.1 }] }
+                data: { labels: [], datasets: [{ label: "Temperatura °C", data: [], fill: false, borderColor: 'rgba(0, 123, 255, 1)', tension: 0.1 }] }
             }),
             humedad: new Chart(document.getElementById('chartHumedad').getContext('2d'), {
                 type: 'line',
-                data: { labels: [], datasets: [{ label: "Humedad %", data: [], fill: false, borderColor: 'green', tension: 0.1 }] }
+                data: { labels: [], datasets: [{ label: "Humedad ambiente %", data: [], fill: false, borderColor: 'rgba(255, 99, 132, 1)', tension: 0.1 }] }
             }),
             luminosidad: new Chart(document.getElementById('chartLuminosidad').getContext('2d'), {
                 type: 'line',
-                data: { labels: [], datasets: [{ label: "Intensidad de luz lux", data: [], fill: false, borderColor: 'blue', tension: 0.1 }] }
+                data: { labels: [], datasets: [{ label: "Intensidad de luz lux", data: [], fill: false, borderColor: 'rgba(75, 192, 192, 1)', tension: 0.1 }] }
             }),
             humedadSuelo: new Chart(document.getElementById('chartHumedadSuelo').getContext('2d'), {
                 type: 'line',
-                data: { labels: [], datasets: [{ label: "Humedad del suelo %", data: [], fill: false, borderColor: 'black', tension: 0.1 }] }
+                data: { labels: [], datasets: [{ label: "Humedad del suelo %", data: [], fill: false, borderColor: 'rgba(255, 159, 64, 1)', tension: 0.1 }] }
             })
         };
 

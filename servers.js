@@ -85,5 +85,16 @@ app.get('/datos-historicos', (req, res) => {
     });
 });
 
+app.get('/umbrales', (req, res) => {
+    pool.query('SELECT * FROM umbrales ORDER BY fecha_actualizacion DESC LIMIT 1', (error, results, fields) => {
+        if (error) {
+            console.error('Error al realizar la consulta a la base de datos:', error);
+            res.status(500).send('Error al obtener los datos de los umbrales');
+            return;
+        }
+        res.json(results[0]);
+    });
+});
+
 const PORT = 3000;
 server.listen(PORT, () => console.log(`Servidor corriendo en el puerto ${PORT}`));
