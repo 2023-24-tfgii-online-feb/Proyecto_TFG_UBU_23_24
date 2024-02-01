@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Monitorización de Invernaderos de Cannabis Medicinal - Histórico</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Iconos y favicones -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <!-- Cargar Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Estilos personalizados -->
+    <style>
+        body { padding-top: 20px; }
+        .chart-container { height: 300px; }
+        .pie-pagina-final {
+            font-size: 0.7em;
+            margin-top: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 6px;
+            text-align: center;
+        }
+        .pie-pagina-final a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .titulo-personalizado {
+            font-size: 1.60rem;
+        }
+        .navbar-custom {
+            padding: 0.10rem;
+            border: 1px solid #ccc;
+            border-radius: 0.5rem;
+            margin-bottom: 0.60rem;
+        }
+        .navbar-nav {
+            width: 100%;
+            justify-content: flex-end;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Barra de navegación personalizada -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom">
+            <span class="navbar-brand mb-0 h1 titulo-personalizado">
+                Histórico de datos de los sensores del invernadero.
+            </span>
+            <div class="d-flex align-items-center">
+                <input type="date" id="fechaInicio" name="fechaInicio" class="form-control mx-2">
+                <input type="date" id="fechaFin" name="fechaFin" class="form-control mx-2">
+                <button onclick="cargarDatos()" class="btn btn-primary">Filtrar</button>
+            </div>
+            <div class="navbar-nav">
+                <a class="nav-link" href="index.html">Datos en tiempo real</a>
+            </div>
+        </nav>
+
+        <div class="row">
+            <div class="col-md-6 chart-container">
+                <canvas id="chartTemperatura"></canvas>
+            </div>
+            <div class="col-md-6 chart-container">
+                <canvas id="chartHumedad"></canvas>
+            </div>
+            <div class="col-md-6 chart-container">
+                <canvas id="chartLuminosidad"></canvas>
+            </div>
+            <div class="col-md-6 chart-container">
+                <canvas id="chartHumedadSuelo"></canvas>
+            </div>
+        </div>
+        <div class="pie-pagina-final">
+            © <a href="mailto:jlcaballeromq@gmail.com">José Luis Caballero Martínez-Quintanilla</a>. TFG UBU 23/24.
+        </div>
+    </div>
+
+    <script>
+        let charts = {
+            temperatura: new Chart(document.getElementById('chartTemperatura').getContext('2d'), {
+                type: 'line',
+                data: { labels: [], datasets: [{ label: "Temperatura °C", data: [], fill: false, borderColor: 'red', tension: 0.1 }] }
+            }),
+            humedad: new Chart(document.getElementById('chartHumedad').getContext('2d'), {
+                type: 'line',
+                data: { labels: [], datasets: [{ label: "Humedad %", data: [], fill: false, borderColor: 'green', tension: 0.1 }] }
+            }),
+            luminosidad: new Chart(document.getElementById('chartLuminosidad').getContext('2d'), {
+                type: 'line',
+                data: { labels: [], datasets: [{ label: "Intensidad de luz lux", data: [], fill: false, borderColor: 'blue', tension: 0.1 }] }
+            }),
+            humedadSuelo: new Chart(document.getElementById('chartHumedadSuelo').getContext('2d'), {
+                type: 'line',
+                data: { labels: [], datasets: [{ label: "Humedad del suelo %", data: [], fill: false, borderColor: 'black', tension: 0.1 }] }
+            })
+        };
+
+        async function cargarDatos() {
+            const fechaInicio = document.getElementById('fechaInicio').value;
+            const fechaFin = document.getElementById('fechaFin').value;
+            try {
+                const url = `http://46.24.8.196:3000/datos-historicos?fechaInicio=${fechaInicio}&fechaFin=${fechaFin}`;
+                const response = await fetch(url);
+                const data = await response.json();
+
+                Object.values(charts).forEach(chart => {
+                    chart.data.labels.length = 0;
+                    chart.data.datasets[0].data.length = 0;
+                });
+
+                data.forEach(element => {
+                    charts.temperatura.data.labels.push(element.hora);
+                    charts.temperatura.data.datasets[0].data.push(element.temperatura);
+
+                    charts.humedad.data.labels.push(element.hora);
+                    charts.humedad.data.datasets[0].data.push(element.humedad);
+
+                    charts.luminosidad.data.labels.push(element.hora);
+                    charts.luminosidad.data.datasets[0].data.push(element.intensidad_luz);
+
+                    charts.humedadSuelo.data.labels.push(element.hora);
+                    charts.humedadSuelo.data.datasets[0].data.push(element.humedad_suelo);
+                });
+
+                Object.values(charts).forEach(chart => chart.update());
+            } catch (error) {
+                console.error("Error al obtener datos históricos:", error);
+            }
+        }
+
+        cargarDatos();
+    </script>
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

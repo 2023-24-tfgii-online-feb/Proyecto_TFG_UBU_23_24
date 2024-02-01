@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Datos sensores en tiempo real.</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Iconos y favicones -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <!-- Cargar socket.io.js y Chart.js -->
+    <script src="./node_modules/socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Estilos personalizados -->
+    <style>
+        body { padding-top: 20px; }
+        .card { margin-bottom: 20px; }
+        #sensorChart { height: 400px; }
+        .sensor-data {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .bajo-umbral { background-color: #add8e6; }
+        .sobre-umbral { background-color: #ffcccc; }
+        .pie-pagina {
+            font-size: 0.8em;
+            margin-top: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .pie-pagina-final {
+            font-size: 0.7em;
+            margin-top: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 6px;
+            text-align: center;
+        }
+        .pie-pagina-final a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .titulo-personalizado {
+            font-size: 1.60rem;
+        }
+        .navbar-custom {
+            padding: 0.10rem;
+            border: 1px solid #ccc;
+            border-radius: 0.5rem;
+            margin-bottom: 0.60rem;
+        }
+        .navbar-nav {
+            width: 100%;
+            justify-content: flex-end;
+        }
+        .navbar-custom .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+        .fecha-hora {
+            margin-left: 10px;
+            font-weight: bold;
+			font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Barra de navegación personalizada -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom">
+            <span class="navbar-brand mb-0 h1 titulo-personalizado">
+                Datos sensores en tiempo real.
+                <span id="fechaHoraActual" class="fecha-hora"></span>
+            </span>
+            <div class="navbar-nav">
+                <a class="nav-link" href="historico.html">Histórico de datos</a>
+            </div>
+        </nav>
+		
+        <div class="row">
+            <div class="col-md-4">
+                <div id="data" class="card card-body">
+                    Esperando datos...
+                </div>
+                <div class="pie-pagina">
+                    <p>* Fondo azul: por debajo del valor ideal.</p>
+                    <p>* Fondo rojo: por encima del valor ideal.</p>
+                    <p id="umbrales"></p>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <canvas id="sensorChart"></canvas>
+            </div>
+        </div>
+        <div class="pie-pagina-final">
+            © <a href="mailto:jlcaballeromq@gmail.com">José Luis Caballero Martínez-Quintanilla</a>. TFG UBU 23/24.
+        </div>
+    </div>
+
+    <script>		
+        document.addEventListener('DOMContentLoaded', function() {
+            var socket = io.connect('http://46.24.8.196:3000');
+            
+            const UMBRALES = {
+                temperatura: { min: 30, max: 35 },
+                humedad: { min: 30, max: 70 },
+                luminosidad: { min: 30, max: 150 },
+                humedadSuelo: { min: 20, max: 80 }
+            };
+			
+			// Función para actualizar la fecha y hora
+            function actualizarFechaHora() {
+                var ahora = new Date();
+                var fecha = ahora.getDate().toString().padStart(2, '0') + '/' +
+                            (ahora.getMonth() + 1).toString().padStart(2, '0') + '/' +
+                            ahora.getFullYear();
+                var hora = ahora.getHours().toString().padStart(2, '0') + ':' +
+                           ahora.getMinutes().toString().padStart(2, '0') + ':' +
+                           ahora.getSeconds().toString().padStart(2, '0');
+                document.getElementById('fechaHoraActual').innerHTML = fecha + ' - ' + hora;
+            }
+
+            // Actualizar la fecha y hora cada segundo
+            setInterval(actualizarFechaHora, 1000);
+            
+            document.getElementById('umbrales').innerHTML = `
+                Umbrales: <br>
+                Temperatura: ${UMBRALES.temperatura.min}°C - ${UMBRALES.temperatura.max}°C. <br>
+                Humedad Ambiente: ${UMBRALES.humedad.min}% - ${UMBRALES.humedad.max}%. <br>
+                Luminosidad: ${UMBRALES.luminosidad.min} Lux - ${UMBRALES.luminosidad.max} Lux. <br>
+                Humedad del Suelo: ${UMBRALES.humedadSuelo.min}% - ${UMBRALES.humedadSuelo.max}%.`;
+
+
+            socket.on('mqtt_data', function(data) {
+                var parts = data.split(',');
+                if (parts.length == 6) {
+                    var temperatura = parseFloat(parts[2]);
+                    var humedad = parseFloat(parts[3]);
+                    var luminosidad = parseFloat(parts[4]);
+                    var humedadSuelo = parseFloat(parts[5]);
+
+                    var determinarFondo = (valor, umbral) => {
+                        if (valor < umbral.min) return 'bajo-umbral';
+                        if (valor > umbral.max) return 'sobre-umbral';
+                        return '';
+                    };
+
+                    var formattedData = `
+                        <div class="sensor-data ${determinarFondo(temperatura, UMBRALES.temperatura)}"><strong>Temperatura:</strong> ${temperatura} °C</div>
+                        <div class="sensor-data ${determinarFondo(humedad, UMBRALES.humedad)}"><strong>Humedad ambiente:</strong> ${humedad} %</div>
+                        <div class="sensor-data ${determinarFondo(luminosidad, UMBRALES.luminosidad)}"><strong>Intensidad de Luz:</strong> ${luminosidad} Lux</div>
+                        <div class="sensor-data ${determinarFondo(humedadSuelo, UMBRALES.humedadSuelo)}"><strong>Humedad del Suelo:</strong> ${humedadSuelo} %</div>
+                    `;
+                    document.getElementById('data').innerHTML = formattedData;
+                }
+            });
+
+            var ctx = document.getElementById('sensorChart').getContext('2d');
+            var sensorChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: 'Temperatura (°C)',
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            data: []
+                        },
+                        {
+                            label: 'Humedad Ambiente (%)',
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            data: []
+                        },
+                        {
+                            label: 'Humedad Suelo (%)',
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            data: []
+                        },
+                        {
+                            label: 'Luminosidad (Lux)',
+                            backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                            borderColor: 'rgba(153, 102, 255, 1)',
+                            data: []
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 300
+                        }
+                    }
+                }
+            });
+
+            socket.on('mqtt_data', function(data) {
+                var parts = data.split(',');
+                if (parts.length == 6) {
+                    var fecha = parts[0]; // yyyy-mm-dd
+                    var hora = parts[1]; // hora
+
+                    var fechaParts = fecha.split('-');
+                    var fechaFormateada = fechaParts[2] + '/' + fechaParts[1] + '/' + fechaParts[0];
+
+                    var fechaHora = fechaFormateada + ' ' + hora;
+                    sensorChart.data.labels.push(fechaHora);
+                    sensorChart.data.datasets[0].data.push(parts[2]); // Temperatura
+                    sensorChart.data.datasets[1].data.push(parts[3]); // Humedad Ambiente
+                    sensorChart.data.datasets[2].data.push(parts[4]); // Humedad Suelo
+                    sensorChart.data.datasets[3].data.push(parts[5]); // Luminosidad
+
+                    if (sensorChart.data.labels.length > 20) {
+                        sensorChart.data.labels.shift();
+                        sensorChart.data.datasets.forEach((dataset) => dataset.data.shift());
+                    }
+                    sensorChart.update();
+                }
+            });
+        });
+    </script>
+
+    <!-- Bootstrap y dependencias de JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
