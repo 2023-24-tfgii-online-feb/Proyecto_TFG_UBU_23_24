@@ -54,6 +54,7 @@
             ClientSize = new Size(1080, 628);
             Controls.Add(dgvHistorico);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MinimumSize = new Size(1100, 680);
             Name = "frmHistorico";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Inver IoT - Histórico de datos.";

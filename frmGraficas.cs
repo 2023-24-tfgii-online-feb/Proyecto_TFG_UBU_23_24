@@ -1,7 +1,4 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -41,7 +38,7 @@ namespace InverIoT
                         {
                             DataTable dt = new DataTable();
                             adapter.Fill(dt);
-                            // Aquí llamarías a la función que actualiza tu gráfico con 'dt' como parámetro
+                            // Aquí llamo a la función que actualiza la gráfica con 'dt' como parámetro
                             actualizaDatosGrafica(dt);
                         }
                     }
@@ -109,12 +106,7 @@ namespace InverIoT
                     MessageBox.Show("Formato de fecha y hora no válido: " + fechaHoraStr);
                 }
             }
-
-            // Configuraciones adicionales de la gráfica
-            /*chartSensores.ChartAreas[0].AxisX.LabelStyle.Format = "dd/MM/yyyy HH:mm:ss";
-            chartSensores.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Hours;
-            chartSensores.ChartAreas[0].AxisX.Interval = 1;*/
-            chartSensores.ChartAreas[0].AxisX.LabelStyle.Format = "dd/MM/yyyy HH:mm:ss";
+            chartSensores.ChartAreas[0].AxisX.LabelStyle.Format = "dd/MM/yyyy\nHH:mm:ss";
             chartSensores.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Minutes;
             chartSensores.ChartAreas[0].AxisX.Interval = 30; // Establecer intervalos de 30 minutos
         }
@@ -159,7 +151,4 @@ namespace InverIoT
             }
         }
     }
-
-
-
 }

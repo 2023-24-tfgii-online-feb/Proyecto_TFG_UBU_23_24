@@ -50,14 +50,14 @@
             chartSensores.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             chartSensores.Legends.Add(legend1);
-            chartSensores.Location = new Point(7, 120);
+            chartSensores.Location = new Point(-1, 112);
             chartSensores.Margin = new Padding(0);
             chartSensores.Name = "chartSensores";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             chartSensores.Series.Add(series1);
-            chartSensores.Size = new Size(930, 480);
+            chartSensores.Size = new Size(944, 495);
             chartSensores.TabIndex = 0;
             chartSensores.Text = "Gráfica";
             // 
@@ -69,7 +69,7 @@
             grbFiltro.Controls.Add(dtpFin);
             grbFiltro.Controls.Add(lblFInicio);
             grbFiltro.Controls.Add(dtpInicio);
-            grbFiltro.Location = new Point(12, 12);
+            grbFiltro.Location = new Point(12, 7);
             grbFiltro.Name = "grbFiltro";
             grbFiltro.Size = new Size(920, 102);
             grbFiltro.TabIndex = 3;
@@ -127,10 +127,11 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(944, 605);
+            ClientSize = new Size(944, 606);
             Controls.Add(grbFiltro);
             Controls.Add(chartSensores);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MinimumSize = new Size(964, 658);
             Name = "frmGraficas";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Inver IoT - Gráficas.";
