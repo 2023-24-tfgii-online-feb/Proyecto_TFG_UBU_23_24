@@ -2,13 +2,17 @@ import time
 import gc
 import ujson
 import urequests
+
+
 class ubot:
+    
     def __init__(self, token, offset=0):
         self.url = 'https://api.telegram.org/bot' + token
         self.commands = {}
         self.default_handler = None
         self.message_offset = offset
         self.sleep_btw_updates = 3
+
         messages = self.read_messages()
         if messages:
             if self.message_offset==0:
@@ -18,6 +22,8 @@ class ubot:
                     if message['update_id'] >= self.message_offset:
                         self.message_offset = message['update_id']
                         break
+
+
     def send(self, chat_id, text):
         data = {'chat_id': chat_id, 'text': text}
         try:
@@ -27,6 +33,7 @@ class ubot:
             return True
         except:
             return False
+
     def read_messages(self):
         result = []
         self.query_updates = {
@@ -34,6 +41,7 @@ class ubot:
             'limit': 1,
             'timeout': 30,
             'allowed_updates': ['message']}
+
         try:
             update_messages = urequests.post(self.url + '/getUpdates', json=self.query_updates).json() 
             if 'result' in update_messages:
@@ -82,3 +90,4 @@ class ubot:
             else:
                 if self.default_handler:
                     self.default_handler(message)
+
