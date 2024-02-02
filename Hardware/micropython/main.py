@@ -1,6 +1,6 @@
 from machine import Pin, I2C, ADC, Pin  # Importa clases para manejar pines digitales, I2C, ADC (Convertidor Analógico a Digital) de la biblioteca 'machine'.
 import dht  # Importa la biblioteca para manejar sensores DHT (sensores de temperatura y humedad).
-import network, utelegram, utime, urequests, umqtt.simple as mqtt  # Importa varias bibliotecas para manejar red, un cliente Telegram, utilidades de tiempo, solicitudes HTTP y MQTT.
+import network, utelegram, utime, urequests, umqtt as mqtt  # Importa varias bibliotecas para manejar red, un cliente Telegram, utilidades de tiempo, solicitudes HTTP y MQTT.
 from bh1750 import BH1750  # Importa la clase BH1750 de la biblioteca bh1750 para manejar el sensor de luminosidad BH1750.
 from sh1106 import SH1106_I2C  # Importa la clase SH1106_I2C para manejar la pantalla OLED SH1106 a través de I2C.
 from config import utelegram_config, umbrales_sensores, mqtt_config  # Importa variables de configuración específicas (para Telegram y umbrales de sensores) desde un archivo de configuración 'config.py'.
