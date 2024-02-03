@@ -13,7 +13,10 @@ El programa ejecuta las siguientes tareas:
 * Mostrar los datos en la pantalla OLED.
 * Enviar actualizaciones a la plataforma web en intervalos predefinidos.
 * Esperar el próximo intervalo de actualización.
-* 
+
+# Añadida una presentación creada con IA con la voz de Iker Jiménez.
+Archivo: Presentación_IA_Iker_Jiménez_PF.mp3
+
 # Acceso online al dashboard.
 
 http://www.inveriot.com
