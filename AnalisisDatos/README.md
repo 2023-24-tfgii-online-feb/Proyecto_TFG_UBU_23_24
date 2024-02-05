@@ -1,6 +1,6 @@
 # Análisis de datos
 
-## Estructura de la data
+## Estructura de los datos
 
 ![](img/data.png)
 
