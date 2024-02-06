@@ -34,7 +34,7 @@
 ## Regresión lineal
 
 * Esta es la regresión lineal entre las variables: **temperatura** y **humedad**.  
-* $R^2$=0.537 (Factor de determinación). Representa una capacidad predictiva moderada.  
+* $R^2$=0.537 (Factor de determinación). El 53.7% de la variabilidad en la variable dependiente (temperatura) puede explicarse por el modelo de regresión lineal. Representa una capacidad predictiva moderada.  
 * La ecuación es: $y=-0.48x + 48.24$
 * La capacidad predictiva moderada y la dispersión de los datos indican poca fiabilidad para predecir mediante una regresión lineal.
 
