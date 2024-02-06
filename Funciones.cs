@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace InverIoT
 {
-    // Optimiza el dgv, usado en (frmResumen) y (frmSeleccion)
+    // Optimiza el dgv
     public static class ExtensionMethods
     {
         public static void DoubleBuffered(this DataGridView dgv, bool setting)
@@ -14,6 +14,7 @@ namespace InverIoT
         }
     }
 
+    // Variable con la cadena de conexión al servidor mySQL
     public class Funciones
     {
         public static string conexionMySQL = "server=46.24.8.196;port=3307;uid=joseluis;pwd=UBU_tfg_23_24;database=TFG_UBU";

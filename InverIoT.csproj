@@ -7,6 +7,15 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <Version>$(VersionPrefix)</Version>
+    <AssemblyVersion>2.2</AssemblyVersion>
+    <FileVersion>2.2</FileVersion>
+    <Title>Inver IoT</Title>
+    <Authors>José Luis Caballero M-Q</Authors>
+    <Copyright>© 2024 - José Luis Caballero M-Q</Copyright>
+    <Company>jlcaballeromq@gmail.com</Company>
+    <Description>Monitorización de parámetros de invernadero (temperatura, humedad ambiente, luminosidad, humedad del suelo).</Description>
+    <PackageReleaseNotes>Añadido comentarios y mejora de rendimiento optimizando métodos.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

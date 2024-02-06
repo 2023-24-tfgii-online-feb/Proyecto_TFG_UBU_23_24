@@ -115,25 +115,21 @@
             // 
             resources.ApplyResources(txtHumSueloMax, "txtHumSueloMax");
             txtHumSueloMax.Name = "txtHumSueloMax";
-            txtHumSueloMax.KeyPress += txtHumSueloMax_KeyPress;
             // 
             // txtLuminosidadMax
             // 
             resources.ApplyResources(txtLuminosidadMax, "txtLuminosidadMax");
             txtLuminosidadMax.Name = "txtLuminosidadMax";
-            txtLuminosidadMax.KeyPress += txtLuminosidadMax_KeyPress;
             // 
             // txtHumAmbMax
             // 
             resources.ApplyResources(txtHumAmbMax, "txtHumAmbMax");
             txtHumAmbMax.Name = "txtHumAmbMax";
-            txtHumAmbMax.KeyPress += txtHumAmbMax_KeyPress;
             // 
             // txtTemperaturaMax
             // 
             resources.ApplyResources(txtTemperaturaMax, "txtTemperaturaMax");
             txtTemperaturaMax.Name = "txtTemperaturaMax";
-            txtTemperaturaMax.KeyPress += txtTemperaturaMax_KeyPress;
             // 
             // label1
             // 
@@ -181,25 +177,21 @@
             // 
             resources.ApplyResources(txtHumSueloMin, "txtHumSueloMin");
             txtHumSueloMin.Name = "txtHumSueloMin";
-            txtHumSueloMin.KeyPress += txtHumSueloMin_KeyPress;
             // 
             // txtLuminosidadMin
             // 
             resources.ApplyResources(txtLuminosidadMin, "txtLuminosidadMin");
             txtLuminosidadMin.Name = "txtLuminosidadMin";
-            txtLuminosidadMin.KeyPress += txtLuminosidadMin_KeyPress;
             // 
             // txtHumAmbMin
             // 
             resources.ApplyResources(txtHumAmbMin, "txtHumAmbMin");
             txtHumAmbMin.Name = "txtHumAmbMin";
-            txtHumAmbMin.KeyPress += txtHumAmbMin_KeyPress;
             // 
             // txtTemperaturaMin
             // 
             resources.ApplyResources(txtTemperaturaMin, "txtTemperaturaMin");
             txtTemperaturaMin.Name = "txtTemperaturaMin";
-            txtTemperaturaMin.KeyPress += txtTemperaturaMin_KeyPress;
             // 
             // lblUHs
             // 
