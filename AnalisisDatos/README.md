@@ -1,5 +1,14 @@
 # Análisis de datos
 
+## Diccionario de datos
+
+| Columna|Descripción|Tipo de Datos|Unidades|
+|---|---|---|---|
+| temperatura	| Temperatura del ambiente | Número decimal | $\textcelsius$|
+|humedad|Humedad relativa del ambiente (HR)|Número decimal| %|
+|intensidad_luz|Intensidad de luz|Número decimal|lux|
+|humedad_suelo|Humedad del suelo|Número decimal|%|
+
 ## Estructura de los datos
 
 ![](img/data.png)
@@ -21,3 +30,12 @@
 * Las variables **humedad** y **temperatura** tienen una fuerte correlación.
 
 ![](img/estadistica_correlacion.png)
+
+## Regresión lineal
+
+* Esta es la regresión lineal entre las variables: **temperatura** y **humedad**.  
+* $R^2$=0.537 (Factor de determinación). Representa una capacidad predictiva moderada.  
+* La ecuación es: $y=-0.48x + 48.24$
+* La capacidad predictiva moderada y la dispersión de los datos indican poca fiabilidad para predecir mediante una regresión lineal.
+
+![](img/regresion_lineal.png)
