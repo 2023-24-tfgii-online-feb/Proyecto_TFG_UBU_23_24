@@ -13,6 +13,10 @@
 
 ![](img/data.png)
 
+## Resumen estadístico
+
+![](img/estadistica_resumen.png)
+
 ## Diagrama de dispersión por pares
 
 * Permite comparar las relaciones entre diferentes pares de variables.  
