@@ -19,6 +19,19 @@ Thonny IDE se presenta como la opción más idónea, proporcionando una combinac
 \end{figure}
  \pagebreak
 
+\subsection{Entorno de desarrollo Python}\label{4:Python}
+\begin{itemize}
+    \item \textbf{Herramientas valoradas:} \href{https://colab.google/}{Google colab} y \href{https://jupyter.org/}{Jupyter Notebook}.
+    \item \textbf{Herramienta elegida:} \href{https://jupyter.org/}{Jupyter Notebook}.
+\end{itemize}
+
+Jupyter Notebook~\cite{misc:Jupyter_Notebook} es una herramienta de código abierto poderosa que facilita la creación y compartición de documentos interactivos. Estos documentos pueden contener código ejecutable, visualizaciones, texto narrativo y otros elementos. Opto por utilizar Jupyter Notebook en mi Trabajo de Fin de Grado debido a su versatilidad y capacidad para aprovechar los entornos virtuales que he configurado en mi computadora. Este entorno se ha vuelto fundamental para llevar a cabo análisis de datos, especialmente haciendo uso intensivo de la biblioteca Pandas~\cite{misc:Pandas} para manipulación y procesamiento de datos.
+%\begin{figure}[h]
+    %\centering
+    %\includegraphics[width=0.1\textwidth]{img/herramientas/jupyter_logo.png}
+    %\caption{Jupyter logo.} \label{Img:Jupyter}
+%\end{figure}
+\pagebreak
 \section{Control de datos}
 \subsection{APIS}\label{4:APIS}
 \begin{itemize}
@@ -29,6 +42,7 @@ Esta API fue usada en el código MicroPython.
 		La API de WorldTime~\cite{misc:WorlTimeAPI}, accesible mediante la URL \url{http://worldtimeapi.org/api/ip}, ofrece información precisa sobre la hora mundial basada en la ubicación asociada a la dirección IP del usuario. Al realizar una solicitud a esta API, se obtiene información detallada sobre la hora actual, la fecha, el huso horario y otros datos relacionados con la hora en la ubicación correspondiente a la dirección IP consultada. Esta API es valiosa para aplicaciones que requieren sincronización horaria precisa y la visualización de la hora actual en diferentes regiones del mundo. Su facilidad de acceso y respuesta estructurada la convierten en una herramienta útil para integrar la información horaria global en aplicaciones y sistemas.
 Esta API fue usada en el código MicroPython.
 \end{itemize}
+\pagebreak
 
 \section{Entorno Hardware}
 \subsection{Fritzing}
@@ -38,6 +52,7 @@ Fritzing~\cite{misc:Fritzing} es una herramienta de diseño electrónico de cód
     \includegraphics[width=1\textwidth]{img/herramientas/fritzing.png}
     \caption{Esquema de conexiones diseñado con Fritzing.}
 \end{figure}
+\pagebreak
 
 \section{Metodologías}
 \subsection{Modularidad}
@@ -71,7 +86,6 @@ La división en módulos facilita la colaboración entre diferentes equipos o de
 	\caption{Estructura de ramas en GitHub aplicando modularidad. }
 \end{figure}
 Cada rama representa un módulo o característica específica del proyecto, permitiendo un desarrollo paralelo y aislado. Las ramas se fusionan con la rama principal una vez que las funcionalidades están completas y probadas. Esta estrategia facilita la gestión modular del proyecto y la colaboración entre desarrolladores.
-
 
 \section{Entorno de desarrollo del Proyecto}
 \subsection{Control de versiones o CVS, Concurrent Versioning System}\label{4:controlVersiones}
@@ -168,6 +182,13 @@ Overleaf tiene un sistema de control de versiones integrado que permite realizar
 Overleaf permite exportar documentos a diferentes formatos (PDF, HTML, etc.) y facilita la publicación directa en revistas académicas que admiten el formato LaTeX.
 \end{itemize}
 \pagebreak
+
+\subsection{Calidad del Código}
+\begin{itemize}
+	\item \textbf{Herramientas valoradas:} \href{https://www.sonarsource.com/products/sonarcloud/}{SonarCloud}, \href{https://codebeat.co/}{Codebeat}, \href{https://www.codacy.com/}{Codacy} y \href{https://www.sonarsource.com/products/sonarqube/}{SonarQube}.
+    \item \textbf{Herramienta elegida:} \href{https://www.sonarsource.com/products/sonarcloud/}{SonarCloud}.
+\end{itemize}
+SonarCloud~\cite{misc:SonarCloud}, elegido para optimizar la calidad del código en mi proyecto, realiza revisiones exhaustivas en la nube y ofrece valiosas sugerencias para mejorar. Su integración en tiempo real con GitHub asegura una evaluación continua y facilita la corrección de problemas de código de manera inmediata. 
 
 \section{Entorno físico}
 \subsection{Raspberry Pi Pico W}
