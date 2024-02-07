@@ -43,7 +43,7 @@ class SH1106(framebuf.FrameBuffer):
         self.init_display()
 
     def init_display(self):
-        self.reset()
+        #self.reset()
         self.fill(0)
         self.show()
         self.poweron()
