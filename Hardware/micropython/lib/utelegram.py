@@ -24,15 +24,19 @@ class ubot:
                         break
 
 
-    def send(self, chat_id, text):
-        data = {'chat_id': chat_id, 'text': text}
-        try:
-            headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-            response = urequests.post(self.url + '/sendMessage', json=data, headers=headers)
-            response.close()
-            return True
-        except:
-            return False
+   def send(self, chat_id, text):
+    data = {'chat_id': chat_id, 'text': text}
+    try:
+        headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+        response = urequests.post(self.url + '/sendMessage', json=data, headers=headers)
+        response.close()
+        return True
+    except OSError as e:
+        print("Error de conexión:", e)
+        return False
+    except Exception as e:
+        print("Error al enviar mensaje:", e)
+        return False
 
     def read_messages(self):
         result = []
