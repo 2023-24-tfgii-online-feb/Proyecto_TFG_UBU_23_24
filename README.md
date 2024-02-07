@@ -16,10 +16,6 @@ El programa ejecuta las siguientes tareas:
 * Esperar el próximo intervalo de actualización.
 * Desde el bot de telegram se pueden hacer consultas para que nos devuelva el valor del valor del sensor que hayamos elegido, también podremos activar mecanismos para solventar valores fuera de los umbrales, como riego, ventilación, calefacción, focos luminosos... (en este caso se enciende un led verde, pero lo comentado se podría implementar).
 
-
-# Añadida una presentación creada con IA con la voz de Iker Jiménez.
-Archivo: Presentación_IA_Iker_Jiménez_PF.mp3
-
 # Subidos 3 videos a youtube con explicación y comprobación del funcionamiento.
 1. https://youtu.be/VwgxjhJzbKk
 2. https://youtu.be/c7tfhW0rUnw
