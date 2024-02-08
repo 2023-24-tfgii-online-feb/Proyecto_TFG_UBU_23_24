@@ -330,7 +330,7 @@ def handle_mqtt_messages(topic, msg):
 
 def manage_sending(next_send):
     # Esta función gestiona el envío de alertas y datos a través de Telegram y MQTT.
-
+    global next_send
     # Llama a la función enviar_alertas_telegram para verificar si los valores actuales de los sensores están fuera de los umbrales definidos y, en caso afirmativo, enviar alertas a Telegram.
     enviar_alertas_telegram(temp, hum, lux, porcentaje_humedad_suelo, bot)
 
@@ -341,7 +341,6 @@ def manage_sending(next_send):
     # Actualiza el momento en el que se debe realizar el próximo envío de datos.
     # Se suma el intervalo de envío a la hora actual para programar el próximo envío.
     next_send = utime.time() + send_interval
-    return next_send  # Devuelve el nuevo valor de next_send
 
 def send_message(chat_id, message):
     # Esta función se utiliza para enviar mensajes a través del bot de Telegram.
