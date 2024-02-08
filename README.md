@@ -16,6 +16,11 @@ El programa ejecuta las siguientes tareas:
 * Esperar el próximo intervalo de actualización.
 * Desde el bot de telegram se pueden hacer consultas para que nos devuelva el valor del valor del sensor que hayamos elegido, también podremos activar mecanismos para solventar valores fuera de los umbrales, como riego, ventilación, calefacción, focos luminosos... (en este caso se enciende un led verde, pero lo comentado se podría implementar).
 
+# Comprobación de calidad de código del repositorio
+Mediante la herramienta online sonarcloud.io se ha analizado la calidad del código, y siguiendo varios consejos se ha actualizado para optimizarlo.
+Status: Passed.
+https://sonarcloud.io/project/overview?id=JLCaballeroMQ_Proyecto_TFG_UBU_23_24
+
 # Subidos 3 videos a youtube con explicación y comprobación del funcionamiento.
 1. https://youtu.be/VwgxjhJzbKk
 2. https://youtu.be/c7tfhW0rUnw
