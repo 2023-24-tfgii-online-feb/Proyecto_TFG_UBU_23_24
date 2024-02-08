@@ -55,37 +55,47 @@ Fritzing~\cite{misc:Fritzing} es una herramienta de diseño electrónico de cód
 \pagebreak
 
 \section{Metodologías}
-\subsection{Modularidad}
-La modularidad es un principio clave en la metodología de desarrollo que implica la división de un sistema en módulos independientes y autónomos, cada uno de los cuales realiza una función específica y bien definida. En el contexto del diseño de un sistema económico IoT para la monitorización de invernaderos de cannabis medicinal, la aplicación de la modularidad implica organizar el software y el hardware en componentes distintos y fácilmente intercambiables.
+\subsection{Modelo de prototipos}
+El modelo de prototipos~\cite{misc:Metodologia_ModeloDePrototipos} es una metodología de desarrollo de software que se centra en la creación temprana y rápida de versiones simplificadas de un sistema para obtener retroalimentación y comprensión de los requisitos del usuario. En lugar de esperar hasta la fase final del desarrollo para presentar un producto completo, el enfoque de prototipos permite construir versiones iterativas y evolutivas del sistema.
 
-Características de la Modularidad:
-
+El proceso típico del modelo de prototipos implica las siguientes etapas:
 \begin{itemize}
-\item \textbf{Independencia Funcional:}
-Cada módulo opera de forma independiente, realizando una tarea específica sin depender excesivamente de otros. Esto facilita la comprensión individual y la posibilidad de actualizar o cambiar un módulo sin afectar el funcionamiento general.
+	\item \textbf{Definición de Requisitos:}
+Se identifican y documentan los requisitos iniciales del sistema.
 
-\item \textbf{Interconexión Estandarizada:}
-Aunque los módulos operan de manera independiente, la interconexión entre ellos sigue estándares predefinidos. Esto facilita la comunicación y la interoperabilidad entre los componentes del sistema.
+\item \textbf{Desarrollo del Prototipo:}
+Se construye un prototipo inicial que representa visualmente las funcionalidades clave del sistema.
 
-\item \textbf{Facilita el Mantenimiento:}
-La modularidad simplifica el mantenimiento del sistema, ya que las actualizaciones o correcciones pueden realizarse en módulos específicos sin afectar otras partes del sistema. Esto mejora la capacidad de respuesta y reduce el riesgo de errores inadvertidos.
+\item \textbf{Evaluación y Retroalimentación:}
+Los usuarios y las partes interesadas evalúan el prototipo y proporcionan retroalimentación sobre su diseño y funcionalidad.
 
-\item \textbf{Escalabilidad:}
-La estructura modular permite una fácil escalabilidad del sistema. Se pueden agregar nuevos módulos o funciones sin afectar negativamente la estructura existente, lo que facilita la adaptación del sistema a cambios futuros.
+\item \textbf{Refinamiento Iterativo:}
+Con base en la retroalimentación recibida, se realizan ajustes y mejoras en el prototipo, creando iteraciones sucesivas.
 
-\item \textbf{Reutilización de Componentes:}
-Los módulos pueden diseñarse para ser reutilizables en diferentes partes del proyecto o incluso en proyectos futuros. Esto reduce la redundancia y fomenta la eficiencia en el desarrollo.
-
-\item \textbf{Facilita la Colaboración:}
-La división en módulos facilita la colaboración entre diferentes equipos o desarrolladores, ya que cada grupo puede trabajar de manera independiente en su propio módulo, siempre y cuando se respeten las interfaces definidas.
+\item \textbf{Validación de Requisitos:}
+La validación continua de los prototipos ayuda a refinar y validar los requisitos del sistema a lo largo del proceso.
 \end{itemize}
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1\textwidth]{img/desarrollo/modularidad.png}
-	\caption{Estructura de ramas en GitHub aplicando modularidad. }
-\end{figure}
-Cada rama representa un módulo o característica específica del proyecto, permitiendo un desarrollo paralelo y aislado. Las ramas se fusionan con la rama principal una vez que las funcionalidades están completas y probadas. Esta estrategia facilita la gestión modular del proyecto y la colaboración entre desarrolladores.
+Este enfoque iterativo y colaborativo permite una mayor flexibilidad en la adaptación a cambios en los requisitos del usuario y facilita la comunicación entre los desarrolladores y los stakeholders. El modelo de prototipos es particularmente útil en situaciones donde los requisitos no están completamente claros desde el principio o cuando se busca una comprensión más profunda de las necesidades del usuario antes de la implementación final del sistema.
+
+\subsection{Metodología cascada}
+La metodología cascada~\cite{misc:Metodologia_Cascada}, también conocida como el modelo de desarrollo en cascada, es una metodología de desarrollo de software que sigue un enfoque lineal y secuencial. Aunque ha sido utilizada en proyectos de software en el pasado, en la actualidad se considera menos flexible y adaptable en comparación con metodologías más modernas y ágiles.
+En el modelo cascada, el proceso de desarrollo sigue una secuencia fija de fases, que generalmente incluyen:
+
+\begin{enumerate}
+\item Requisitos
+\item Diseño
+\item Implementación
+\item Pruebas
+\item Despliegue
+\item Mantenimiento
+\end{enumerate}
+
+Cada fase depende de la finalización exitosa de la fase anterior, y los cambios en las etapas posteriores pueden ser difíciles y costosos de implementar una vez que el proyecto ha avanzado. Este enfoque puede no ser el más adecuado para proyectos donde los requisitos pueden cambiar con frecuencia o donde la adaptabilidad es esencial.
+
+En muchos proyectos actuales, especialmente en el ámbito académico, se prefiere el uso de metodologías más ágiles y flexibles, como Scrum, Kanban o el enfoque de desarrollo iterativo e incremental.
+
+En conclusión, aunque la metodología cascada ha sido utilizada en el pasado, hoy en día muchas organizaciones y proyectos prefieren metodologías más ágiles y adaptables. La elección de la metodología dependerá de los requisitos y características específicas de cada proyecto de TFG.
 
 \section{Entorno de desarrollo del Proyecto}
 \subsection{Control de versiones o CVS, Concurrent Versioning System}\label{4:controlVersiones}
