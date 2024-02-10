@@ -239,14 +239,23 @@ HUMEDAD DEL SUELO & 20 & 80\\ \hline
 
 La intervención manual también es posible, como activar ventiladores al observar un LED azul. Además, estos procesos pueden automatizarse. Por ejemplo, si la luminosidad cae por debajo del umbral, los focos se encienden hasta alcanzar el valor óptimo, por ahora eso no está implementado en este proyecto.
 
-La información se visualiza en tiempo real en una página web desarrollada con Node.js, incluyendo un histórico de datos almacenados en la base de datos.
+La información también se puede visualizar en tiempo real en una página web desarrollada con Node.js, incluyendo un histórico de datos almacenados en la base de datos.
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.9\textwidth]{img/desarrollo/Dashboard3.png}
-	\caption{Página Web \href{http://www.inveriot.com}{InverIoT} desarrollada con Node.js.}
-\end{figure}
+A esta parte del proyecto se ha llamado \textbf{Dashboard} ~\ref{proyecto:Dashboard}.
 
+La base de datos de la que extrae data el dashboard web es recopilada por lo que en este proyecto llamamos \textbf{NodeMqtt}~\ref{proyecto:NodeMqtt}.
+
+%\begin{figure}[h]
+	%\centering
+	%\includegraphics[width=1\textwidth]{img/desarrollo/Dashboard2.png}
+	%\caption{Página Web \href{http://www.inveriot.com}{InverIoT} desarrollada con Node.js.}
+%\end{figure}
+
+%\begin{figure}[h]
+	%\centering
+	%\includegraphics[width=1\textwidth]{img/desarrollo/Dashboard3.png}
+	%\caption{Página Web \href{http://www.inveriot.com}{InverIoT} desarrollada con Node.js.}
+%\end{figure}
 %En este contexto, detallaré la configuración del servidor y la implementación de Node.js en la página web.
 
 \subsection{Hardware}\label{proyecto:Hardware}
