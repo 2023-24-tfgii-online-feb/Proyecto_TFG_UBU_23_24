@@ -116,11 +116,25 @@ La implementación final refleja la evolución del sistema desde su concepción 
 
 El propósito inicial radicaba en la recopilación de datos ambientales, tales como humedad, temperatura, intensidad de luz y humedad del suelo, con el fin de almacenarlos y presentarlos de manera gráfica.
 
+Con este propósito, se optó por la Raspberry Pi Pico W debido a su eficiencia energética y coste accesible. Se conectaron al sistema un sensor de humedad y temperatura DHT22~\cite{manual:DHT22}, un sensor de intensidad de luz BH1750~\cite{manual:BH1750}, y un sensor de humedad de suelo~\cite{wiki:SensorHumedadSuelo}. Además, se incorporaron LEDs RGB~\cite{manual:LedRGB} para señalizar alertas. A esta parte del proyecto se ha llamado \textbf{Hardware}~\ref{proyecto:Hardware}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/diagramas/conexiones_simple.png}
+	\caption{Raspberry Pi Pico W conectada a sensores y una pantalla oled.} \label{Img:conexion_simple}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\textwidth]{img/fotos/conexiones_real.png}
+	\caption{Raspberry Pi Pico W y sensores conectados mediante un protoboard.} \label{Img:conexion_simple}
+\end{figure}
+
 Una vez definida la idea del TFG y los componentes hardware, surgía la interrogante: "¿Dónde enviar los datos? ¿Cómo gestionarlos?". La primera medida fue mostrar los datos en una pantalla OLED~\cite{manual:Oled} conectada a la protoboard.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\textwidth]{img/fotos/oled1.png}
+	\includegraphics[width=0.4\textwidth]{img/fotos/oled1.png}
 	\caption{Pantalla oled conectada a la Raspberry Pi Pico W.} \label{Img:oled_conexion}
 \end{figure}
 
@@ -165,10 +179,10 @@ Basándome en esta información y en mi experiencia previa trabajando con \textb
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\textwidth]{img/herramientas/rpipicow_umqtt.png}
-	\caption{Se ha implementado la libreria umqtt~\cite{misc:umqtt} en la Raspberry Pi Pico W.} \label{Img:rpipicow_umqtt}
+	\caption{Se ha implementado la libreria umqtt en la Raspberry Pi Pico W.} \label{Img:rpipicow_umqtt}
 \end{figure}
 
-MQTT permite la visualización en tiempo real de los datos en una página web alojada en el servidor LAMP cada vez que la placa junto con el sensor envíe datos. Además, posibilita el almacenamiento de los datos en la base de datos MySQL~\cite{misc:Mysql}, permitiéndome mantener un historial y realizar consultas.
+MQTT permite la visualización en tiempo real de los datos en una página web alojada en el servidor LAMP cada vez que la placa junto con el sensor envíe datos. Además, posibilita el almacenamiento de los datos en la base de datos MySQL~\cite{misc:Mysql}, permitiéndome mantener un historial y realizar consultas. A esta parte del proyecto se ha llamado \textbf{NodeMqtt}~\ref{proyecto:NodeMqtt}.
 
 \begin{figure}[h]
 	\centering
@@ -184,17 +198,25 @@ Listo, he leído e incluso almacenado los datos que se envían. Además, con la 
 	\caption{Consulta a la base de datos mediante comandos usando Telegram.}
 \end{figure}
 
-También optamos por desarrollar una aplicación de escritorio para Windows en C\#~\cite{manual:CSharp} al que se ha llamado InverIoT~\ref{proyecto:InverIoT}, que permite la visualización en tiempo real de los datos. ¡Problema resuelto! Ahora, puedo recibir y monitorear la temperatura, luminosidad y otros valores del invernadero.
+También optamos por desarrollar una aplicación de escritorio para Windows en C\#~\cite{manual:CSharp} al que se ha llamado \textbf{InverIoT}~\ref{proyecto:InverIoT}, que permite la visualización en tiempo real de los datos. ¡Problema resuelto! Ahora, puedo recibir y monitorear la temperatura, luminosidad y otros valores del invernadero.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=1\textwidth]{img/desarrollo/InverIoT_PasandoUmbralLuz.png}
-	\caption{Aplicación de escritorio llamado InverIoT.}
+	\includegraphics[width=0.61\textwidth]{img/fotos/InverIoT_PasandoUmbralLuz.png}
+	\caption{El led rojo y el color naranja en la aplicación InverIoT indican que se ha sobrepasado el umbral de luz.}
 \end{figure}
 
 Sin embargo, al caer la noche, la luminosidad y la temperatura disminuyen, planteando un nuevo desafío. En este caso, necesitaría establecer una comunicación bidireccional con la placa Raspberry Pi Pico W para, por ejemplo, encender los focos y activar los calentadores.
 
-Este cambio a una comunicación bidireccional se logró suscribiendo la Raspberry Pi Pico W a un topic MQTT. Ahora, puedo enviar órdenes para procesarlas según sea necesario. Sin embargo, la activación de mecanismos físicos como encender focos, activar calefacción, regar el suelo o humidificar el ambiente aún no se ha implementado, ya que corresponde a otras especialidades como telecomunicación industrial o mecánica.
+Este cambio a una comunicación bidireccional se logró suscribiendo la Raspberry Pi Pico W a un topic MQTT. Ahora, puedo enviar órdenes para procesarlas según sea necesario. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.61\textwidth]{img/desarrollo/InverIoT_verde_clickMecanismo.png}
+	\caption{Al hacer clic en activar se enciende el led de color verde representando que estamos activando un mecanismo.}
+\end{figure}
+
+Sin embargo, la activación de mecanismos físicos como encender focos, activar calefacción, regar el suelo o humidificar el ambiente aún no se ha implementado, ya que corresponde a otras especialidades como telecomunicación industrial o mecánica.
 
 El cannabis medicinal requiere condiciones ambientales constantes y dentro de un umbral específico para un crecimiento óptimo y delicado.
 
@@ -242,47 +264,104 @@ La información se visualiza en tiempo real en una página web desarrollada con 
 \pagebreak
 
 \subsection{InverIoT}\label{proyecto:InverIoT}
-Se desarrolla una aplicación de escritorio para Windows llamada InverIoT, que permite al usuario monitorizar en tiempo real los datos provenientes de los sensores conectados a la placa. Utilizando el protocolo MQTT~\cite{manual:MQTT}, la aplicación suscribe y recibe los datos publicados en el mismo tema. Estos datos son formateados y presentados en textboxes correspondientes, con unidades de medida agregadas. Se incorporan botones para activar o desactivar mecanismos, como un LED verde, que corrigen valores fuera de los umbrales ideales indicados en la parte derecha de la interfaz. Además, se añaden 8 textboxes en la parte inferior para ajustar manualmente los valores mínimos y máximos de cada parámetro. Los umbrales se actualizan desde la base de datos del servidor LAMP, proporcionando indicadores visuales de color azul para valores bajos, gris para valores normales y rojo para valores altos.
+Se desarrolla una aplicación de escritorio para Windows llamada InverIoT, que permite al usuario monitorizar en tiempo real los datos provenientes de los sensores conectados a la placa. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{img/desarrollo/InverIoT_Desktop.png}
+	\caption{Aplicación de escritorio \textbf{InverIoT}.}
+\end{figure}
+
+Utilizando el protocolo MQTT~\cite{manual:MQTT}, la aplicación suscribe y recibe los datos publicados en el mismo tema. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{img/diagramas/mqtt_InverIoT_TiempoReal.png}
+    \caption{Enviando órdenes mediante MQTT la aplicación recibe datos en tiempo real.}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{img/diagramas/mqtt_InverIoT_Historico.png}
+    \caption{Para mostrar el historial de datos la aplicación extrae información de una base de datos almacenada en un servidor LAMP.}
+\end{figure}
+
+
+Estos datos son formateados y presentados en textboxes correspondientes, con unidades de medida agregadas.
+
+Se incorporan botones para activar o desactivar mecanismos, como un LED verde, que corrigen valores fuera de los umbrales ideales indicados en la parte derecha de la interfaz.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{img/desarrollo/InverIoT_Desktop_botones_control.png}
+    \caption{Botones para activar o desactivar mecanismos.}
+\end{figure}
+
+Además, se añaden 8 textboxes en la parte inferior para ajustar manualmente los valores mínimos y máximos de cada parámetro.
+
+Los umbrales se actualizan desde la base de datos del servidor LAMP, proporcionando indicadores visuales de color azul para valores bajos, gris para valores normales y rojo para valores altos.
 
 Se desarrolló la aplicación de escritorio utilizando Windows Forms y programada en lenguaje \textbf{C\#}~\cite{manual:CSharp}.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1\textwidth]{img/desarrollo/InverIoT_Desktop.png}
-	\caption{Aplicación de escritorio \textbf{InverIoT}.}
-\end{figure}
-\pagebreak
+
+La base de datos es alimentada por lo que en ese proyecto llamamos \textbf{NodeMqtt}~\ref{proyecto:NodeMqtt}, y la aplicación de escritorio \textbf{InverIoT} extrae esa información para mostrarla como un historial de datos.
+
+La base de datos contiene dos tablas llamadas \textbf{sensores} y \textbf{umbrales}.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.9\textwidth]{img/desarrollo/InverIoT_Histórico.png}
-    \caption{Historial de los datos.}
+    \includegraphics[width=0.95\textwidth]{img/desarrollo/InverIoT_Histórico.png}
+    \caption{Historial de los datos mostrara en la aplicación.}
 \end{figure}
 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.9\textwidth]{img/desarrollo/InverIoT_Gráficas.png}
+    \includegraphics[width=0.95\textwidth]{img/desarrollo/InverIoT_Gráficas.png}
     \caption{Gráfica mostrando los datos en un intervalo de fechas.}
 \end{figure}
 \pagebreak
 
 \subsection{Dashboard}\label{proyecto:Dashboard}
-Se desarrolla un dashboard que permite al usuario visualizar en tiempo real los datos capturados por los sensores, con una interfaz similar a la aplicación de escritorio. Los valores que exceden los umbrales establecidos se destacan mediante cambios de color. La plataforma incluye una gráfica en tiempo real y la capacidad de acceder a un historial con filtro de fecha. Los umbrales utilizados se extraen de la tabla \textbf{TFG\_UBU} en la base de datos MySQL~\cite{misc:Mysql}.
+Se desarrolla un dashboard que permite al usuario visualizar en tiempo real los datos capturados por los sensores, con una interfaz similar a la aplicación de escritorio.
 
-El panel de control está disponible para su acceso a través del siguiente enlace: \href{http://www.inveriot.com}{InverIoT Dashboard}
+Los valores que exceden los umbrales establecidos se destacan mediante cambios de color.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{img/desarrollo/Dashboard1.png}
+    \includegraphics[width=0.95\textwidth]{img/desarrollo/Dashboard1.png}
     \caption{Intensidad de luz superando los umbrales.} \label{Img:Dashboard1}
 \end{figure}
 
+La plataforma incluye una gráfica en tiempo real y la capacidad de acceder a un historial con filtro de fecha.
+
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{img/desarrollo/Dashboard_Historico.png}
-    \caption{Vista del historial: al cargar, muestra los datos del día actual.} \label{Img:Dashboard_Historico}
+    \includegraphics[width=0.95\textwidth]{img/desarrollo/Dashboard_Historico.png}
+    \caption{Vista del historial, al cargar, muestra los datos del día actual.} \label{Img:Dashboard_Historico}
 \end{figure}
+
+Los umbrales utilizados se extraen de la tabla \textbf{TFG\_UBU} en la base de datos MySQL~\cite{misc:Mysql}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{img/diagramas/mqtt_dashboard_Historico.png}
+    \caption{Extrae los datos de la base de datos para mostrar el historial.} \label{Img:Dashboard_diagrama_Historico}
+\end{figure}
+
+La Raspberry Pi Pico W utiliza una librería llamada \textbf{umqtt} para poder trabajar con MQTT, así es como envía data de los sensores y de los umbrales establecidos.
+
+Los umbrales establecidos son almacenados en una base de datos que se encuentra en el servidor LAMP.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{img/diagramas/mqtt_dashboard_TiempoReal.png}
+    \caption{Mediante MQTT extrae los datos para mostrarlos en tiempo real.} \label{Img:Dashboard_diagrama_TiempoReal}
+\end{figure}
+
+El panel de control está disponible para su acceso a través del siguiente enlace: \href{http://www.inveriot.com}{InverIoT Dashboard}
+
+
 
 \subsection{NodeMqtt}\label{proyecto:NodeMqtt}
 \textbf{nodeMqtt} es un servicio en Node.js~\cite{misc:Nodejs} que escucha los topics \textbf{invernadero/sensores} e \textbf{invernadero/umbrales}. Utiliza la librería MQTT.js~\cite{misc:MQTTjs}. Los datos son enviados por la placa Raspberry Pi Pico W RP2040~\cite{misc:RPiPicoW}, que recopila valores de sensores. El servicio \textbf{nodeMqtt} captura, formatea y luego inserta estos datos en la base de datos MySQL~\cite{misc:Mysql} para los valores de sensores, además de actualizar los umbrales correspondientes.
