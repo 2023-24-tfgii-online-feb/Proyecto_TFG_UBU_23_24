@@ -31,19 +31,19 @@ https://sonarcloud.io/project/overview?id=JLCaballeroMQ_Proyecto_TFG_UBU_23_24
 http://www.inveriot.com
 
 # Umbrales ideales.
-# Usados en las pruebas (interior de casa).
+## Usados en las pruebas (interior de casa).
 
-Temperatura: 30°C - 35°C.
-Humedad Ambiente: 30% - 70%.
-Luminosidad: 30 Lux - 150 Lux.
+Temperatura: 30°C - 35°C.<br />
+Humedad Ambiente: 30% - 70%.<br />
+Luminosidad: 30 Lux - 150 Lux.<br />
 Humedad del Suelo: 20% - 80%.
 
-# Reales.
+## Reales.
 
-El crecimiento de cannabis medicinal pasa por varias fases de crecimiento, los cuales cada uno tendrá unos valores óptimos diferentes, tomando una media se llega a los valores ideales reales. A parte de estos 4 valores, hay otros factores que dependen del crecimiento.
-Temperatura: 18°C - 26°C.
-Humedad Ambiente (relativa): 40% - 70%.
-Luminosidad: 5.000 Lux - 10.000 Lux.
+El crecimiento de cannabis medicinal pasa por varias fases de crecimiento, los cuales cada uno tendrá unos valores óptimos diferentes, tomando una media se llega a los valores ideales reales. A parte de estos 4 valores, hay otros factores que dependen del crecimiento.<br />
+Temperatura: 18°C - 26°C.<br />
+Humedad Ambiente (relativa): 40% - 70%.<br />
+Luminosidad: 5.000 Lux - 10.000 Lux.<br />
 Humedad del Suelo: 40% - 60%.
 
 
