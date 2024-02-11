@@ -17,11 +17,14 @@ El programa ejecuta las siguientes tareas:
 * Desde el bot de telegram se pueden hacer consultas para que nos devuelva el valor del valor del sensor que hayamos elegido, también podremos activar mecanismos para solventar valores fuera de los umbrales, como riego, ventilación, calefacción, focos luminosos... (en este caso se enciende un led verde, pero lo comentado se podría implementar).
 
 # Comprobación de calidad de código del repositorio.
-Mediante la herramienta online sonarcloud.io se ha analizado la calidad del código, y siguiendo varios consejos se ha actualizado para optimizarlo.
-Status: Passed.
+
+Mediante la herramienta online sonarcloud.io se ha analizado la calidad del código, y siguiendo varios consejos se ha actualizado para optimizarlo.  
+
+**Status**: Passed.  
 https://sonarcloud.io/project/overview?id=JLCaballeroMQ_Proyecto_TFG_UBU_23_24
 
 # Subidos 3 videos a youtube con explicación y comprobación del funcionamiento.
+
 1. https://youtu.be/VwgxjhJzbKk
 2. https://youtu.be/c7tfhW0rUnw
 3. https://youtu.be/uWBjEbmtJAI
@@ -30,21 +33,25 @@ https://sonarcloud.io/project/overview?id=JLCaballeroMQ_Proyecto_TFG_UBU_23_24
 
 http://www.inveriot.com
 
-# Umbrales ideales.
+# Umbrales ideales. 
+
 ## Usados en las pruebas (interior de casa).
 
-Temperatura: 30°C - 35°C.<br />
-Humedad Ambiente: 30% - 70%.<br />
-Luminosidad: 30 Lux - 150 Lux.<br />
-Humedad del Suelo: 20% - 80%.
+|Característica | Rango |
+|---|---|
+|Temperatura | 30°C - 35°C|
+|Humedad Ambiente | 30% - 70%|
+|Luminosidad | 30 Lux - 150 Lux|
+|Humedad del Suelo | 20% - 80%|
 
 ## Reales.
 
 El crecimiento de cannabis medicinal pasa por varias fases de crecimiento, los cuales cada uno tendrá unos valores óptimos diferentes, tomando una media se llega a los valores ideales reales. A parte de estos 4 valores, hay otros factores que dependen del crecimiento.<br />
-Temperatura: 18°C - 26°C.<br />
-Humedad Ambiente (relativa): 40% - 70%.<br />
-Luminosidad: 5.000 Lux - 10.000 Lux.<br />
-Humedad del Suelo: 40% - 60%.
 
-
+|Característica | Rango |
+|---|---|
+|Temperatura | 18°C - 26°C|
+|Humedad Ambiente (relativa)| 40% - 70%|
+|Luminosidad| 5.000 Lux - 10.000 Lux|
+|Humedad del Suelo| 40% - 60%|
 
