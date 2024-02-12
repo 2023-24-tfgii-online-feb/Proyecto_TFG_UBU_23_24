@@ -1,15 +1,11 @@
-# Diccionario de configuración para la conexión WiFi
 wifi_config = {
-    'ssid':'xxx', # El SSID (nombre) de la red WiFi a la que se conectará el dispositivo
-    'password':'xxx' # La contraseña de la red WiFi
+    'ssid':'xxx',
+    'password':'xxx'
 }
-
-# Diccionario de configuración para el bot de Telegram
 utelegram_config = {
-    'token': 'xxx', # El token del bot de Telegram.
-    'chat_id': 'xxx' # El ID del chat en Telegram donde el bot enviará y recibirá mensajes.
+    'token': 'xxx',
+    'chat_id': 'xxx'
 }
-
 # Diccionario de configuración para los umbrales de los sensores
 umbrales_sensores = {
     'TEMPERATURA_MINIMA': 30,
@@ -21,13 +17,14 @@ umbrales_sensores = {
     'LUMINOSIDAD_MAXIMA': 150,
     'HUMEDAD_SUELO_MAXIMA': 80
 }
-
 # Configuración MQTT
 mqtt_config = {
     'server': '46.24.8.196',
     'port': 1883,
     'topic_pub': 'invernadero/sensores',
     'topic_sub': 'invernadero/ordenes',
+    'topic_umb': 'invernadero/umbrales',
     'client_id_pub': 'TFG_UBU_mqtt_id_pub',
-    'client_id_sub': 'TFG_UBU_mqtt_id_sub'
+    'client_id_sub': 'TFG_UBU_mqtt_id_sub',
+    'client_id_umb': 'TFG_UBU_mqtt_id_umb'
 }
