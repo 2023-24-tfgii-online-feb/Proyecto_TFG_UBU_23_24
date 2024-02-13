@@ -31,7 +31,8 @@ class ubot:
             response = urequests.post(self.url + '/sendMessage', json=data, headers=headers)
             response.close()
             return True
-        except:
+        except Exception as e:
+            print("Error in send:", e)
             return False
 
     def read_messages(self):
