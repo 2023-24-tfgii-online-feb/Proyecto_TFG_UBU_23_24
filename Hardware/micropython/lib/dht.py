@@ -22,7 +22,8 @@ class DHTBase:
         buf = self.buf
         dht_readinto(self.pin, buf)
         if (buf[0] + buf[1] + buf[2] + buf[3]) & 0xFF != buf[4]:
-            raise Exception("checksum error")
+            raise ValueError("checksum error") # Compliant
+            #raise Exception("checksum error")
 
 
 class DHT11(DHTBase):
