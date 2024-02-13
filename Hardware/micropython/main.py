@@ -7,7 +7,7 @@ from mi_telegram import TELEGRAM
 #CONEXION WIFI
 from mi_wifi import WIFI
 from config import wifi_config
-wifi = WIFI(wifi_config["ssid"],wifi_config["pwd"])
+wifi = WIFI(wifi_config["ssid"],wifi_config["p"])
 wifi.conectarse_wifi(tiempo_maximo=20) #tiempo maximo de espera=20 segundos
 #SENSORES
 oled            = OLEDDisplay_I2C(0,Pin(9),Pin(8),400000,128, 64)

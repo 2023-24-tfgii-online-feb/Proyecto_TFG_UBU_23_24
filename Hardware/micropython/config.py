@@ -1,6 +1,6 @@
 wifi_config = {
     'ssid':'xxx',
-    'pwd':'xxx'
+    'p':'xxx'
 }
 utelegram_config = {
     'token': 'xxx',
