@@ -17,7 +17,7 @@ class MQTT:
         self.led_humedad_suelo      = led_humedad_suelo
     def obtener_fecha_hora(self):
         try:
-            response = urequests.get('http://worldtimeapi.org/api/ip')
+            response = urequests.get('https://worldtimeapi.org/api/ip')
             if response.status_code == 200:
                 datetime = response.json()['datetime'].split('T')
                 return datetime[0], datetime[1].split('.')[0]

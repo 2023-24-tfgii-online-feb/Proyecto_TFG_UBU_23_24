@@ -1,5 +1,6 @@
 import network, time, machine
 from machine import Pin
+from config import wlan_config
 #from config import wifi_config
 class WIFI:
     def __init__(self,ssid,password):
@@ -20,7 +21,7 @@ class WIFI:
             print(ap)
     def conectarse_wifi(self,tiempo_maximo):
         self.activar_wlan("estacion")
-        self.wlan.ifconfig(('192.168.1.232', '255.255.255.0', '192.168.1.1', '8.8.8.8')) #ip estatica
+        self.wlan.ifconfig((wlan_config['ip'],wlan_config['mask'], wlan_config['gateway'], wlan_config['dns'])) #ip estatica
         self.wlan.connect(self.ssid, self.password)
         tiempo_inicio=time.time()
         while not self.wlan.isconnected() and self.wlan.status() >= 0:

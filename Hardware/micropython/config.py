@@ -28,3 +28,10 @@ mqtt_config = {
     'client_id_sub': 'TFG_UBU_mqtt_id_sub',
     'client_id_umb': 'TFG_UBU_mqtt_id_umb'
 }
+# Configuración interfaz red inalámbrica wlan
+wlan_config = {
+    'ip':'192.168.1.232',
+    'mask':'255.255.255.0',
+    'gateway':'192.168.1.1',
+    'dns':'8.8.8.8' 
+}
