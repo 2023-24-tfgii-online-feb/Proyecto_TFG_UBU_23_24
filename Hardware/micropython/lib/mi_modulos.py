@@ -73,13 +73,3 @@ class LedRGB:
         self.blue.value(0)
     def apagar_green(self):
         self.green.value(0)
-#led_temperatura     = LedRGB(0,1,12) #red, blue, green
-#led_humedad_ambiente = LedRGB(4,5,13)
-#led_luminosidad     = LedRGB(6,7,14)
-#led_humedad_suelo   = LedRGB(10,11,15)
-#led_temperatura.prender_todos()
-#led_humedad_ambiente.prender_todos()
-#led_luminosidad.prender_todos()
-#led_humedad_suelo.prender_todos()
-#led_temperatura.apagar_todos()
-#led_temperatura.prender_red()

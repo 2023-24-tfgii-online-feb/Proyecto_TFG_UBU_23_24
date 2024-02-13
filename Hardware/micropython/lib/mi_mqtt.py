@@ -99,16 +99,3 @@ class MQTT:
             print("Error de conexión MQTT:", e)
         except Exception as e:
             print("Error al enviar umbrales por MQTT:", e)
-
-# led_temperatura     = LedRGB(0,1,12) #red, baue, green
-# led_humedad_ambiente= LedRGB(4,5,13)
-# led_luminosidad     = LedRGB(6,7,14)
-# led_humedad_suelo   = LedRGB(10,11,15)
-# mqtt = MQTT(led_temperatura, led_humedad_ambiente, led_luminosidad, led_humedad_suelo)
-# mqtt.setup_mqtt_subscription()
-# mqtt.reconectar_mqtt()
-#mqtt.enviar(fecha, hora, temperatura, humedad, intensidad_luz, humedad_suelo):
-#mqtt.enviar_umbrales()
-#print(mqtt.client_sub.check_msg())
-#mqtt.enviar_mensaje("pub")
-#mqtt.handle_mqtt_messages(b"ga",b"/t_ON")

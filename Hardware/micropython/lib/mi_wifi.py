@@ -1,7 +1,6 @@
 import network, time, machine
 from machine import Pin
 from config import wlan_config
-#from config import wifi_config
 class WIFI:
     def __init__(self,ssid,password):
         self.wlan = None
@@ -35,7 +34,3 @@ class WIFI:
         if self.wlan.isconnected():
             self.led_integrado.on() # Enciende el LED si la conexión es exitosa
             print("Conectado a la red WiFi.")
-
-#wifi = WIFI(wifi_config["ssid"],wifi_config["password"])
-#wifi.ver_redes_wifi()
-#wifi.conectarse_wifi(tiempo_maximo=20) #tiempo maximo de espera=20 segundos

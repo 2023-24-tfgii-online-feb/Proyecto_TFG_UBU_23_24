@@ -66,6 +66,3 @@ def actualizar_valores_sensores(sensor_dht, sensor_humedad_suelo, sensor_luminos
     sensor_dht.actualizar_valores()
     sensor_humedad_suelo.actualizar_valor()
     sensor_luminosidad.actualizar_valor()
-
-#humedad_suelo   = SensorHumedadSuelo(pin=26)
-#print(humedad_suelo.valor, type(humedad_suelo.valor))

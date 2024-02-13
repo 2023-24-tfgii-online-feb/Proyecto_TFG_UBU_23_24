@@ -1,7 +1,3 @@
-# from utelegram import ubot
-# from config import utelegram_config
-# bot = ubot(utelegram_config['token'])
-# bot.send(utelegram_config['chat_id'],"Hola como estas")
 import utelegram, urequests
 from mi_modulos import LedRGB
 from config import utelegram_config, umbrales_sensores
@@ -34,7 +30,7 @@ class TELEGRAM:
             led.prender_blue()
         else:  # estado normal
             led.apagar_red()
-            led.apaga_blue()
+            led.apagar_blue()
     def control_led(self, sensor, estado):
         print("controlando leds")
         if sensor == "temperatura":
@@ -148,17 +144,3 @@ class TELEGRAM:
             self.led_humedad_suelo.apagar_green()
         else:
             self.send_message(chat_id, "Comando no reconocido.")
-
-#LEDS RGB
-# led_temperatura     = LedRGB(0,1,12) #red, blue, green
-# led_humedad_ambiente= LedRGB(4,5,13)
-# led_luminosidad     = LedRGB(6,7,14)
-# led_humedad_suelo   = LedRGB(10,11,15)
-# bot = TELEGRAM(led_temperatura, led_humedad_ambiente, led_luminosidad, led_humedad_suelo)
-#bot.enviar_alertas_telegram(1,2,3,4)
-#bot.control_led("temperatura","alta")
-# update_id = 0
-# new_update_id, message = bot.read_message(update_id)
-# if new_update_id != update_id and message:
-    # update_id = new_update_id
-    # bot.handle_telegram_commands(message['chat']['id'], message['text'])
