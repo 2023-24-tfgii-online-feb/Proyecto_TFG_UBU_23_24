@@ -19,56 +19,75 @@ La implementación de conceptos relacionados con el Internet de las cosas (IoT) 
 La integración de MQTT~\cite{manual:MQTT} en el código MicroPython para la Raspberry Pi Pico W ha requerido conocimientos específicos sobre este protocolo de mensajería ligero diseñado para la eficiente comunicación entre dispositivos en redes IoT.
 
 En resumen, la formación necesaria abarca habilidades en programación embebida, electrónica, redes, IoT y desarrollo de software. La combinación de estas competencias ha sido esencial para la ejecución exitosa del proyecto, demostrando la importancia de una formación integral y multidisciplinaria en el ámbito de la ingeniería y la tecnología.
-\pagebreak
 
 \section{Metodología}
 Se ha optado por la metodología del \textbf{Modelo de Prototipos}~\cite{misc:Metodologia_ModeloDePrototipos} debido a su capacidad para proporcionar retroalimentación temprana, clarificar requisitos, adaptarse a cambios, validar prácticamente funcionalidades, reducir riesgos, comprender la interfaz de usuario y facilitar la mejora continua. Este enfoque iterativo permite identificar y corregir problemas desde las primeras etapas, garantizando la eficiencia y el éxito en el desarrollo del sistema IoT de monitorización de invernaderos de cannabis medicinal.
 
-\subsection{Identificación de Requisitos Iniciales:}
+\subsection{Requisitos de desarrollo:}
 \textbf{Hardware:}
 \begin{itemize}
-	\item Raspberry Pi Pico W~\cite{misc:RPiPicoW} como la plataforma central.
-	\item Sensores DHT22~\cite{manual:DHT22} para medir temperatura y humedad ambiente.
-	\item Sensor BH1750~\cite{manual:BH1750} para evaluar la intensidad de luz.
-	\item Sensor de humedad de suelo~\cite{wiki:SensorHumedadSuelo} para monitorizar las condiciones del suelo.
-	\item Pantalla OLED~\cite{manual:Oled} para visualización de datos.
-	\item LEDs RGB~\cite{manual:LedRGB} para indicar condiciones críticas.
+	\item Una plataforma central para captar los datos de los sensores que no consuma mucha energía y permita conectividad wifi.
+	\item Un sensor para medir temperatura y humedad ambiente.
+	\item Un sensor para evaluar la intensidad de luz.
+	\item Un sensor para captar la humedad del suelo.
+	\item Una forma de visualizar los datos en el invernadero en tiempo real.
+	\item Indicadores de condiciones críticas.
 \end{itemize}
 
 \textbf{Software:}
 \begin{itemize}
-	\item Desarrollo de un sistema en MicroPython para la Raspberry Pi Pico W~\ref{proyecto:Hardware}.
-	\item Implementación de un servidor LAMP para almacenar y gestionar datos.
-	\item Integración de la API de Telegram~\cite{misc:Telegram_api} para recibir alertas.
-	\item Aplicación de escritorio para Windows~\ref{proyecto:InverIoT}, desarrollada en Visual Studio 2022 en lenguaje C\#. Incluye su instalador.
-	\item Dashboard web~\ref{proyecto:Dashboard}, realizado con Node.js, accesible desde internet.
+	\item Plataforma de programación del hardware sencilla y de fácil implementación.
+	\item Implementación de un servidor para almacenar y gestionar datos.
+	\item Recibir alertas en un celular.
+	\item Aplicación de escritorio para Windows donde visualizar los datos en tiempo real y el histórico de datos, con la capacidad adicional de poder activar mecanismos con un clic.
+	\item Dashboard web para visualizar los datos en tiempo real y también el histórico de datos. Debe ser accesible desde internet.
 \end{itemize}
 
-\textbf{Funcionalidades clave:}
+\subsection{Desarrollo del primer prototipo:}
+
 \begin{itemize}
-	\item Captura de datos ambientales como temperatura, humedad, luz y humedad del suelo.
-	\item Representación gráfica de los datos en una pantalla OLED.
-	\item Envío de alertas a través de Telegram en caso de valores fuera de los umbrales ideales.
-	\item Interacción bidireccional para activar mecanismos de respuesta a condiciones ambientales adversas.
+	\item En esta etapa, se enfocó en la integración de los componentes hardware definidos, como la Raspberry Pi Pico W~\cite{misc:RPiPicoW} y los sensores de humedad, temperatura~\cite{manual:DHT22}, luminosidad~\cite{manual:BH1750} y humedad del suelo~\cite{wiki:SensorHumedadSuelo}.
+
+	\item Para la visualización de los datos en el invernadero se empleó una pantalla oled~\cite{manual:Oled}.
+
+	\item Como indicadores de condiciones críticas se usó leds RGB~\cite{manual:LedRGB}, uno por cada variable medida.
+
+	\item La Raspberry Pi Pico W permite conectividad wifi y funciona bien teniendo conectado al mismo tiempo todos los sensores mencionados, los leds RGB y la pantalla oled.
+
+	\item Se estableció la conexión de la Raspberry Pi Pico W con el servidor LAMP utilizando MQTT~\cite{manual:MQTT}, el servidor LAMP es el Broker MQTT y la Raspberry Pi Pico W es un cliente MQTT.
+
+	\item Mediante Node.js se recopilaron los datos enviados por MQTT y se almacenaron usando mysql~\cite{misc:Mysql}.
+
+	\item La forma más práctica de hacer envío de alertas a un teléfono celular fue mediante un bot de Telegram.
+
+	\item La aplicación de escritorio fue desarrollada usando el lenguaje C\#. Mediante MQTT puede recepcionar datos en tiempo real o prender leds que representan la activación de un mecanismo.
+
+	\item La aplicación web hecha con Node.js, HTML y CSS muestra los datos en tiempo real o el histórico de datos. Se puede usar desde cualquier lugar del mundo por internet.
 \end{itemize}
-
-\subsection{Desarrollo del Primer Prototipo:}
-En esta etapa, se enfocó en la integración de los componentes hardware definidos, como la Raspberry Pi Pico W~\cite{misc:RPiPicoW} y los sensores de humedad, temperatura~\cite{manual:DHT22}, luminosidad~\cite{manual:BH1750} y humedad del suelo~\cite{wiki:SensorHumedadSuelo}. Se estableció la conexión con el servidor LAMP utilizando MQTT~\cite{manual:MQTT} para la transmisión de datos en tiempo real.
-
-Durante la fase de desarrollo, se configuraron y probaron los mecanismos de alerta a través del bot de Telegram y la activación de los LEDs RGB para indicar condiciones críticas. También se diseñó e implementó la lógica de umbrales para verificar si los valores ambientales están dentro de los límites ideales.
 
 \subsection{Evaluación del Primer Prototipo:}
+
 El objetivo principal fue validar la efectividad de las funcionalidades implementadas y su capacidad para cumplir con los requisitos planteados en la fase inicial del proyecto.
 \begin{itemize}
+	\item \textbf{Prueba de energía:}
+Todos los sensores, leds RGB y pantalla oled conectados al mismo tiempo funcionan consumiendo energía de la Raspberry Pi Pico W, no se ha necesitado darles alimentación externa.
 	\item \textbf{Pruebas de Mecanismos de Alerta y Retroalimentación Visual:}
-Se realizaron pruebas del sistema de alertas a través del bot de Telegram. Se verificó la capacidad del sistema para enviar notificaciones en tiempo real sobre condiciones ambientales críticas, como temperaturas extremas o niveles de humedad fuera de los umbrales establecidos.
+Se realizaron pruebas del sistema de alertas a través del bot de Telegram. Se verificó la capacidad del sistema para enviar notificaciones en tiempo real.
+Los leds RGB funcionan bien, pero falta establecer la lógica de colores para indicar un estado normal o un estado crítico.
+La pantalla oled tiene un espacio muy reducido, pero se le ha dado el formato para que muestre todos los datos.
+El dashboard web que es accesible desde internet y la aplicación de escritorio funcionan bien.
 
-Además, se evaluó la respuesta de los LEDs RGB conectados, los cuales indican visualmente las condiciones del entorno. Cada color del LED se asoció con un estado específico, permitiendo una retroalimentación instantánea sobre el estado actual del invernadero.
-\item \textbf{Verificación de la Lógica de Umbrales:}
-La lógica de umbrales, diseñada para verificar si los valores ambientales se mantienen dentro de los límites ideales, está en fase de pruebas en un entorno no controlado. En este contexto, se observa que los valores experimentan salidas fuera de los umbrales establecidos. Sin embargo, se ha verificado con éxito que la lógica implementada para activar las alertas funciona de manera efectiva cuando los valores se desvían de los límites ideales predefinidos.
+\item \textbf{Prueba de envío de datos:}
+El envío de alertas del bot de Telegram a veces tarda unos segundos, no es instantáneo.
+Los datos se guardaron adecuadamente en la base de datos.
 \end{itemize}
-\subsection{Retroalimentación y Mejoras:}
-Tras la evaluación del primer prototipo, se recopiló retroalimentación valiosa para orientar mejoras futuras. Se identificaron áreas de oportunidad, como la necesidad de ajustar los umbrales para adaptarse a condiciones específicas del entorno y mejorar la precisión de las alertas. La retroalimentación del usuario sobre la interfaz y la usabilidad también se tuvo en cuenta para realizar ajustes en el diseño del dashboard web y la aplicación de escritorio. Estas observaciones se utilizarán como guía para la siguiente iteración del prototipo, buscando una mayor eficiencia y adecuación a los requisitos específicos del sistema.
+\subsection{Modificación:}
+\begin{itemize}
+	\item Se estableció la lógica de colores de los leds RGB y los umbrales de los valores de los sensores, tal que el color del led depende de la magnitud del valor del sensor en relación con los umbrales predefinidos.
+	\item El código Micropython utilizado en la Raspberry Pi Pico W fue modificado mediante programación orientada a objetos. Esta modificación permitió la división del código en varios archivos Python, facilitando la comprensión de la lógica del programa y evitando la extensión excesiva del código.
+	\item Se implementó la capacidad del bot de Telegram para enviar comandos, permitiendo ahora la consulta en tiempo real de valores específicos de sensores. Además, se habilitó la opción de activar un mecanismo, simbolizado por la activación de un LED de color verde.
+	\item a
+\end{itemize}
 
 \subsection{Desarrollo de Subsiguientes Prototipos:}
 Con base en la retroalimentación obtenida del primer prototipo, se inició el desarrollo de subsiguientes prototipos con el objetivo de implementar mejoras significativas. Se priorizó la optimización de los umbrales de alerta, considerando las condiciones específicas del entorno de monitoreo. También se abordaron ajustes en la interfaz del dashboard web y la aplicación de escritorio, respondiendo a las sugerencias de los usuarios para mejorar la usabilidad y la experiencia general. Cada nuevo prototipo se sometió a pruebas exhaustivas para validar las mejoras implementadas y garantizar un funcionamiento más eficiente del sistema en su conjunto. Este proceso iterativo permitió refinamientos continuos, enfocados en lograr un sistema de monitoreo más preciso y adaptado a las necesidades específicas del usuario.

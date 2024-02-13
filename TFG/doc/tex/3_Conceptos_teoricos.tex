@@ -60,12 +60,6 @@ Dado que los dispositivos IoT manejan datos sensibles, la seguridad y la privaci
 
 El Internet de las cosas tiene un impacto significativo en la forma en que interactuamos con el entorno, mejorando la eficiencia, la toma de decisiones y la calidad de vida. A medida que la tecnología avanza, el alcance y la influencia del IoT continúan expandiéndose, creando un ecosistema cada vez más interconectado.
 \end{itemize}
-\section{Raspberry Pi Pico W}
-La Raspberry Pi Pico W~\cite{misc:RPiPicoW} es una placa de desarrollo de bajo costo que combina versatilidad y conectividad inalámbrica. Se elige como unidad central para el sistema, actuando como el cerebro que controla y coordina la recopilación y transmisión de datos.
-
-\section{MicroPython}
-MicroPython~\cite{wiki:micropython} es una implementación del lenguaje de programación Python diseñada para sistemas embebidos y microcontroladores como la Raspberry Pi Pico W. Permite una programación sencilla y eficiente de la unidad central, facilitando el desarrollo de aplicaciones en entornos limitados.
-
 \section{GPIO}\label{concepto:GPIO}
 GPIO~\cite{misc:gpio}, por sus siglas en inglés, General Purpose Input/Output, se refiere a los pines de propósito general presentes en microcontroladores y sistemas embebidos. Estos pines son versátiles y pueden configurarse tanto como entradas como salidas, permitiendo la interacción del microcontrolador con el entorno externo.
 \begin{itemize}
@@ -74,9 +68,6 @@ GPIO~\cite{misc:gpio}, por sus siglas en inglés, General Purpose Input/Output, 
 	\item \textbf{Salidas (Output):} En modo de salida, un pin GPIO puede enviar señales eléctricas al exterior, como las necesarias para controlar actuadores, LEDs u otros dispositivos. El microcontrolador puede controlar el estado del pin, estableciendo un voltaje alto o bajo según sea necesario.
 \end{itemize}
 La flexibilidad de los pines GPIO permite a los desarrolladores adaptar el comportamiento del microcontrolador a una amplia variedad de aplicaciones. La manipulación directa de estos pines a través de código facilita la interconexión con componentes externos y la implementación de funciones específicas en proyectos de hardware. En el contexto de la Raspberry Pi Pico W~\cite{misc:RPiPicoW} y otros dispositivos similares, la gestión de los pines GPIO es esencial para controlar y coordinar la interacción con sensores, actuadores y otros periféricos.
-
-\section{Sensores (DHT22, BH1750, Sensor de Humedad de Suelo)}
-Los sensores seleccionados desempeñan roles cruciales en la monitorización del entorno del invernadero. El DHT22~\cite{manual:DHT22} mide la temperatura y humedad ambiente, el BH1750~\cite{manual:BH1750} evalúa la intensidad lumínica, y el sensor de humedad de suelo~\cite{wiki:SensorHumedadSuelo} monitorea las condiciones de la tierra.
 
 \section{Interfaz de Usuario}
 La interfaz de usuario proporciona una plataforma visual para la interpretación de datos recopilados. Su diseño debe ser intuitivo, permitiendo acceder y comprender fácilmente la información relevante sobre el estado del invernadero.
@@ -121,3 +112,8 @@ Este stack LAMP es ampliamente utilizado para el desarrollo de aplicaciones web 
     \caption{LAMP.}
 \end{figure}
 
+\section{Limpieza de datos}
+
+La limpieza de datos es un proceso crucial en el ámbito del análisis de datos y la gestión de bases de datos. Se refiere al conjunto de técnicas y métodos utilizados para identificar, corregir y eliminar errores, inconsistencias, duplicados y cualquier otro tipo de irregularidad en los conjuntos de datos. El objetivo principal de la limpieza de datos es garantizar la precisión, coherencia y fiabilidad de la información, lo que contribuye a obtener resultados más confiables y significativos durante el análisis.
+
+Este proceso puede incluir diversas tareas, como la corrección de errores tipográficos, la estandarización de formatos, la eliminación de registros duplicados, la gestión de valores faltantes y la validación de la coherencia entre diferentes conjuntos de datos. La limpieza de datos es esencial para mejorar la calidad de los datos, facilitar su interpretación y asegurar que los resultados derivados del análisis sean representativos y válidos.

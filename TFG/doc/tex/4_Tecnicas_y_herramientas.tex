@@ -10,28 +10,12 @@ A lo largo del desarrollo del proyecto, se han empleado diversas tecnologías, h
     \item \textbf{Herramienta elegida:} \href{https://thonny.org/}{Thonny IDE}.
 \end{itemize}
 
-Thonny IDE se presenta como la opción más idónea, proporcionando una combinación de simplicidad, integración nativa con MicroPython, herramientas de depuración eficaces y un sólido soporte comunitario, todo lo cual contribuye a un entorno de desarrollo eficiente y centrado en el usuario para la programación en la Raspberry Pi Pico W con MicroPython.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1\textwidth]{img/herramientas/thonny.png}
-    \caption{IDE Thonny.} \label{Img:Thonny}
-\end{figure}
- \pagebreak
-
 \subsection{Entorno de desarrollo Python}\label{4:Python}
 \begin{itemize}
-    \item \textbf{Herramientas valoradas:} \href{https://colab.google/}{Google colab} y \href{https://jupyter.org/}{Jupyter Notebook}.
+	\item \textbf{Herramientas valoradas:} \href{https://colab.google/}{Google colab}, \href{https://jupyter.org/}{Jupyter Notebook} y \href{https://www.spyder-ide.org/}{Spiyder}.
     \item \textbf{Herramienta elegida:} \href{https://jupyter.org/}{Jupyter Notebook}.
 \end{itemize}
 
-Jupyter Notebook~\cite{misc:Jupyter_Notebook} es una herramienta de código abierto poderosa que facilita la creación y compartición de documentos interactivos. Estos documentos pueden contener código ejecutable, visualizaciones, texto narrativo y otros elementos. Opto por utilizar Jupyter Notebook en mi Trabajo de Fin de Grado debido a su versatilidad y capacidad para aprovechar los entornos virtuales que he configurado en mi computadora. Este entorno se ha vuelto fundamental para llevar a cabo análisis de datos, especialmente haciendo uso intensivo de la biblioteca Pandas~\cite{misc:Pandas} para manipulación y procesamiento de datos.
-%\begin{figure}[h]
-    %\centering
-    %\includegraphics[width=0.1\textwidth]{img/herramientas/jupyter_logo.png}
-    %\caption{Jupyter logo.} \label{Img:Jupyter}
-%\end{figure}
-\pagebreak
 \section{Control de datos}
 \subsection{APIS}\label{4:APIS}
 \begin{itemize}
@@ -97,6 +81,10 @@ En muchos proyectos actuales, especialmente en el ámbito académico, se prefier
 
 En conclusión, aunque la metodología cascada ha sido utilizada en el pasado, hoy en día muchas organizaciones y proyectos prefieren metodologías más ágiles y adaptables. La elección de la metodología dependerá de los requisitos y características específicas de cada proyecto de TFG.
 
+\begin{itemize}
+	\item \textbf{Herramienta elegida:} Metodología cascada.
+\end{itemize}
+
 \section{Entorno de desarrollo del Proyecto}
 \subsection{Control de versiones o CVS, Concurrent Versioning System}\label{4:controlVersiones}
 \begin{itemize}
@@ -143,21 +131,39 @@ Bitbucket~\cite{misc:Bitbucket} es otra plataforma de desarrollo colaborativo ba
 GitHub se ha convertido en el estándar de facto para proyectos de código abierto, y muchos desarrolladores buscan activamente proyectos en GitHub. Esto hace que sea más fácil para los proyectos atraer colaboradores y contribuyentes.
 
 \item \textbf{Integraciones y Ecosistema:}
-GitHub tiene una amplia gama de integraciones y herramientas de terceros que son ampliamente utilizadas en la comunidad de desarrollo. La rica integración con servicios como Travis CI, CircleCI y otros facilita el desarrollo y la automatización.
+Tiene una amplia gama de integraciones y herramientas de terceros que son ampliamente utilizadas en la comunidad de desarrollo. La rica integración con servicios como Travis CI, CircleCI y otros facilita el desarrollo y la automatización.
 
 \item \textbf{Herramientas de Colaboración:}
 Mientras que Bitbucket ofrece características similares, GitHub es generalmente preferido por su interfaz de usuario intuitiva, herramientas de revisión de código más robustas y una experiencia general más pulida para la colaboración.
 
 \item \textbf{Repositorios Públicos Gratuitos:}
-GitHub permite la creación de repositorios públicos de forma gratuita, lo que fomenta la participación y el desarrollo colaborativo en proyectos de código abierto. Bitbucket, por otro lado, suele ofrecer repositorios privados gratuitos, pero limita la cantidad de colaboradores.
+Permite la creación de repositorios públicos de forma gratuita, lo que fomenta la participación y el desarrollo colaborativo en proyectos de código abierto. Bitbucket, por otro lado, suele ofrecer repositorios privados gratuitos, pero limita la cantidad de colaboradores.
 \end{itemize}
 
 
-\subsection{Editor del proyecto}\label{4:ATOM}
+\subsection{Editor del proyecto}
 \begin{itemize}
     \item \textbf{Herramientas valoradas:} \href{https://www.vim.org/}{VIM}, \href{https://code.visualstudio.com/}{Visual Studio Code}, \href{https://www.sublimetext.com/}{Sublime}.
     \item \textbf{Herramienta elegida:} \href{https://code.visualstudio.com/}{Visual Studio Code}.
 \end{itemize}
+
+Visual Studio Code (VSCode)~\cite{misc:vscode} se ha convertido en una opción popular entre los programadores, especialmente para principiantes. Aunque VIM y Sublime Text siguen siendo opciones sólidas, VSCode ofrece algunas ventajas:
+
+\begin{itemize}
+	\item \textbf{Facilidad de uso:} Tiene una interfaz gráfica intuitiva que facilita su uso, especialmente para quienes no están familiarizados con editores de texto basados en comandos como VIM.
+
+	\item \textbf{Funciones integradas:} Viene con muchas funciones integradas, como resaltado de sintaxis, autocompletado, depuración y control de versiones. Esto reduce la necesidad de instalar y configurar plugins adicionales.
+
+	\item \textbf{Gran ecosistema de plugins:} VSCode tiene un gran ecosistema de plugins gratuitos y de pago que amplían sus funcionalidades. Puedes encontrar plugins para casi cualquier cosa, desde soporte para lenguajes de programación específicos hasta herramientas de productividad.
+
+	\item \textbf{Gratuito y de código abierto:} Es gratuito y de código abierto, lo que lo hace accesible a todos.
+
+	\item \textbf{Actualizaciones frecuentes:} Se actualiza con frecuencia con nuevas funciones y correcciones de errores.
+
+	\item \textbf{Soporte multiplataforma:} Está disponible para Windows, macOS y Linux.
+\end{itemize}
+
+He optado por Visual Studio Code en lugar de Sublime Text, ya que encuentro que ofrece una experiencia más completa. En cuanto a VIM, decidí descartarlo debido a la dificultad inicial de aprendizaje asociada con sus numerosos atajos de teclado para cada acción.
 
 \subsection{Dibujos, diagramas y planos}\label{4:plataformasDibujosYPlanos}
 
@@ -166,6 +172,7 @@ GitHub permite la creación de repositorios públicos de forma gratuita, lo que 
 	\item \textbf{Herramienta elegida:} \href{https://www.gimp.org/}{GIMP} y \href{https://www.adobe.com/es/products/photoshop.html}{Photoshop}.
 \end{itemize}
 
+He elegido utilizar GIMP y Photoshop debido a mi familiaridad y experiencia con estas herramientas.
 
 \subsection{Procesador de textos \LaTeX}\label{4:latex}
 \begin{itemize}
