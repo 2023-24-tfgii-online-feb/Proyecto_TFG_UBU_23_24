@@ -43,16 +43,14 @@ Se ha optado por la metodología del \textbf{Modelo de Prototipos}~\cite{misc:Me
 	\item Dashboard web para visualizar los datos en tiempo real y también el histórico de datos. Debe ser accesible desde internet.
 \end{itemize}
 
-\subsection{Desarrollo del primer prototipo:}
+\subsection{Desarrollo del prototipo:}
 
 \begin{itemize}
-	\item En esta etapa, se enfocó en la integración de los componentes hardware definidos, como la Raspberry Pi Pico W~\cite{misc:RPiPicoW} y los sensores de humedad, temperatura~\cite{manual:DHT22}, luminosidad~\cite{manual:BH1750} y humedad del suelo~\cite{wiki:SensorHumedadSuelo}.
+	\item En esta etapa, se enfocó en la integración de los componentes hardware definidos, como la Raspberry Pi Pico W~\cite{misc:RPiPicoW} que permite conectar sensores y tiene conectividad wifi. Se utilizaron los sensores de humedad, temperatura~\cite{manual:DHT22}, luminosidad~\cite{manual:BH1750} y humedad del suelo~\cite{wiki:SensorHumedadSuelo}.
 
 	\item Para la visualización de los datos en el invernadero se empleó una pantalla oled~\cite{manual:Oled}.
 
 	\item Como indicadores de condiciones críticas se usó leds RGB~\cite{manual:LedRGB}, uno por cada variable medida.
-
-	\item La Raspberry Pi Pico W permite conectividad wifi y funciona bien teniendo conectado al mismo tiempo todos los sensores mencionados, los leds RGB y la pantalla oled.
 
 	\item Se estableció la conexión de la Raspberry Pi Pico W con el servidor LAMP utilizando MQTT~\cite{manual:MQTT}, el servidor LAMP es el Broker MQTT y la Raspberry Pi Pico W es un cliente MQTT.
 
@@ -65,7 +63,7 @@ Se ha optado por la metodología del \textbf{Modelo de Prototipos}~\cite{misc:Me
 	\item La aplicación web hecha con Node.js, HTML y CSS muestra los datos en tiempo real o el histórico de datos. Se puede usar desde cualquier lugar del mundo por internet.
 \end{itemize}
 
-\subsection{Evaluación del Primer Prototipo:}
+\subsection{Evaluación del prototipo:}
 
 El objetivo principal fue validar la efectividad de las funcionalidades implementadas y su capacidad para cumplir con los requisitos planteados en la fase inicial del proyecto.
 \begin{itemize}
@@ -79,95 +77,91 @@ El dashboard web que es accesible desde internet y la aplicación de escritorio 
 
 \item \textbf{Prueba de envío de datos:}
 El envío de alertas del bot de Telegram a veces tarda unos segundos, no es instantáneo.
-Los datos se guardaron adecuadamente en la base de datos.
+Los datos enviados mediante MQTT se guardaron adecuadamente en la base de datos que se encuentra en el servidor LAMP.
 \end{itemize}
 \subsection{Modificación:}
 \begin{itemize}
 	\item Se estableció la lógica de colores de los leds RGB y los umbrales de los valores de los sensores, tal que el color del led depende de la magnitud del valor del sensor en relación con los umbrales predefinidos.
 	\item El código Micropython utilizado en la Raspberry Pi Pico W fue modificado mediante programación orientada a objetos. Esta modificación permitió la división del código en varios archivos Python, facilitando la comprensión de la lógica del programa y evitando la extensión excesiva del código.
+	\item Mediante código Micropython se configuró para que todo lo programado funcione en la Raspberry Pi Pico W apenas se le suministre energía.
 	\item Se implementó la capacidad del bot de Telegram para enviar comandos, permitiendo ahora la consulta en tiempo real de valores específicos de sensores. Además, se habilitó la opción de activar un mecanismo, simbolizado por la activación de un LED de color verde.
-	\item a
+	\item Se creó el instalador de la aplicación de escritorio para Windows.
+	\item Se utilizó python para hacer la limpieza de datos y un resumen estadístico simple.
+	\item Se implementó la capacidad adicional de alimentación mediante energía solar, conectando un Power Bank alimentado por un panel solar. Aunque no es un requisito inicial, se consideró viable esta implementación adicional.
 \end{itemize}
 
-\subsection{Desarrollo de Subsiguientes Prototipos:}
-Con base en la retroalimentación obtenida del primer prototipo, se inició el desarrollo de subsiguientes prototipos con el objetivo de implementar mejoras significativas. Se priorizó la optimización de los umbrales de alerta, considerando las condiciones específicas del entorno de monitoreo. También se abordaron ajustes en la interfaz del dashboard web y la aplicación de escritorio, respondiendo a las sugerencias de los usuarios para mejorar la usabilidad y la experiencia general. Cada nuevo prototipo se sometió a pruebas exhaustivas para validar las mejoras implementadas y garantizar un funcionamiento más eficiente del sistema en su conjunto. Este proceso iterativo permitió refinamientos continuos, enfocados en lograr un sistema de monitoreo más preciso y adaptado a las necesidades específicas del usuario.
-
-\subsection{Validación Continua:}
-Se llevaron a cabo pruebas exhaustivas para verificar el funcionamiento del sistema, evaluando diversos escenarios y condiciones ambientales para confirmar la precisión de los sensores y la respuesta del sistema. Se realizaron pruebas de estrés para evaluar la capacidad de respuesta en situaciones extremas.
-
-Durante un período prolongado, se recopilaron datos para analizar el rendimiento a lo largo del tiempo, comparándolos con los umbrales ideales establecidos. Algunos valores se salieron del rango ideal debido a las pruebas en un entorno no controlado, pero se verificó que el sistema funcionó correctamente y generó alertas de manera adecuada al encontrarse en un ambiente controlado.
-
-La retroalimentación continua de las pruebas y la validación de los resultados se utilizaron para ajustar el sistema, mejorando su robustez y confiabilidad. Este ciclo de validación y ajuste continuo contribuyó a optimizar el sistema para lograr un monitoreo preciso y eficiente de las condiciones del invernadero.
-
-\subsection{Integración de Componentes:}
-Durante esta etapa, se procedió a la integración de los diferentes componentes del sistema. Se conectaron y configuraron la Raspberry Pi Pico W~\cite{misc:RPiPicoW} como plataforma central, junto con los sensores DHT22, BH1750~\cite{manual:BH1750} y el sensor de humedad del suelo~\cite{wiki:SensorHumedadSuelo}. Se aseguró la comunicación efectiva entre estos elementos, permitiendo la captura precisa de datos ambientales.
-
-El desarrollo de un sistema en MicroPython~\cite{wiki:micropython} para la Raspberry Pi Pico W se integró con éxito con el servidor LAMP, facilitando la gestión y almacenamiento de datos. La implementación de la API de Telegram~\cite{misc:Telegram_api} se conectó con el sistema para recibir alertas en tiempo real.
-
-La aplicación de escritorio para Windows~\ref{proyecto:InverIoT}, desarrollada en Visual Studio 2022 con lenguaje C\#~\cite{manual:CSharp}, se integró sin problemas, permitiendo la visualización de datos en tiempo real y la interacción bidireccional con el sistema.
-
-El dashboard web~\ref{proyecto:Dashboard}, creado con Node.js, se integró para ofrecer una interfaz accesible a través de internet, proporcionando una visualización completa y en tiempo real de los datos capturados. Esta etapa de integración aseguró la cohesión y el funcionamiento conjunto de todos los componentes del sistema IoT para el monitoreo de invernaderos.
-
-\subsection{Ajustes Finales:}
-Estos ajustes se centraron en mejorar la precisión de los sensores, la eficacia de las alertas y la respuesta de los mecanismos de control. Se llevaron a cabo modificaciones en el código del sistema para perfeccionar la lógica de umbrales y asegurar que los valores se mantuvieran dentro de los límites ideales.
-
-Además, se realizaron ajustes en la configuración de la pantalla OLED y los LEDs RGB para una visualización más clara y distintiva de las condiciones del invernadero. La interfaz de usuario se mejoró para facilitar la comprensión de los datos mostrados en tiempo real. También se realizaron pruebas adicionales para verificar la estabilidad del sistema en condiciones diversas.
-
-Este proceso de ajustes finales contribuyó a la optimización global del sistema, asegurando un monitoreo preciso y una respuesta efectiva a las variaciones ambientales en el invernadero. La retroalimentación continua y la iteración fueron fundamentales en esta fase para lograr un prototipo final robusto y funcional.
-
 \subsection{Documentación:}
-Se elaboró una documentación completa que abarca aspectos técnicos, funcionales y de implementación del sistema desarrollado. La documentación detallada incluye manuales de usuario para las distintas interfaces, descripciones técnicas de hardware y software, así como instrucciones para la instalación y configuración del sistema.
 
-Además, se generaron documentos específicos para el mantenimiento del sistema, facilitando futuras actualizaciones y mejoras.
+Se elaboró una documentación completa que abarca aspectos técnicos, funcionales y de implementación del sistema desarrollado. La documentación detallada incluye manuales de usuario para las distintas interfaces, descripciones técnicas de hardware y software, así como instrucciones para la instalación y configuración del sistema.
 
 Esta documentación sirve como recurso integral para cualquier persona que interactúe con el sistema, desde usuarios finales hasta desarrolladores o técnicos de mantenimiento. Su elaboración garantiza la comprensión y el uso efectivo del sistema, contribuyendo a su sostenibilidad a lo largo del tiempo.
 
-\subsection{Implementación Final:}
+\subsection{Pruebas:}
+
 La implementación final del sistema se llevó a cabo tras la validación y ajustes continuos a lo largo de las fases de desarrollo y prototipado. En esta etapa, se consolidaron todas las funcionalidades y características planificadas, integrando los componentes hardware y software de manera coherente.
 
-Se realizó una verificación exhaustiva de la interacción entre los sensores, la Raspberry Pi Pico W, la pantalla OLED, y los LEDs RGB. Se mejoró la respuesta del sistema ante condiciones ambientales diversas y se afinaron los algoritmos de control para garantizar un monitoreo preciso y eficiente del invernadero.
+Se llevó a cabo una exhaustiva verificación de la interacción entre los sensores, la Raspberry Pi Pico W, la pantalla OLED, los LEDs RGB, la conexión con el servidor LAMP mediante MQTT, el almacenamiento correcto de datos en la base de datos y la interacción con el bot de Telegram.
 
-Además, se implementaron las últimas medidas de seguridad y se realizaron pruebas exhaustivas para garantizar la estabilidad del sistema en distintos escenarios. Se documentaron detalladamente los pasos necesarios para replicar la implementación final, asegurando una fácil reproducción y mantenimiento.
+La único no controlable es el tiempo de respuesta del bot de Telegram, que ocasionalmente puede demorar unos segundos. Esta limitación es inherente al servicio preexistente ofrecido por Telegram. Sin embargo, considerando que el bot de Telegram suele responder casi instantáneamente y su implementación es bastante sencilla, hemos decidido continuar utilizándolo, ya que ofrece más ventajas en comparación con una desventaja ocasional.
 
-La implementación final refleja la evolución del sistema desde su concepción hasta la etapa de producción, consolidando todas las lecciones aprendidas durante el desarrollo y prototipado.
+El dashboard web y el instalador de la aplicación de escritorio para Windows funcionan bien.
+
+La implementación del panel solar y la Power Bank aseguran la alimentación continua de la Raspberry Pi Pico W, manteniendo todo el hardware en funcionamiento adecuado, incluso en condiciones nubladas. Se ha probado durante un total de 50 horas ininterrumpidas.
+
+A través de un análisis de datos, se identificó la necesidad de realizar una limpieza de la información recopilada. Se observaron valores atípicos que se alejaban significativamente de la media, generados durante pruebas extremas a los sensores, como exponer el sensor de intensidad de luz a una fuente potente o sumergir el sensor de humedad del suelo en agua. Se implementó un código en Python para la detección y limpieza de estos valores atípicos, también conocidos como outliers, y la eliminación de filas con datos faltantes. Es importante destacar que estos datos no se eliminan de la base de datos principal, ya que se consideran relevantes para casos específicos. Se tiene previsto implementar un script en Python para la automatización futura de la limpieza de la base de datos.
+
+Sin embargo, se vislumbra un potencial significativo para el futuro a medida que la cantidad de datos aumente y se registren más anomalías. En este escenario, se considera la posibilidad de implementar técnicas de aprendizaje automático (machine learning) para un análisis más avanzado y la detección automática de patrones.
 
 \section{Desarrollo del proyecto}
 
 El propósito inicial radicaba en la recopilación de datos ambientales, tales como humedad, temperatura, intensidad de luz y humedad del suelo, con el fin de almacenarlos y presentarlos de manera gráfica.
 
-Con este propósito, se optó por la Raspberry Pi Pico W debido a su eficiencia energética y coste accesible. Se conectaron al sistema un sensor de humedad y temperatura DHT22~\cite{manual:DHT22}, un sensor de intensidad de luz BH1750~\cite{manual:BH1750}, y un sensor de humedad de suelo~\cite{wiki:SensorHumedadSuelo}. Además, se incorporaron LEDs RGB~\cite{manual:LedRGB} para señalizar alertas. A esta parte del proyecto se ha llamado \textbf{Hardware}~\ref{proyecto:Hardware}.
+El cannabis medicinal requiere condiciones ambientales constantes y dentro de un umbral específico para un crecimiento óptimo y delicado.
+
+Se ha implementado un servidor LAMP para gestionar el envío y recepción de datos, órdenes y alertas mediante MQTT. Este servidor también almacena los datos de los sensores en una base de datos.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{img/diagramas/conexiones_simple.png}
-	\caption{Raspberry Pi Pico W conectada a sensores y una pantalla oled.} \label{Img:conexion_simple}
+	\includegraphics[width=1\textwidth]{img/diagramas/diagrama_general.png}
+	\caption{Interacción entre cada parte del proyecto.} \label{Img:diagrama_general}
 \end{figure}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.4\textwidth]{img/fotos/conexiones_real.png}
-	\caption{Raspberry Pi Pico W y sensores conectados mediante un protoboard.} \label{Img:conexion_simple}
-\end{figure}
+Definimos umbrales (valor mínimo/máximo) para monitorizar cuando es que los valores de los sensores no están dentro de límites aceptables. En caso de detectar un valor anómalo fuera de estos umbrales, se genera una alerta.
 
-Una vez definida la idea del TFG y los componentes hardware, surgía la interrogante: "¿Dónde enviar los datos? ¿Cómo gestionarlos?". La primera medida fue mostrar los datos en una pantalla OLED~\cite{manual:Oled} conectada a la protoboard.
+\begin{table}[htbp]
+\begin{center}
+	\caption{Umbrales ideales para un invernadero de cannabis medicinal.}\label{tabla:umbrales}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+\textbf{Característica} & \textbf{Mínimo} & \textbf{Máximo} & \textbf{Unidades}\\ \hline
+TEMPERATURA & 30 & 35 & \textcelsius\\ \hline
+HUMEDAD & 30 & 70 & \% \\ \hline
+LUMINOSIDAD & 30 & 150 & lux\\ \hline
+HUMEDAD DEL SUELO & 20 & 80 & \% \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.4\textwidth]{img/fotos/oled1.png}
-	\caption{Pantalla oled conectada a la Raspberry Pi Pico W.} \label{Img:oled_conexion}
-\end{figure}
+%\begin{table}[htbp]
+%\begin{center}
+%\caption{Topics de MQTT usados.}
+%\begin{tabular}{|l|l|} %|c|c|
+%\hline
+%\rowcolor[HTML]{C0C0C0} 
+%\textbf{Nombre del topic} & \textbf{Descripción}\\ \hline
+%invernadero/sensores & fecha, hora y valores de sensores \\ \hline
+%invernadero/umbrales & valores límite \\ \hline
+%invernadero/ordenes & Permite activar un mecanismo \\ \hline
+%\end{tabular}
+%\end{center}
+%\end{table}
 
-Sin embargo, al estar fuera de la red, surgieron nuevas incógnitas, ya que inicialmente se trató de un sistema unidireccional en el cual el sensor recolecta los datos y los muestra en la pantalla OLED.
+%A continuación veremos cada parte del proyecto para su mejor comprensión.
 
-Más tarde, se implementó la funcionalidad de enviar alertas a través de Telegram en caso de que los valores recopilados excedieran los umbrales ideales.
+\subsection{Servidor LAMP}\label{proyecto:LAMP}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.27\textwidth]{img/desarrollo/BotTelegram_alertas.png}
-	\caption{Alertas del bot de Telegram.} \label{Img:BotTelegram_alertas}
-\end{figure}
-
-Posteriormente, opté por establecer un servidor LAMP para facilitar el envío y manejo de datos. La implementación de este servidor se llevó a cabo en el sistema operativo Ubuntu~\cite{misc:Ubuntu}, el cual fue virtualizado utilizando Hyper-V~\cite{manual:Hyper_V}.
+Opté por establecer un servidor LAMP para facilitar el envío y manejo de datos. La implementación de este servidor se llevó a cabo en el sistema operativo Ubuntu~\cite{misc:Ubuntu}, el cual fue virtualizado utilizando Hyper-V~\cite{manual:Hyper_V}.
 En esta instancia, se emplea un servidor físico HP ProLiant~\cite{misc:HP_ProLiant} para la virtualización de los servicios Apache~\cite{misc:Apache}, MySQL~\cite{misc:Mysql}, PHP~\cite{misc:PHP} y SSH~\cite{misc:SSH}.
 
 \begin{table}[htbp]
@@ -189,80 +183,215 @@ Tipo de sistema & Sistema operativo de 64 bits, procesador x64 \\ \hline
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=1\textwidth]{img/desarrollo/LAMP_servicios.png}
+	\includegraphics[width=0.9\textwidth]{img/desarrollo/LAMP_servicios.png}
 	\caption{Servicios instalados y operativos en el servidor LAMP.} \label{Img:LAMP_servicios}
 \end{figure}
 
-Basándome en esta información y en mi experiencia previa trabajando con \textbf{Smart Cities}, tomo la decisión de enviar la información recopilada por los sensores al servidor mediante MQTT~\cite{manual:MQTT}. 
+\subsection{NodeMqtt}\label{proyecto:NodeMqtt}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.7\textwidth]{img/herramientas/rpipicow_umqtt.png}
-	\caption{Se ha implementado la libreria umqtt en la Raspberry Pi Pico W.} \label{Img:rpipicow_umqtt}
-\end{figure}
+\textbf{NodeMqtt} es un servicio en Node.js~\cite{misc:Nodejs} que se ejecuta dentro del servidor LAMP, escucha los topics \textbf{invernadero/sensores} e \textbf{invernadero/umbrales}. Utiliza la librería MQTT.js~\cite{misc:MQTTjs}.
 
-MQTT permite la visualización en tiempo real de los datos en una página web alojada en el servidor LAMP cada vez que la placa junto con el sensor envíe datos. Además, posibilita el almacenamiento de los datos en la base de datos MySQL~\cite{misc:Mysql}, permitiéndome mantener un historial y realizar consultas. A esta parte del proyecto se ha llamado \textbf{NodeMqtt}~\ref{proyecto:NodeMqtt}.
+Está conformado por los siguientes archivos: index.js y package.json.
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=1\textwidth]{img/desarrollo/mysql_data.png}
-	\caption{Data almacenada en la base de datos.}
-\end{figure}
+%\begin{itemize}
+	%\item \textbf{index.js:}
+		%Es el punto de entrada del código de la aplicación.
+	%\item \textbf{package.json:}
+		%Es un archivo de configuración que describe la aplicación y sus dependencias.
+%\end{itemize}
 
-Listo, he leído e incluso almacenado los datos que se envían. Además, con la implementación de un bot de Telegram~\cite{misc:Telegram}, ahora puedo consultar en tiempo real la información proveniente de los sensores.
+Los datos son enviados por la placa Raspberry Pi Pico W RP2040~\cite{misc:RPiPicoW} usando MQTT, que recopila valores de sensores, y el servicio \textbf{nodeMqtt} captura los datos de los topics MQTT llamados \textbf{invernadero/sensores} e \textbf{invernadero/umbrales}, formatea y luego inserta estos datos en la base de datos MySQL~\cite{misc:Mysql} llamada \textbf{TFG\_UBU}.
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.32\textwidth]{img/desarrollo/BotTelegram_comandos.png}
-	\caption{Consulta a la base de datos mediante comandos usando Telegram.}
-\end{figure}
-
-También optamos por desarrollar una aplicación de escritorio para Windows en C\#~\cite{manual:CSharp} al que se ha llamado \textbf{InverIoT}~\ref{proyecto:InverIoT}, que permite la visualización en tiempo real de los datos. ¡Problema resuelto! Ahora, puedo recibir y monitorear la temperatura, luminosidad y otros valores del invernadero.
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.61\textwidth]{img/fotos/InverIoT_PasandoUmbralLuz.png}
-	\caption{El led rojo y el color naranja en la aplicación InverIoT indican que se ha sobrepasado el umbral de luz.}
-\end{figure}
-
-Sin embargo, al caer la noche, la luminosidad y la temperatura disminuyen, planteando un nuevo desafío. En este caso, necesitaría establecer una comunicación bidireccional con la placa Raspberry Pi Pico W para, por ejemplo, encender los focos y activar los calentadores.
-
-Este cambio a una comunicación bidireccional se logró suscribiendo la Raspberry Pi Pico W a un topic MQTT. Ahora, puedo enviar órdenes para procesarlas según sea necesario. 
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.61\textwidth]{img/desarrollo/InverIoT_verde_clickMecanismo.png}
-	\caption{Al hacer clic en activar se enciende el led de color verde representando que estamos activando un mecanismo.}
-\end{figure}
-
-Sin embargo, la activación de mecanismos físicos como encender focos, activar calefacción, regar el suelo o humidificar el ambiente aún no se ha implementado, ya que corresponde a otras especialidades como telecomunicación industrial o mecánica.
-
-El cannabis medicinal requiere condiciones ambientales constantes y dentro de un umbral específico para un crecimiento óptimo y delicado.
-
-Definimos umbrales (valor mínimo/máximo) para mantener los valores de los sensores dentro de límites aceptables. En caso de detectar un valor anómalo fuera de estos umbrales, se genera una alerta. Para esta función, empleamos un bot de Telegram que envía mensajes de alerta, y se configura un LED RGB para cada medición (temperatura, humedad, luminosidad, humedad del suelo). Si la temperatura es baja, por ejemplo, el LED se ilumina en azul y envía una alerta por Telegram; si la temperatura es alta, el LED se enciende en rojo. Un LED apagado indica valores normales dentro del umbral.
+La base de datos contiene dos tablas llamadas \textbf{sensores} y \textbf{umbrales}.
 
 \begin{table}[htbp]
 \begin{center}
-\caption{Umbrales ideales para un invernadero de cannabis medicinal.}
-\begin{tabular}{|l|l|l|}
+	\caption{Columnas de las tablas contenidas en TFG\_UBU.}
+\begin{tabular}{|l|l|}
 \hline
 \rowcolor[HTML]{C0C0C0} 
-\textbf{Característica} & \textbf{Mínimo} & \textbf{Máximo} \\ \hline
-TEMPERATURA & 30 & 35\\ \hline
-HUMEDAD & 30 & 70\\ \hline
-LUMINOSIDAD & 30 & 150\\ \hline
-HUMEDAD DEL SUELO & 20 & 80\\ \hline
+\textbf{sensores} & \textbf{umbrales}\\ \hline
+fecha & temperatura\_minima \\ \hline
+hora & temperatura\_maxima \\ \hline
+temperatura & humedad\_ambiente\_minima \\ \hline
+humedad & humedad\_ambiente\_maxima \\ \hline
+intensidad\_luz & luminosidad\_minima \\ \hline
+humedad\_suelo & luminosidad\_maxima \\ \hline
+			   & humedad\_suelo\_minima \\ \hline
+			   & humedad\_suelo\_maxima \\ \hline
+			   & fecha\_actualización \\ \hline
 \end{tabular}
 \end{center}
 \end{table}
 
-La intervención manual también es posible, como activar ventiladores al observar un LED azul. Además, estos procesos pueden automatizarse. Por ejemplo, si la luminosidad cae por debajo del umbral, los focos se encienden hasta alcanzar el valor óptimo, por ahora eso no está implementado en este proyecto.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\textwidth]{img/diagramas/mqtt_nodeMqtt.png}
+	\caption{MQTT con Node.js para almacenar datos de los sensores.}
+\end{figure}
 
-La información también se puede visualizar en tiempo real en una página web desarrollada con Node.js, incluyendo un histórico de datos almacenados en la base de datos.
+%\begin{figure}[h]
+	%\centering
+	%\includegraphics[width=0.1\textwidth]{img/desarrollo/mysql_tabla_sensores.png}
+	%\caption{Data almacenada en la tabla \textbf{sensores}.}
+%\end{figure}
 
-A esta parte del proyecto se ha llamado \textbf{Dashboard} ~\ref{proyecto:Dashboard}.
+\subsection{Hardware}\label{proyecto:Hardware}
 
-La base de datos de la que extrae data el dashboard web es recopilada por lo que en este proyecto llamamos \textbf{NodeMqtt}~\ref{proyecto:NodeMqtt}.
+Se optó por la Raspberry Pi Pico W debido a su eficiencia energética y coste accesible. Se conectaron al sistema un sensor de humedad y temperatura DHT22~\cite{manual:DHT22}, un sensor de intensidad de luz BH1750~\cite{manual:BH1750}, y un sensor de humedad de suelo~\cite{wiki:SensorHumedadSuelo}. Además, se incorporaron LEDs RGB~\cite{manual:LedRGB} para señalizar alertas.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{img/diagramas/conexiones.png}
+    \caption{Conexiones.} \label{Img:conexionesHardware}
+\end{figure}
+
+\begin{itemize}
+	\item La Raspberry Pi Pico W estará situada en el invernadero para la recopilación de datos.
+	\item Los LEDs RGB, instalados en la oficina del cliente, indicarán visualmente si los valores superan los umbrales establecidos.
+	\item La pantalla OLED estará colocada en la puerta del invernadero para mostrar los valores actualizados.
+\end{itemize}
+
+Los datos se muestran en una pantalla OLED~\cite{manual:Oled} en tiempo real.
+
+La Raspberry Pi Pico W establece conexión con el servidor LAMP a través de MQTT, facilitando la transmisión de los datos de los valores medidos por los sensores, el envío de umbrales predefinidos y la recepción de órdenes para ejecutar acciones específicas.
+
+%\begin{figure}[h]
+	%\centering
+	%\includegraphics[width=0.5\textwidth]{img/fotos/conexiones_real.png}
+	%\caption{Raspberry Pi Pico W y sensores conectados.} \label{Img:conexion_simple}
+%\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\textwidth]{img/diagramas/mqtt_hardware.png}
+	\caption{Conexión de la Raspberry Pi Pico W con el servidor LAMP.} \label{Img:mqtt_hardware}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{img/fotos/oled1.png}
+	\caption{Pantalla oled conectada a la Raspberry Pi Pico W.} \label{Img:oled_conexion}
+\end{figure}
+
+%\begin{figure}[h]
+	%\centering
+	%\includegraphics[width=0.7\textwidth]{img/herramientas/rpipicow_umqtt.png}
+	%\caption{Librería umqtt para conexión mediante MQTT.} \label{Img:rpipicow_umqtt}
+%\end{figure}
+
+\subsection{InverIoT}\label{proyecto:InverIoT}
+Usando el lenguaje de programación C\#~\cite{manual:CSharp} y utilizando Windows Forms, se desarrolla una aplicación de escritorio para Windows al que se ha llamado InverIoT, que permite al usuario monitorizar el histórico de datos, y también visualizar los datos en tiempo real.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{img/desarrollo/InverIoT_Desktop.png}
+	\caption{Aplicación de escritorio \textbf{InverIoT}.}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{img/diagramas/mqtt_InverIoT.png}
+    \caption{Interacción entre la aplicación y el servidor LAMP.}
+\end{figure}
+
+Utilizando el protocolo MQTT~\cite{manual:MQTT}, la aplicación suscribe y recibe los datos publicados en el mismo tema. 
+
+Para el histórico de datos no utiliza MQTT, se conecta al servidor LAMP mediante Mysql Protocol y extrae la data de la base de datos llamada \textbf{TFG\_UBU}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{img/diagramas/mqtt_InverIoT_Historico.png}
+    \caption{Datos usados para mostrar el histórico de datos.}
+\end{figure}
+
+
+Estos datos son formateados y presentados en textboxes correspondientes, con unidades de medida agregadas.
+
+Se incorporan botones para activar o desactivar mecanismos, esto es representado prendiendo o apagando un LED verde, recordar que hay un led RGB por cada variable medida.
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{img/desarrollo/InverIoT_Desktop_botones_control.png}
+	\caption{Botones para activar o desactivar mecanismos.}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.85\textwidth]{img/desarrollo/InverIoT_verde_clickMecanismo.png}
+	\caption{Activación de un mecanismo mediante un clic.}\label{img:InverIoTBotones}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.85\textwidth]{img/fotos/InverIoT_PasandoUmbralLuz.png}
+	\caption{Aplicación indicando que se ha sobrepasado el umbral de luz.}\label{img:InverIoTPasandoUmbralLuz}
+\end{figure}
+
+En la imagen \ref{img:InverIoTBotones} se puede observar 8 textboxes en la parte inferior para ajustar manualmente los valores mínimos y máximos de cada parámetro. Inicialmente estos valores fueron extraídos de la base de datos en el servidor LAMP.
+
+En la imagen \ref{img:InverIoTPasandoUmbralLuz} se está sometiendo al sensor de intensidad de luz a sobrepasar el umbral establecido, el led rojo indica eso. Si un valor está por debajo del umbral, se indicará mediante el led de color azul. Se puede observar tal acontecimiento de colores en el hardware y en la aplicación de escritorio.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{img/desarrollo/InverIoT_Histórico.png}
+    \caption{Historial de los datos mostrada en la aplicación.}
+\end{figure}
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{img/desarrollo/InverIoT_Gráficas.png}
+    \caption{Gráfica mostrando los datos en un intervalo de fechas.}
+\end{figure}
+
+
+
+
+\pagebreak
+
+\subsection{Dashboard}\label{proyecto:Dashboard}
+Se ha creado un dashboard web con Node.js que habilita al usuario para visualizar en tiempo real los datos capturados por los sensores y acceder a un historial con filtro de fecha. La interfaz presenta similitudes con la aplicación de escritorio para mantener una experiencia coherente.
+
+Los valores que exceden los umbrales establecidos se destacan mediante cambios de color.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{img/desarrollo/Dashboard1.png}
+    \caption{Intensidad de luz superando los umbrales.} \label{Img:Dashboard1}
+\end{figure}
+
+La plataforma incluye una gráfica en tiempo real y la capacidad de acceder a un historial con filtro de fecha.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{img/diagramas/mqtt_dashboard.png}
+    \caption{Dashboard web interactuando con el servidor LAMP.} \label{Img:mqtt_dashboard}
+\end{figure}
+
+La imagen \ref{Img:mqtt_dashboard} ilustra de manera significativa el uso de MQTT para la obtención de datos en tiempo real. Cabe destacar que, además, se utiliza el protocolo MySQL para extraer información de la base de datos alojada en el servidor LAMP, permitiendo así mostrar el histórico de datos
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{img/diagramas/mqtt_dashboard_Historico.png}
+    \caption{Valores específicos extraídos de la base de datos.} \label{Img:Dashboard_diagrama_Historico}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{img/desarrollo/Dashboard_Historico.png}
+    \caption{Vista del historial, al cargar, muestra los datos del día actual.} \label{Img:Dashboard_Historico}
+\end{figure}
+
+%\begin{figure}[h]
+    %\centering
+    %\includegraphics[width=1\textwidth]{img/diagramas/mqtt_dashboard_TiempoReal.png}
+    %\caption{Mediante MQTT extrae los datos para mostrarlos en tiempo real.} \label{Img:Dashboard_diagrama_TiempoReal}
+%\end{figure}
+
+El panel de control está disponible para su acceso a través del siguiente enlace: \href{http://www.inveriot.com}{InverIoT Dashboard}
+
 
 %\begin{figure}[h]
 	%\centering
@@ -277,140 +406,70 @@ La base de datos de la que extrae data el dashboard web es recopilada por lo que
 %\end{figure}
 %En este contexto, detallaré la configuración del servidor y la implementación de Node.js en la página web.
 
-\subsection{Hardware}\label{proyecto:Hardware}
-\begin{itemize}
-	\item La Raspberry Pi Pico W estará situada en el invernadero para la recopilación de datos.
-	\item Los LEDs RGB, instalados en la oficina del cliente, indicarán visualmente si los valores superan los umbrales establecidos.
-	\item La pantalla OLED estará colocada en la puerta del invernadero para mostrar los valores actualizados.
-\end{itemize}
+\subsection{Bot de Telegram}\label{proyecto:BotTelegram}
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1\textwidth]{img/diagramas/conexiones.png}
-    \caption{Conexiones.} \label{Img:conexionesHardware}
-\end{figure}
-\pagebreak
+Se implementó la funcionalidad de enviar alertas a través de Telegram en caso de que los valores recopilados excedieran los umbrales ideales~\ref{tabla:umbrales}.
 
-\subsection{InverIoT}\label{proyecto:InverIoT}
-Se desarrolla una aplicación de escritorio para Windows llamada InverIoT, que permite al usuario monitorizar en tiempo real los datos provenientes de los sensores conectados a la placa. 
+Para esta función, empleamos un bot de Telegram~\cite{misc:Telegram_bots} que envía mensajes de alerta si alguno de los valores está fuera del umbral establecido. 
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.95\textwidth]{img/desarrollo/InverIoT_Desktop.png}
-	\caption{Aplicación de escritorio \textbf{InverIoT}.}
-\end{figure}
+La creación del bot se hace utilizando BotFather\cite{misc:BotFather} que es un bot especial en la plataforma de mensajería Telegram~\cite{misc:Telegram} que permite a los usuarios crear y gestionar sus propios bots. Al interactuar con BotFather, los usuarios pueden definir el nombre, la descripción, la imagen y otras configuraciones de su bot. Además, BotFather proporciona un token único para cada bot creado, el cual se utiliza para autenticar las solicitudes y permitir la interacción entre el bot y la plataforma de Telegram.
 
-Utilizando el protocolo MQTT~\cite{manual:MQTT}, la aplicación suscribe y recibe los datos publicados en el mismo tema. 
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.95\textwidth]{img/diagramas/mqtt_InverIoT_TiempoReal.png}
-    \caption{Enviando órdenes mediante MQTT la aplicación recibe datos en tiempo real.}
-\end{figure}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1\textwidth]{img/diagramas/mqtt_InverIoT_Historico.png}
-    \caption{Para mostrar el historial de datos la aplicación extrae información de una base de datos almacenada en un servidor LAMP.}
-\end{figure}
-
-
-Estos datos son formateados y presentados en textboxes correspondientes, con unidades de medida agregadas.
-
-Se incorporan botones para activar o desactivar mecanismos, como un LED verde, que corrigen valores fuera de los umbrales ideales indicados en la parte derecha de la interfaz.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1\textwidth]{img/desarrollo/InverIoT_Desktop_botones_control.png}
-    \caption{Botones para activar o desactivar mecanismos.}
-\end{figure}
-
-Además, se añaden 8 textboxes en la parte inferior para ajustar manualmente los valores mínimos y máximos de cada parámetro.
-
-Los umbrales se actualizan desde la base de datos del servidor LAMP, proporcionando indicadores visuales de color azul para valores bajos, gris para valores normales y rojo para valores altos.
-
-Se desarrolló la aplicación de escritorio utilizando Windows Forms y programada en lenguaje \textbf{C\#}~\cite{manual:CSharp}.
-
-
-La base de datos es alimentada por lo que en ese proyecto llamamos \textbf{NodeMqtt}~\ref{proyecto:NodeMqtt}, y la aplicación de escritorio \textbf{InverIoT} extrae esa información para mostrarla como un historial de datos.
-
-La base de datos contiene dos tablas llamadas \textbf{sensores} y \textbf{umbrales}.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.95\textwidth]{img/desarrollo/InverIoT_Histórico.png}
-    \caption{Historial de los datos mostrara en la aplicación.}
-\end{figure}
-
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.95\textwidth]{img/desarrollo/InverIoT_Gráficas.png}
-    \caption{Gráfica mostrando los datos en un intervalo de fechas.}
-\end{figure}
-\pagebreak
-
-\subsection{Dashboard}\label{proyecto:Dashboard}
-Se desarrolla un dashboard que permite al usuario visualizar en tiempo real los datos capturados por los sensores, con una interfaz similar a la aplicación de escritorio.
-
-Los valores que exceden los umbrales establecidos se destacan mediante cambios de color.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.95\textwidth]{img/desarrollo/Dashboard1.png}
-    \caption{Intensidad de luz superando los umbrales.} \label{Img:Dashboard1}
-\end{figure}
-
-La plataforma incluye una gráfica en tiempo real y la capacidad de acceder a un historial con filtro de fecha.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.95\textwidth]{img/desarrollo/Dashboard_Historico.png}
-    \caption{Vista del historial, al cargar, muestra los datos del día actual.} \label{Img:Dashboard_Historico}
-\end{figure}
-
-Los umbrales utilizados se extraen de la tabla \textbf{TFG\_UBU} en la base de datos MySQL~\cite{misc:Mysql}.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1\textwidth]{img/diagramas/mqtt_dashboard_Historico.png}
-    \caption{Extrae los datos de la base de datos para mostrar el historial.} \label{Img:Dashboard_diagrama_Historico}
-\end{figure}
-
-La Raspberry Pi Pico W utiliza una librería llamada \textbf{umqtt} para poder trabajar con MQTT, así es como envía data de los sensores y de los umbrales establecidos.
-
-Los umbrales establecidos son almacenados en una base de datos que se encuentra en el servidor LAMP.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1\textwidth]{img/diagramas/mqtt_dashboard_TiempoReal.png}
-    \caption{Mediante MQTT extrae los datos para mostrarlos en tiempo real.} \label{Img:Dashboard_diagrama_TiempoReal}
-\end{figure}
-
-El panel de control está disponible para su acceso a través del siguiente enlace: \href{http://www.inveriot.com}{InverIoT Dashboard}
-
-
-
-\subsection{NodeMqtt}\label{proyecto:NodeMqtt}
-\textbf{nodeMqtt} es un servicio en Node.js~\cite{misc:Nodejs} que escucha los topics \textbf{invernadero/sensores} e \textbf{invernadero/umbrales}. Utiliza la librería MQTT.js~\cite{misc:MQTTjs}. Los datos son enviados por la placa Raspberry Pi Pico W RP2040~\cite{misc:RPiPicoW}, que recopila valores de sensores. El servicio \textbf{nodeMqtt} captura, formatea y luego inserta estos datos en la base de datos MySQL~\cite{misc:Mysql} para los valores de sensores, además de actualizar los umbrales correspondientes.
-
-Está conformado por los siguientes archivos:
-
-\begin{itemize}
-	\item \textbf{index.js:}
-		Es el punto de entrada del código de la aplicación.
-	\item \textbf{package.json:}
-		Es un archivo de configuración que describe la aplicación y sus dependencias.
-\end{itemize}
+Para este proyecto el nombre del bot creado es \textbf{InverIoTBot}.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=1\textwidth]{img/diagramas/mqtt_nodeMqtt.png}
-	\caption{MQTT con Node.js para almacenar datos de los sensores.}
+	\includegraphics[width=1\textwidth]{img/diagramas/telegramBot.png}
+	\caption{La interacción es mediante protocolo HTTP.} \label{Img:telegramBot}
 \end{figure}
 
-%Este apartado pretende recoger los aspectos más interesantes del desarrollo del proyecto, comentados por los autores del mismo.
-%Debe incluir desde la exposición del ciclo de vida utilizado, hasta los detalles de mayor relevancia de las fases de análisis, diseño e implementación.
-%Se busca que no sea una mera operación de copiar y pegar diagramas y extractos del código fuente, sino que realmente se justifiquen los caminos de solución que se han tomado, especialmente aquellos que no sean triviales.
-%Puede ser el lugar más adecuado para documentar los aspectos más interesantes del diseño y de la implementación, con un mayor hincapié en aspectos tales como el tipo de arquitectura elegido, los índices de las tablas de la base de datos, normalización y desnormalización, distribución en ficheros3, reglas de negocio dentro de las bases de datos (EDVHV GH GDWRV DFWLYDV), aspectos de desarrollo relacionados con el WWW...
-%Este apartado, debe convertirse en el resumen de la experiencia práctica del proyecto, y por sí mismo justifica que la memoria se convierta en un documento útil, fuente de referencia para los autores, los tutores y futuros alumnos.
+El bot también brinda la posibilidad de enviar comandos para acciones específicas, como obtener el valor de un sensor o activar un mecanismo vinculado a un sensor en particular.
+
+Tener presente que la activación de un mecanismo se representa encendiendo un LED de color verde, y cada sensor está asociado a un LED RGB específico.
+ 
+\begin{table}[htbp]
+\begin{center}
+\caption{Comandos del bot para la consulta de los datos.}
+\begin{tabular}{|l|l|} %|c|c|
+\hline
+\rowcolor[HTML]{C0C0C0} 
+\textbf{Comando} & \textbf{Valor que retorna}\\ \hline
+/temp & Temperatura del ambiente\\ \hline
+/huma& Humedad del ambiente \\ \hline
+/lum & Luminosidad\\ \hline
+/hums & Humedad del suelo\\ \hline
+/todos & Todos los valores de los sensores\\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\begin{table}[htbp]
+\begin{center}
+\caption{Comandos del bot para activar un mecanismo.}
+\begin{tabular}{|l|l|} %|c|c|
+\hline
+\rowcolor[HTML]{C0C0C0} 
+\textbf{Comando} & \textbf{Acción específica}\\ \hline
+/t\_ON & Mecanismo de temperatura prendido\\ \hline
+/t\_OFF & Mecanismo de temperatura apagado\\ \hline
+/ha\_ON & Mecanismo de humedad del ambiente prendido\\ \hline
+/ha\_OFF & Mecanismo de humedad del ambiente apagado\\ \hline
+/l\_ON & Mecanismo de luminosidad prendido\\ \hline
+/l\_OFF & Mecanismo de luminosidad apagado\\ \hline
+/hs\_ON & Mecanismo de humedad del suelo prendido\\ \hline
+/hs\_OFF & Mecanismo de humedad del suelo apagado\\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{img/desarrollo/BotTelegram_alertas.png}
+	\caption{Alertas del bot de Telegram.} \label{Img:BotTelegram_alertas}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{img/desarrollo/BotTelegram_comandos.png}
+	\caption{Consulta a la base de datos mediante comandos usando Telegram.}
+\end{figure}
