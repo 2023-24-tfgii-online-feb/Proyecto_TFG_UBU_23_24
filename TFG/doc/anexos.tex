@@ -8,11 +8,38 @@
 \usepackage{lmodern} % scalable font
 \usepackage{microtype}
 \usepackage{placeins}
+\usepackage{csquotes}
+\usepackage{lscape} 
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{graphicx}
+\usepackage{float} %required for the placement specifier H
+
+\usepackage{makecell}
+
+\renewcommand\theadalign{bc}
+\renewcommand\theadfont{\bfseries}
+\renewcommand\theadgape{\Gape[4pt]}
+\renewcommand\cellgape{\Gape[4pt]}
+
+% Landscape
+\usepackage{pdflscape}
+
+% Mathematic font
+\usepackage{amsfonts}
 
 \RequirePackage{booktabs}
 \RequirePackage[table]{xcolor}
 \RequirePackage{xtab}
 \RequirePackage{multirow}
+
+% Multi-page tables using
+\nouppercaseheads
+\usepackage{longtable}
+\usepackage{tabularx}
+
+% Cell with line break (e.g. \specialcell{Foo\\bar})
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}
 
 % Links
 \PassOptionsToPackage{hyphens}{url}\usepackage[colorlinks]{hyperref}
@@ -34,7 +61,7 @@
 \clubpenalty100000
 
 % Evitar solapes en el header
-\nouppercaseheads
+%\nouppercaseheads
 
 % Imagenes
 \usepackage{graphicx}
@@ -355,7 +382,7 @@
 
 
 % Datos de portada
-\title{Diseño de un sistema económico IoT de monitorización de invernaderos de cannabis para uso medicinal. \\Documentación Técnica}
+\title{Diseño de un sistema económico IoT de monitorización de invernaderos de cannabis medicinal. \\Documentación Técnica}
 \author{José Luis Caballero Martínez-Quintanilla.}
 \tutor{Alejandro Merino Gómez}
 \tutors{Carlos Cambra Baseca}
@@ -397,7 +424,7 @@
 
 \appendix
 
-%\include{./tex/A_Plan_proyecto}
+\include{./tex/A_Plan_proyecto}
 %\include{./tex/B_Requisitos}
 %\include{./tex/C_Diseno}
 %\include{./tex/D_Manual_programador}

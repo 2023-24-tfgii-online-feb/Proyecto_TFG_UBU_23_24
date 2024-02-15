@@ -1,13 +1,470 @@
 \apendice{Plan de Proyecto Software}
 
 \section{Introducción}
+El objetivo fundamental de este documento es establecer una guía clara y estructurada que sirva como marco de referencia para el equipo de desarrollo, proporcionando lineamientos detallados que aseguren la ejecución exitosa del proyecto. A través de una cuidadosa planificación y coordinación, se busca garantizar la entrega oportuna y efectiva de un sistema robusto y funcional que cumpla con los requisitos establecidos y supere las expectativas del cliente.
+
+Este proyecto ha documentado la mayoría de sus cambios y modificaciones en el historial de commits de GitHub, donde cada commit está registrado con fecha y hora. En algunas instancias, varios cambios fundamentales se agruparon en un solo commit, lo que podría dificultar la identificación de modificaciones individuales. Sin embargo, en la gran mayoría de los casos, los commits en GitHub representan cambios específicos con descripciones claras y precisas.
+
+Aunque los commits de GitHub no detallan el tiempo real invertido en la realización del proyecto, el lapso de tiempo entre el primer y el último commit proporciona una estimación aproximada del tiempo total invertido.
 
 \section{Planificación temporal}
+Inicialmente hay 3 fechas clave:
+\begin{itemize}
+	\item \textbf{03/10/2023:} Hice la propuesta a D. Carlos Cambra Baseca.
+	\item \textbf{06/10/2023} Comentamos el proyecto por email entre D. Carlos y D. Alejandro Merino Gómez.
+	\item \textbf{03/11/2023} Se realiza la primera reunión online por microsoft Teams.
+\end{itemize}
+
+Se optó por utilizar el \textbf{Modelo de Prototipos}~\cite{misc:MetodologiaModeloDePrototipos} como enfoque para el desarrollo del proyecto. A continuación, se detallan los commits de GitHub que contribuyeron a cada fase del Modelo de Prototipos.
+\subsection{Requisitos de desarrollo:}
+\begin{itemize}
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/3ccbee3601f8daa05b77ecaaee85e79b8cc5096d}{20/01/2024 Initial commit}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/ee2371b9cea962cccfbe2fbdd36a4b063335fbbb}{20/01/2024 Descripción inicial}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/2f7dd2a4db33f9fae777dc720ab7f9d36baa93ba}{22/01/2024 main.py}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/c513caeb06e930783d92673e138b5bcb5374fa9a}{22/01/2024 Actualización descripción general}.
+\end{itemize}
+
+\subsection{Desarrollo del Prototipo:}
+\begin{itemize}
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/a7cc3b37273cf2a0569f367426a830c4cd67be41}{22/01/2024 Librerias para el hardware}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/f0508f25c715b820f8c66d81d5a37358dcef4188}{22/01/2024 actualización descripción}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/c211b460fad76fb0b5105ad3b4b82a99f4d6ff1d}{23/01/2024 actualizando diagrama de conexiones}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/4b8af308869df57dfe64a1a22c0d75322a33b546}{23/01/2024 fritzing: conexiones}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/a4770260543238966607c17d85058db074cd156f}{23/01/2024 imágenes de componentes y conexiones individuales}.
+\end{itemize}
+
+\subsection{Evaluación del prototipo:}
+\begin{itemize}
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/7a8e4797d4beccac2154441b5f58c06a0fb897e1}{23/01/2024 corrección imagen de Raspberry Pi Pico W}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/427464aacd4f928b9e289856624a46a3d6396f0f}{23/01/2024 Cambio DHT11 por DHT22 para mayor precisión}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/7cc624a24d9c55fcda34d729ce8ad786b8e3f09a}{25/01/2024 Agregando MQ-135 Sensor de Calidad del aire}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/b5379807ec368184ad950f4e7b9a146093f6e6e3}{25/01/2024 activar actualizacion valor de sensor de calidad del aire MQ-135}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/a2555b5ba84b78c3436fc82d044bb32968428102}{26/01/2024 libreria mq135.py}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/1a039b3c8fdc5c2627f46f62ef4b9e2bbd54c205}{26/01/2024 Agregando batería li-ion}.
+\end{itemize}
+
+\subsection{Modificación:}
+\begin{itemize}
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/f3ced8cc9d92da3067f8a2c88764539d0f8f5c07}{27/01/2024 modificación clase de sensor de humedad de suelo}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/79baaa913bfe3e28a3727e569ea3ac71700de482}{27/01/2024 conexión wifi}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/cbcb95bd5bbfe7cbc38c848d1082c4fa8018233f}{28/01/2024 utelegram}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/446a04def85eb45d726e5e43e06510d1596eb0a6}{29/01/2024 Create Readme.md}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/36b1875d18072b0d159ce1c946f4fab3172fdc6c}{29/01/2024 creando carpeta micropython para ubicar el código correspondiente}.
+\end{itemize}
+
+\subsection{Documentación:}
+\begin{itemize}
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/aa1a2dd621f02da5e68ebddc63422f442693e895}{29/01/2024 TFG}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/437c540dfc3dc349545f905f1d1c84905c8e1461}{29/01/2024 actualizando datos}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/23013b214a42f467e5d02ae21c6d9031c4e42172}{29/01/2024 Ubicación de carpeta micropython}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/9d1385a4788222bb5492069ec89c26373143562b}{29/01/2024 borrando carpeta: App_Win_Desktop}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/036818b09847a74dcfe14002c6686df3d0eff2b7}{30/01/2024 correccion nombre: diagramas}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/fd68392e32f7149cc4562bdc19bed9e303ff72f2}{30/01/2024 agregando fotos}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/84933690311e83512979cb22a5d707d50476821f}{31/01/2024 TFG: Introdución, Objetivos del proyecto, Conceptos Teóricos}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/4e094e765f3c14464d56ab8ce0d7fe97b6b9d66f}{31/01/2024 actualización de esquema de conexiones}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/77ffbcfbff2ec5185e05704e8056a995b411eaae}{31/01/2024 eliminando concepto: Domótica}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/9eb27daf27d225f459845da730d06e775ebfc21f}{31/01/2024 corrección de nombre identificador de los leds}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/48b534e913b3fd96008fb99d39e997a8a37a1935}{31/01/2024 acualización código micropython}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/0ab295cf9440c0251e414664d96ff38625f45013}{01/02/2024 eliminando archivos innecesarios}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/22a12b0a25fa4e792c030637e6490f2f9276f705}{01/02/2024 coloco librería umqtt en carpeta lib para mayor orden y corrección en main.py}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/b70c9e9197665be76cad4f07f6a6c182d611207f}{02/02/2024 Herramientas: IDE Thonny}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/f64843c54ee473669324fe46a51ddee6b97479fb}{03/02/2024 Subido archivo de audio creado con IA}.
+%\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/ecc246d79968a14c64eb08058b878a51523a8f5b}{03/02/2024 Delete Presentación_IA_Iker_Jiménez.mp3}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/f0f77e335f32336978b3ee8d012efe640b717f12}{03/02/2024 Presentación del TFG por Iker Jiménez (IA)}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/59790ad1f3a543e65b6dbed5179e604e3243ddcd}{03/02/2024 Update README.md}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/9234e88b6dbb711a7f128af5228791b654be191f}{04/02/2024 Update README.md}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/a491a513c4f3f1e65bfd4e45ce22cffca07350d1}{04/02/2024 Update README.md}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/d9b434ba7fd0a6bef528f597f8db4a726a77240b}{03/02/2024 TFG: Técnicas y Herramientas-Entorno físico}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/c95cdd4c0a8d6d0ba186a4f2dc5a7986bcb5b149}{05/02/2024 Análisis de datos}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/0f4b86e39233f90fcd8ba056cf9d88e28b93a4a0}{05/02/2024 Update README.md}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/e3c9d3b67ca4d06f65f1943e69b34ab7513ffbf5}{06/02/2024 AnalisisDatos: Regresión lineal}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/293cc1705e30517610429b80e32bb6122e7fd3a2}{06/02/2024 explicación del coeficiente de determinación}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/92a2a8b8a394094bdccbf261c25a385103e57c2c}{06/02/2024 TFG: 4-Técnicas y herramientas : jupyter notebook}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/6d9fe893c8faed0ad1d9eda621badbbd5e40c619}{07/02/2024 TFG: 5 Aspectos relevantes del desarrollo del proyecto}.
+%\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/06944311fcf9ac0e05885bc94cca3bed9b050bbe}{07/02/2024 Delete Presentación_IA_Iker_Jiménez_PF.mp3}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/59b399f6316ab8a67d47937cf3ec2ba75d205092}{07/02/2024 Update README.md}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/e423cdba23803c73d5cf24bc04545f8dd7a46418}{07/02/2024 AnalisisDatos: Resumen estadístico}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/bafa8fa524f9236d47d29480f552251ab508b6e8}{08/02/2024 Update dht.py}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/cf44e1d1e7ecbe93e2d2bf26acac8a691530dd3b}{08/02/2024 Update sh1106.py}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/f739933320fc59430ae87bd7a01b4e6bb944b0e9}{08/02/2024 Update utelegram.py}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/4145c6dd945feebaadbdc8fe36c81ca2cdf716b6}{08/02/2024 Update umqtt.py}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/e054483ddf254a878d44cd098da67a91278f699c}{08/02/2024 Update umqtt.py}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/18c90f96fa599b11f09e1a0d49f8b0f159990f91}{08/02/2024 Update utelegram.py}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/eadd11e13dc0c8a9c0f3cd9c956c2d2a6cec9198}{08/02/2024 Update main.py}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/a3756f2deb93d9ae8fb8423bda82bf193dda4538}{08/02/2024 Update main.py}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/f64a06df55e4d28011789bb739fc94e4f9c69232}{08/02/2024 Update sh1106.py}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/e5ac575f3fce1c5500eecff950262c167f4f1f27}{08/02/2024 Update README.md}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/83b01796fcb289cfbbad15325818337bec673c15}{08/02/2024 TFG: 5 Aspectos relevantes del desarrollo del proyecto : Desarrollo del proyecto}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/820d41d9b8c12feebfd888284f5092b0cdb4a5d9}{08/02/2024 TFG: 5 Aspectos relevantes del desarrollo del proyecto : nodeMqtt}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/47b47e62048565810554d1c032ab05e6a67d988a}{09/02/2024 TFG: img/diagramas/mqtt_dashboard}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/7e8a8983c869a0ef0121474e72d7ab7e12168334}{10/02/2024 TFG: memoria versión 1.0}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/161f11abf555dad180d3d8a4b40c16ac81595fb8}{10/02/2024 TFG: memoria: corrección en imágenes}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/13e20134718d089b9d23207e337eb2c6ed8258e1}{10/02/2024 Update README.md}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/6c1b5349a823cc5d38e134745c6d38e9e6bffe0b}{10/02/2024 Update README.md}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/a8406bb330e77d91a7a2236f4ff7f77b1768cbf3}{10/02/2024 Updates from Overleaf}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/7dd0effa00fe1c8c3b38574728d670944abc0b38}{10/02/2024 Merge overleaf-2024-02-10-1155 into main}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/28a88a6776a791bdecaaba6a50a050613466b61b}{10/02/2024 Arreglado algunos signos de puntuación.}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/3074c8d5e438d78e70626581e251c3f0155d32b1}{11/02/2024 Reorganizada alguna palabra.}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/d9175d599577b1bd82e95d79df468241578db6c8}{10/02/2024 TFG: agregando imágenes de conexiones con panel solar y power bank}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/e3b166c487535c7517a73d0febd8a3368cf6d55c}{11/02/2024 TFG: esquema InverIoT}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/806e8913dad0fa7843022204bf92b0d23204e13a}{11/02/2024 Agregando tabla README}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/3f619b7b9b5b534cefbb7268f343bf59594ad92d}{11/02/2024 Update README.md Añadido video presentación}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/7c7fe0d75239ff9424bb6d50d05be48e424e4bab}{12/02/2024 Create Readme.md Firmware y reset}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/cf57a10e4a866ed56b990896c38a2dcd0a948271}{12/02/2024 Add files via upload}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/019eff1d647ae16a32a191e48c32e20e17225a8d}{12/02/2024 Update Readme.md}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/86aea049545adaa8cb45f71e9adcb9e3784e5032}{12/02/2024 Update Readme.md}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/9c6389326635941777a9b490c23292fbcddbfcc0}{12/02/2024 Update README.md Añadido vídeo demo funcional}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/ce14dd291215a23fde71d61bc5c1cbdb6fd6f924}{12/02/2024 Hardware: Modularización de código}.
+\end{itemize}
+
+\subsection{Pruebas:}
+\begin{itemize}
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/bedce40a85d3bff1f137716caaf2130fad809b2b}{12/02/2024 Hardware: corrección en uso de variable next_send}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/d81248ff95190fccffd842db27305bf0097c3895}{12/02/2024 Hardware: Correción libreria umqtt}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/51d092af7c2913c27df92cfc43a63109e12db40d}{12/02/2024 Hardware: Corrección de librería utelegram.py}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/0cbe9e347b54a65d5cc151cb3187f016087cf028}{12/02/2024 Hardware: Corrección librería dht}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/033adf03ec72e6aac5f86ce2f7a4424a72afc1e9}{12/02/2024 TFG: archivos innecesarios}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/68c323116ac06f004c67d1479c98a97f52c4f2e3}{12/02/2024 Hardware: agregando wlan_config}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/9c65bcf4b090ccd53287fb85ccd28af89a7d92c6}{12/02/2024 Hardware: cambio de key en diccionario}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/581f09f7e817c68102a7672620214e20a0c6b04a}{12/02/2024 Hardware: eliminando comentarios innecesarios}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/40d409abb0466bbb7f2dab01c36025848191ce15}{13/02/2024 Hardware: ordenando main.py}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/3d31c83a821b49ae7a4acc89b0ae18f134ed09cb}{13/02/2024 TFG: diagramas de InverIoT y dashboard}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/7609fef7f7a5ad034d391570dec58502d8d273a9}{13/02/2024 TFG: Actualización de diagramas}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/42a652e595eaa1c4404ae2b0d2a8ec03200c4806}{14/02/2024 Update README.md Actualizada descripción}.
+\item \href{https://github.com/JLCaballeroMQ/Proyecto_TFG_UBU_23_24/tree/de1fb31250f55e99ac2a999076d156706e5dd86a}{14/02/2024 memoria versión 1.1}.
+\end{itemize}
 
 \section{Estudio de viabilidad}
+El estudio de viabilidad es una fase esencial en cualquier proyecto, ya que tiene como objetivo principal evaluar la aplicabilidad del mismo. Además, desempeña un papel crucial al proporcionar claridad sobre aspectos fundamentales que facilitan la toma de decisiones.
 
 \subsection{Viabilidad económica}
+En esta etapa, abordaremos los aspectos económicos del proyecto, que desempeñan un papel fundamental para determinar la viabilidad del mismo en un contexto empresarial y profesional.
+
+En esta sección, se detallan los costos asociados al proyecto, destacando el esfuerzo por minimizarlos en todas las áreas, desde la instalación hasta el material utilizado.
+
+\subsubsection{Coste de personal}
+La sección de costos de personal destaca por presentar el mayor gasto en comparación con otros aspectos económicos del proyecto.
+
+Se ha considerado un salario de 22.700€ brutos anuales, distribuidos en 12 pagas, para el período comprendido entre el 20 de enero de 2024 y el 14 de febrero de 2024. Al calcular los 25 días de duración del proyecto, se observa que equivale a 0,83 meses de trabajo, resultando en un gasto total en personal de 2459.16€.
+
+El desglose mensual se presenta en la tabla~\ref{tab:CostePersonal}, y el costo total se detalla en la tabla~\ref{tab:CostePersonalTotal}.
+
+\begin{longtable}[c]{@{}lrr@{}}
+\toprule
+\multicolumn{1}{c}{\textbf{Concepto}} & \multicolumn{1}{c}{\textbf{Porcentaje}} & \multicolumn{1}{c}{\textbf{Coste}} \\* \midrule
+\endfirsthead
+%
+\endhead
+%
+\bottomrule
+\endfoot
+%
+\endlastfoot
+%
+Sueldo Base (Neto) &  & 1891,66 € \\
+Contingencias Comunes & 23,60 \% & 446,43 € \\
+Tipo general & 5,50 \% & 104,04 € \\
+Fogasa & 0,20 \% & 3,78 € \\
+FP & 0,70 \% & 13,24 € \\ \hline
+\textbf{Total Gasto Mensual (Suma)} & & \textbf{2.459,16 €} \\* \bottomrule \\
+\caption{Coste de personal mensual}
+\label{tab:CostePersonal}
+\end{longtable}
+
+\begin{longtable}[c]{@{}ll@{}}
+\toprule
+\centering
+\multicolumn{1}{c}{\textbf{Concepto}} & \multicolumn{1}{c}{\textbf{Coste}} \\* \midrule
+\endfirsthead
+%
+\endhead
+%
+\bottomrule
+\endfoot
+%
+\endlastfoot
+%
+Número de meses & 0.8 meses \\
+Gasto mensual & 2.459,16 € \\ \hline
+\textbf{Total Gasto Proyecto} & \textbf{2.041,10 €} \\* \bottomrule \\
+\caption{Coste total en personal durante el proyecto}
+\label{tab:CostePersonalTotal}\\
+\end{longtable}
+
+Para realizar el cálculo me he apoyado en la documentación oficial que tiene a disposición del ciudadano la Seguridad Social en su página web~\cite{manual:SegurirdadSocial}. En ella podemos ver que hay que aportar un 23,60~\% en concepto de Contingencias comunes, un 5,50~\% en concepto de desempleo de Tipo general, un 0,20~\% a FOGASA y un 0,70~\% para FP.
+
+\subsubsection{Coste hardware}
+Los esfuerzos para optimizar los costos asociados con el hardware han arrojado resultados positivos.
+
+Se ha seleccionado la Raspberry Pi Pico W debido a su asequibilidad, conectividad Wi-Fi y bajo consumo de energía.
+
+%Esta elección ha demostrado ser adecuada para la conexión simultánea de sensores, una pantalla OLED y LEDs RGB, todos operando de manera eficiente.
+
+\begin{longtable}[c]{@{}lrr@{}}
+\toprule
+\centering
+\multicolumn{1}{c}{\textbf{Concepto}} & \multicolumn{1}{c}{\textbf{Coste}} \\* \midrule
+\endfirsthead
+%
+\endhead
+%
+\bottomrule
+\endfoot
+%
+\endlastfoot
+%
+Raspberry Pi Pico W & 16,99 €\\
+Módulo LED RGB & 3,29 €\\
+Pantalla OLED I2C de 128x64 píxeles & 8,49 €\\
+Protoboard y cables & 13,99 €\\
+DHT22 Sensor de Temperatura y Humedad & 9,49 €\\
+Sensor de humedad del suelo V1.2 & 4,99 €\\
+Sensor de luz GY-302 BH1750 & 5,99 €\\
+Módem WiFi portatil 4G & 21,26 €\\
+Panel Solar de 8W IP65 & 17,95 €\\
+Batería externa 20000 mAh & 29,28 €\\
+\textbf{Total} & \textbf{131,72 €} \\ \bottomrule \\
+\caption{Coste total en hardware}
+\label{tab:CosteHW}
+\end{longtable}
+
+\subsubsection{Coste software}
+La única inversión adicional es la licencia del programa Fritzing, con un costo total de 8 €~\cite{misc:Fritzing}.
+
+%\subsubsection{Coste varios}
+
+\subsubsection{Coste Total}
+La suma asciende a \textbf{2180,82 €} que han quedado descritos en la tabla~\ref{tab:CosteTotal}.
+
+\begin{longtable}[c]{@{}lr@{}}
+\toprule
+\centering
+\multicolumn{1}{c}{\textbf{Concepto}} & \multicolumn{1}{c}{\textbf{Coste}} \\* \midrule
+\endfirsthead
+%
+\endhead
+%
+\bottomrule
+\endfoot
+%
+\endlastfoot
+%
+Personal & 2.041,10 € \\
+Hardware & 131,72 € \\
+Software & 8 € \\ \midrule
+%Costes varios & 634,40 € \\\midrule
+
+\textbf{Total} & \textbf{2180,82 €} \\ \bottomrule \\
+\caption{Tabla de costes totales} 
+\label{tab:CosteTotal}
+\end{longtable}
 
 \subsection{Viabilidad legal}
+En este apartado, se proporciona un análisis del marco legal del proyecto. Para comprenderlo completamente, es esencial definir qué es una licencia:
+
+\subsubsection{Servidor LAMP}
+
+\footnotesize%%%%%%%%%%%  smaller font size %%%%%%%%
+\begin{longtable}[c]{@{}lccl@{}}
+\toprule
+\multicolumn{1}{c}{\textbf{Nombre}} & \textbf{Versión} & \textbf{Licencia} & \multicolumn{1}{c}{\textbf{Descripción}} \\ \midrule
+\endfirsthead
+%
+\endhead
+%
+\bottomrule
+\endfoot
+%
+\endlastfoot
+%
+Linux Ubuntu & 23.10.1  & GPL & Sistema Operativo del servidor \\
+Apache2 & 2.4.57 & Apache license 2.0 &  HTTP Server\\
+Mysql & 8.0.35 & GPL &  Servidor de base de datos\\
+PHP & 8.2.18 & PHP Licence 3.01 &  Lenguaje para crear sitios web\\
+ssh & 9.2 & BSD & Protocolo para administración remota\\
+vsftpd & 3.0.3 & GPL2 & Servidor FTP\\
+ufw & 0.36.2 &  GPL2 & administrador de firewalls\\
+node.js & 20.10.0  & MIT &  Entorno de ejecución de Javascript\\
+pm2 & 5.3.1 & MIT & Administrador de procesod para Node.js\\
+mosquitto & 2.0.11 & EPL 1.0 & Broker MQTT \\
+\bottomrule~\\
+\caption{Dependencias en el servidor LAMP.}
+\label{tab:BackEnd}
+\end{longtable}
+\normalsize
+
+\subsubsection{Hardware}
+
+Principalmente es el firmware que permite programar con Micropython~\cite{wiki:micropython} en la Rasberry Pi Pico W y las librerías usadas.
+
+Fritzing~\cite{misc:Fritzing} fue usado para hacer el diseño de las conexiones.
+
+\footnotesize%%%%%%%%%%%  smaller font size %%%%%%%%
+\begin{longtable}[c]{@{}lccl@{}}
+\toprule
+\multicolumn{1}{c}{\textbf{Nombre}} & \textbf{Versión} & \textbf{Licencia} & \multicolumn{1}{c}{\textbf{Descripción}} \\ \midrule
+\endfirsthead
+%
+\endhead
+%
+\bottomrule
+\endfoot
+%
+\endlastfoot
+%
+Firmware Micropython & 1.22.1 & MIT & Python para microcontroladores\\
+IDE Thonny & 4.1.4 & GPL3 & IDE para micropython\\
+urllib3 & 1.26.9 & Apache2.0 & Solicitudes HTTP \\
+umqtt & 1.4.6 & MIT & MQTT para micropython\\
+urequests & 0.8.0 & MIT & Solicitudes HTTP\\
+machine & 0.0.1 & MIT & Control de hardware\\
+dht & 0.1.0 & MIT & Librería para sensor DHT22 y DHT11\\
+utelegram & 2.1.1 & MIT & Wrapper para la API de Telegram\\
+sh1106 & 1.5.0 & MIT & Librería para pantalla oled\\
+network & 0.1 & MIT & Networking library \\
+time & 0.1.0 & MIT & Agregar delay\\
+utime & 1.1.7 & MIT & Hora actual e intervalos\\
+Fritzing & 1.0.2 & GPL3 & Diseño electrónico\\
+\bottomrule~\\
+\caption{Dependencias en la Raspbery Pi Pico W.}
+\label{tab:BackEnd}
+\end{longtable}
+\normalsize
+
+\subsubsection{NodeMqtt y Dashboard}
+
+\footnotesize%%%%%%%%%%%  smaller font size %%%%%%%%
+\begin{longtable}[c]{@{}lccl@{}}
+\toprule
+\multicolumn{1}{c}{\textbf{Nombre}} & \textbf{Versión} & \textbf{Licencia} & \multicolumn{1}{c}{\textbf{Descripción}} \\ \midrule
+\endfirsthead
+%
+\endhead
+%
+\bottomrule
+\endfoot
+%
+\endlastfoot
+%
+MQTT.js & 4.10.0 & Apache 2.0 & Protocolo MQTT para Node.js\\
+Mysql2 & 3.9.1 & MIT & Mysql para Node.js\\
+Express & 4.18.1 & MIT &  Gestiona rutas y peticiones HTTP\\
+Socket.IO & 4.5.4 & MIT & Comunicación bidireccinal\\
+CORS & 2.8.5 & MIT & Configuración de CORS\\
+\bottomrule~\\
+\caption{Dependencias en nodeMqtt y dashboard web.}
+\label{tab:BackEnd}
+\end{longtable}
+\normalsize
+
+\subsubsection{Aplicación de Escritorio}
+\footnotesize%%%%%%%%%%%  smaller font size %%%%%%%%
+\begin{longtable}[c]{@{}lccl@{}}
+\toprule
+\multicolumn{1}{c}{\textbf{Nombre}} & \textbf{Versión} & \textbf{Licencia} & \multicolumn{1}{c}{\textbf{Descripción}} \\ \midrule
+\endfirsthead
+%
+\endhead
+%
+\bottomrule
+\endfoot
+%
+\endlastfoot
+%
+C\# & 11 & Ms-PL & Lenguaje de programación\\
+.NET	& 7 & MS-PL & Creación de aplicaciones con C\#\\
+\bottomrule~\\
+\caption{Dependencias en Aplicación de escritorio.}
+\label{tab:BackEnd}
+\end{longtable}
+\normalsize
+
+\subsubsection{Bot de Telegram}
+
+En el proyecto se ha utilizado un bot de Telegram para el envío de alertas y poder realizar acciones mediante comandos. Podemos ver las licencias del sistema que utilizamos en la tabla~\ref{tab:lienciaTelegram}.
+
+\begin{longtable}[c]{@{}lll@{}}
+\toprule
+\centering
+\multicolumn{1}{c}{\textbf{Nombre}} & \multicolumn{1}{c}{\textbf{Licencia}} & \multicolumn{1}{c}{\textbf{Descripción}} \\ \midrule
+\endfirsthead
+%
+\endhead
+%
+\bottomrule
+\endfoot
+%
+\endlastfoot
+%
+Telegram Code & MIT & Código interno de Telegram \\
+Telegram App~\cite{misc:TelegramApps} & GPLv2 y post & Aplicaciones móviles \\
+Telegram Api~\cite{misc:Telegram_api} & GPLv3 excepto OpenSSL & API pública de Telegram \\ \bottomrule \\
+\caption{Licencias específicas.}
+\label{tab:lienciaTelegram}
+\end{longtable}
 
 
+\subsubsection{Documentación}
+Para la generación de la documentación, se han aplicado dos licencias: una para \LaTeX{} y otra para la aplicación Fritzing. Los diagramas electrónicos del proyecto se han creado bajo la licencia Creative Commons by-sa~\cite{wiki:CreativeCommons}.
+
+La documentación del proyecto comparte la misma cobertura CC by-sa, lo que permite el uso comercial y la distribución tanto de la obra original como de sus derivados, siempre y cuando se mantenga la misma licencia que rige la obra original.
+
+\begin{longtable}[c]{@{}lll@{}}
+\toprule
+\multicolumn{1}{c}{\textbf{Nombre}} & \multicolumn{1}{c}{\textbf{Licencia}} & \multicolumn{1}{c}{\textbf{Descripción}} \\* \midrule
+\endfirsthead
+%
+\endhead
+%
+\bottomrule
+\endfoot
+%
+\endlastfoot
+%
+\LaTeX{}~\cite{misc:Latex} & LPPL & Procesador de textos \\
+GIMP & GPL3 & Editor de imágenes\\
+Fritzing & CC by-sa & Diagramas electrónicos \\* \bottomrule \\
+\caption{Dependencias en la documentación.}
+\label{tab:my-table}\\
+\end{longtable}
+
+\subsubsection{Resumen del licenciamiento del presente proyecto}
+Tras analizar la compatibilidad de las licencias de las dependencias de nuestro proyecto, hemos determinado que la licencia GPL3 es la más adecuada. Por lo tanto, el software de nuestro proyecto se distribuirá bajo la licencia GPL3~\cite{manual:GPL3}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{img/diagramas/licencias_compatibilidad.png}
+    \caption{Compatibilidad de licencias.} \label{licencias_compatibilidad}
+\end{figure}
+
+En resumen estamos empleando la licencia GPL3~\cite{manual:GPL3} y CC-BY-SA-3.0~\cite{wiki:CreativeCommons}.
+
+\begin{longtable}[c]{@{}ll@{}}
+\toprule
+\multicolumn{1}{c}{\textbf{Recurso}} & \multicolumn{1}{c}{\textbf{Licencia}} \\* \midrule
+\endfirsthead
+%
+\endhead
+%
+\bottomrule
+\endfoot
+%
+\endlastfoot
+%
+Código Fuente & GPL3 \\
+Documentación & CC-BY-SA-3.0 \\
+Imágenes & CC-BY-SA-3.0 \\* \bottomrule \\
+%Vídeos & CC-BY-SA-3.0 \\* \bottomrule \\
+\caption{Licencias aplicadas en el proyecto.}
+\label{tab:licproy}\\
+\end{longtable}
+
+\begin{figure}[h]
+  \begin{subfigure}
+    \includegraphics[width=0.3\textwidth]{img/herramientas/licencia_GPL3.png}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}
+    \includegraphics[width=0.3\textwidth]{img/herramientas/licencia_cc.png}
+  \end{subfigure}
+\end{figure}
