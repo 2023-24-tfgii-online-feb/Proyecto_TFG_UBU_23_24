@@ -1,0 +1,106 @@
+\capitulo{6}{Trabajos relacionados}
+
+Para comprender plenamente la contribución y novedad de este proyecto, es esencial explorar investigaciones y desarrollos previos relacionados.
+
+\subsection{Monitorización de la energía consumida mediante Raspberry Pi para sistema domótico}\label{Proy1}
+
+Se trata de un TFG desarrollado en la Universidad Carlos III de Madrid que trata sobre un sistema de monitorización de energía consumida para una instalación domótica mediante el uso de una Raspberry Pi, en el que se debe realizar el diseño del circuito y la programación correspondientes para poder extraer datos de diez sensores de corriente de forma simultánea.
+
+Cada sensor recoge información correspondiente a una línea del cuadro de electricidad donde irá instalado.
+
+En el desarrollo de este proyecto se pueden diferenciar dos partes:
+
+\begin{itemize}
+\item Montaje del circuito que lleva los datos obtenidos de los sensores de corriente hacia la Raspberry Pi para que puedan ser gestionados adecuadamente.
+
+\item Configuración de la Raspberry Pi para la lectura y procesado de los datos obtenidos a través de cada uno de los sensores. Tales datos son guardados en diferentes ficheros dependiendo del canal de los que provengan, denominados datos\_canalX.txt, donde X es el número del sensor.
+\end{itemize}
+
+Introduciendo un comando determinado el sistema es capaz de:
+
+\begin{itemize}
+	\item Modificar el tiempo existente entre el recojo de cada muestra para un canal específico, que es guardado en un fichero de tiempos para su continua lectura.
+	\item Recoger datos a partir de un canal, fecha y hora, de forma que se lee el fichero datos\_canalX correspondiente al canal introducido, y se guardan en otro fichero todos aquellos datos posteriores a la fecha y hora introducidos.
+\end{itemize}
+
+Podemos ver su referencia en la bibliografía en la referencia~\cite{TesisBaron2017}.
+
+En la columna \textbf{Proy1} de la tabla~\ref{tabla:comparativa-proyectos} podemos ver algunas características de este proyecto.
+
+\subsection{Diseño e implementación de un sistema domótico basado en Raspberry Pi}\label{Proy2}
+
+Se trata de un TFG desarrollado en la Universidad Carlos III de Madrid que trata sobre un sistema domótico de bajo coste, basado en código libre (UNIX/LINUX). Dicho sistema permite al usuario manejar de forma fácil y sencilla elementos finales como motores y leds.
+
+El elemento de software principal es el sistema operativo Raspbian (basado en Debian), aunque ahora es llamado Raspberry Pi OS. Tal sistema operativo es instalado en la RaspberryPi.
+
+El segundo elemento software importante es el servidor web Apache que gestiona la aplicación web desarrollada bajo el patrón de desarrollo Modelo-Vista-Controlador (MVC).
+
+El sistema domótico está compuesto por varios sus-sistemas:
+
+\begin{itemize}
+	\item La aplicación web.
+	\item La base de datos.
+	\item El conjunto de sensores y actuadores.
+\end{itemize}
+
+La aplicación web se ha desarrollado sobre un servidor LAMP que es accesible desde el exterior y que actua de interfaz sobre el usuario del sistema domótico y le propio sistema.
+
+Algunas acciones que puede realizar el usuario mediante este sistema:
+
+\begin{itemize}
+	\item Consultar temperatura y humedad.
+	\item Controlar apertura puertas/persianas.
+	\item Consultar histórico de temperaturas y humedades.
+	\item Consultar movimiento en una habitación.
+	\item Controlar iluminación interior.
+\end{itemize}
+
+Podemos ver su referencia en la bibliografía en la referencia~\cite{TesisSantos2017}.
+
+En la columna \textbf{Proy2} de la tabla~\ref{tabla:comparativa-proyectos} podemos ver algunas características de este proyecto.
+
+\section{Fortalezas y debilidades este proyecto}
+
+Las fortalezas clave del proyecto son:
+
+\begin{itemize}
+	\item Todos los elementos utilizados en este proyecto son fácilmente accesibles, tanto en términos de software como de hardware.
+	\item La elección de la Raspberry Pi Pico W fue crucial gracias a su bajo consumo de energía, su compacto tamaño que facilita la portabilidad y su capacidad de conectividad Wifi.
+	\item La versatilidad de la Raspberry Pi Pico W, con su capacidad de conectividad Wifi, ha posibilitado tanto el envío de datos como la recepción de órdenes. Además, su flexibilidad se evidencia en la implementación exitosa de MQTT en el proyecto.
+	\item La modularidad del sistema permite una fácil escalabilidad, ya que es posible agregar nuevos sensores o funcionalidades sin mayores complicaciones.		
+	\item La presentación gráfica de datos en tiempo real en una pantalla OLED y la posibilidad de acceder a través de una aplicación de escritorio y un panel web ofrecen múltiples formas de acceder y visualizar la información recopilada.
+\end{itemize}
+
+Las principales debilidades de este proyecto son:
+
+\begin{itemize}
+	\item La prueba del sistema se realizó en un ambiente no controlado, lo que puede afectar la precisión de los datos y la generación de alertas. Esto podría limitar la fiabilidad de las respuestas del sistema en condiciones reales.
+	\item La funcionalidad del proyecto está intrínsecamente ligada a la conectividad Wifi de la Raspberry Pi Pico W. Problemas en la red Wifi podrían afectar la transmisión de datos y la recepción de órdenes.
+	\item Aunque se han incluido sensores relevantes, la variedad podría ser limitada. La adición de más tipos de sensores podría mejorar la capacidad de monitoreo y la precisión de los datos recopilados.
+	\item A medida que se agregan más sensores y funcionalidades, la capacidad de la Raspberry Pi Pico W podría alcanzar sus límites. En proyectos a mayor escala, se podría requerir hardware más potente.
+\end{itemize}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lccc}
+\toprule
+Características & MICM & Proy1 & Proy2  \\
+\midrule
+Proyecto libre & \cellcolor{green!25} {\checkmark} & \cellcolor{green!25} {\checkmark} & \cellcolor{green!25} {\checkmark} \\
+Menor precio en modelo de Raspberry Pi & \cellcolor{green!25} {\checkmark} & \cellcolor{red!25} {\xmark} & \cellcolor{red!25} {\xmark} \\
+Menor consumo de energía de Raspberry Pi & \cellcolor{green!25} {\checkmark} & \cellcolor{red!25} {\xmark} & \cellcolor{red!25} {\xmark} \\
+Escalabilidad & \cellcolor{green!25} {\checkmark} & \cellcolor{green!25} {\checkmark} & \cellcolor{green!25} {\checkmark} \\
+Modularidad & \cellcolor{green!25} {\checkmark} & \cellcolor{green!25} {\checkmark} & \cellcolor{green!25} {\checkmark} \\
+Más opciones de visualización de datos & \cellcolor{green!25} {\checkmark} & \cellcolor{red!25} {\xmark} & \cellcolor{red!25} {\xmark} \\
+Mayor potencia en modelo de Raspberry Pi & \cellcolor{red!25} {\xmark} & \cellcolor{green!25} {\checkmark} & \cellcolor{green!25} {\checkmark} \\
+Más opciones de acceso de datos & \cellcolor{green!25} {\checkmark} & \cellcolor{red!25} {\xmark} & \cellcolor{red!25} {\xmark} \\
+Interacción multiplataforma             & \cellcolor{green!25} {\checkmark} & \cellcolor{green!25} {\checkmark} & \cellcolor{green!25} {\checkmark} \\
+WiFi entre elementos                    & \cellcolor{green!25} {\checkmark} & \cellcolor{green!25} {\checkmark} & \cellcolor{green!25} {\checkmark \\
+Almacenamiento de datos                    & \cellcolor{green!25} {\checkmark} & \cellcolor{green!25} {\checkmark} & \cellcolor{green!25} {\checkmark} \\
+\bottomrule
+\end{tabular}
+\caption{Comparativa de las características de los proyectos.}
+\label{tabla:comparativa-proyectos}
+\end{table}
+
+%Este apartado sería parecido a un estado del arte de una tesis o tesina. En un trabajo final grado no parece obligada su presencia, aunque se puede dejar a juicio del tutor el incluir un pequeño resumen comentado de los trabajos y proyectos ya realizados en el campo del proyecto en curso. 

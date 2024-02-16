@@ -1,0 +1,124 @@
+\apendice{Especificación de Requisitos}
+
+\section{Introducción}
+En este apartado se definen los requisitos que debe cumplir el proyecto. Estos requisitos determinarán las restricciones, funcionalidades y comportamiento del mismo.
+
+% Caso de Uso 1 -> Consultar Experimentos.
+%\begin{table}[p]
+	%\centering
+	%\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		%\toprule
+		%\textbf{CU-1}    & \textbf{Ejemplo de caso de uso}\\
+		%\toprule
+		%\textbf{Versión}              & 1.0    \\
+		%\textbf{Autor}                & Alumno \\
+		%\textbf{Requisitos asociados} & RF-xx, RF-xx \\
+		%\textbf{Descripción}          & La descripción del CU \\
+		%\textbf{Precondición}         & Precondiciones (podría haber más de una) \\
+		%\textbf{Acciones}             &
+		%\begin{enumerate}
+			%\def\labelenumi{\arabic{enumi}.}
+			%\tightlist
+			%\item Pasos del CU
+			%\item Pasos del CU (añadir tantos como sean necesarios)
+		%\end{enumerate}\\
+		%\textbf{Postcondición}        & Postcondiciones (podría haber más de una) \\
+		%\textbf{Excepciones}          & Excepciones \\
+		%\textbf{Importancia}          & Alta o Media o Baja... \\
+		%\bottomrule
+	%\end{tabularx}
+	%\caption{CU-1 Nombre del caso de uso.}
+%\end{table}
+
+\section{Objetivos generales}
+Los objetivos generales del proyecto definen las funcionalidades que este debe ofrecer, las cuales se detallan a continuación.
+
+\begin{itemize}
+   \item Crear un sistema de monitorio para un invernadero de cannabis medicinal.
+    \item El sistema debe recopilar datos de la humedad y temperatura del ambiente, intensidad de luz y humedad del suelo.
+    \item Se debe implementar opciones de visualización de la información in situ, a través de un teléfono móvil y a través de un navegador web.
+    \item El hardware utilizado en el proyecto debe ser eficiente respecto a consumo de energía y económico.
+	\item Los datos deben ser almacenados para consultas del histótico de datos.
+\end{itemize}
+\section{Catálogo de requisitos}
+A continuación se detallan los requisitos específicos del proyecto, a partir de los objetivos generales mencionados anteriormente.
+
+\subsection{\textbf{Requisitos funcionales}}
+
+\begin{itemize}
+    \item \textbf{RF-1 Obtención de datos:} El Sistema debe ser capaz de captar los datos respecto a caracteísticas específicas en el invernadero.
+    \begin{itemize}
+        \item \textbf{RF-1.1 Obtención de la humedad del ambiente:} Se debe captar la humedad relativa del ambiente, y su valor está representado mediante un porcentaje. 
+        \item \textbf{RF-1.2 Obtención de la temperatura del ambiente:} Se debe captar la temperatura del ambiente en grados Celsius. 
+        \item \textbf{RF-1.3 Obtención de la intensidad de la luz:} La intensidad de la luz debe medirse en lux.
+        \item \textbf{RF-1.3 Obtención de la humedad del suelo:} La humedad del suelo debe medirse en porcentaje de humedad gravimétrica, está representado por un porcentaje.
+    \end{itemize}
+
+    \item \textbf{RF-2 Indicadores de condiciones críticas:} Diversas maneras de observar si los valores están fuera del umbral establecido.
+    \begin{itemize}
+        \item \textbf{RF-2.1 Alertas:} Se deben recibir alertas al teléfono celular.
+        \item \textbf{RF-2.2 Indicador visual in situ:} Dentro del invernadero deben haber indicadores visuales que indiquen que los valores medidos están fuera del umbral.
+    \end{itemize}   
+
+    \item \textbf{RF-3 Visualización de datos:} Los datos deben estar representados por números con sus respectivas unidades o gráficas.
+    \begin{itemize}
+        \item \textbf{RF-3.1 In situ:} Los valores de los sensores deben verse reflejados en números y sus unidades.
+        \item \textbf{RF-3.2 Fuera del invernadero:} A traves de acceso a internet.
+    \end{itemize}   
+
+    \item \textbf{RF-4 Almacenaje de la data:} Se debe tener la capacidad de guardar los datos de los sensores y los umbrales establecidos.
+    \begin{itemize}
+        \item \textbf{RF-4.1 Robustez:} El usuario no debe de preocuparse por la integridad de los datos si alguna parte del sistema en el invernadero falla.
+        \item \textbf{RF-4.1 Modificable:} El usuario debe poder modificar los valores de los umbrales. 
+    \end{itemize}
+
+    \item \textbf{RF-5 Capacidad de enviar comandos:} Se debe tener la capacidad de enviar comandos para acciones específicas.
+    \begin{itemize}
+        \item \textbf{RF-5.1 Activación de un mecanismo:} Mediante un comando el Sistema debe poder activar y desactivar un mecanismo asociado a uno de los sensores conectados.
+        \item \textbf{RF-5.2 Consulta de la data en tiempo real:} El usuario debe poder consultar los valores de los sensores en tiempo real usando comandos.
+    \end{itemize}
+\end{itemize}
+
+\subsection{\textbf{Requisitos no funcionales}}
+
+\begin{itemize}
+    \item \textbf{RNF-1 Escalabilidad:} Debe poder ampliarse fácilmente.
+    \item \textbf{RNF-2 Eficiencia:} Debe minimizar el consumo energético del Sistema.
+    \item \textbf{RNF-3 Rendimiento:} El sistema debe ser fluido y evitar cargas innecesarias.
+    \item \textbf{RNF-4 Usabilidad:} Debe ser fácil de utilizar e intuitivo, y adaptado a las necesidades que pretende cubrir.
+    \item \textbf{RNF-5 Disponibilidad:} El Sistema debe estar funcionamiento correctamente.
+    \item \textbf{RNF-6 Durabilidad:} El software y hardware deben poder funcionar correctamente durante un tiempo relativamente largo.
+    \item \textbf{RNF-7 Capacidad:} Debe poder captar la información necesaria y actuar conforme a lo que se espera de él.
+    \item \textbf{RNF-8 Documentación:} Debe existir la documentación suficiente para poder implementar e interactuar con el Sistema.
+    \item \textbf{RNF-9 Operabilidad:} Debe permitir controlar y manejar el Sistema según los requisitos funcionales.
+    \item \textbf{RNF-10 Mantenibilidad:} Debe desarrollarse de tal manera que el mantenimiento sea lo más fácil y rápido posible.
+    \item \textbf{RNF-11 Seguridad:} Todas las operaciones deben ser seguras y estar cifradas.
+    \item \textbf{RNF-12 Legibilidad:} El software debe ser fácilmente legible.
+    \item \textbf{RNF-13 Extensibilidad:} El código debe ser fácilmente adaptable y reutilizable.
+    \item \textbf{RNF-14 Respaldo documental:} Toda la instalación debe realizarse conforme a los estándares legales vigentes.
+\end{itemize}
+
+
+%\section{Especificación de requisitos}
+
+%\subsection{Actores}
+%Los actores serán cada uno de los usuarios del Sistema.
+
+%hola .
+
+%\footnotesize%%%%%%%%%%%  smaller font size %%%%%%%%
+%\begin{longtable}{>{\hspace{0pt}}m{0.182\linewidth}>{\hspace{0pt}}m{0.758\linewidth}}
+%\hline
+%\rowcolor[rgb]{0.937,0.937,0.937} \multicolumn{1}{|>{\hspace{0pt}}m{0.182\linewidth}|}{\textbf{CU-01}} & \multicolumn{1}{>{\hspace{0pt}}m{0.758\linewidth}|}{\textbf{Obtención de posición solar}} \endfirsthead 
+%\hline
+%\textbf{Versión} & 1.0 \\
+%\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Actor} & Usuario \\
+%\textbf{Requisitos asociados} & RF-1, RF-1.1, RF-1.2, RF-1.3, RF-1.4 \\
+%\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Descripción} & Permite al usuario obtener los datos necesarios para parametrizar el Sistema Domótico Inteligente. \\
+%\textbf{Precondición} & \begin{tabular}{@{\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}}l}Al ser un proceso principalmente automático, únicamente se~\end{tabular}\par{}~ ~ requiere una línea de datos con acceso a Internet.\par\par{}\begin{tabular}{@{\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}}l}En el caso de hacer la petición el usuario, también necesita~\end{tabular}\par{}~ ~ ser uno de los usuarios autorizados. \\
+%\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Acciones} & \begin{tabular}{@{\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}}>{\cellcolor[rgb]{0.937,0.937,0.937}}l}El usuario solicita la obtención inmediata de los datos~\end{tabular}\par{}necesarios para realizar la próxima programación.\par\par{}\begin{tabular}{@{\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}}>{\cellcolor[rgb]{0.937,0.937,0.937}}l}El programa llama a las APIS de geolocalización,~\end{tabular}\par{}astrológicos y meteorológicos. \\
+%\textbf{Postcondición} & El bot lanza los scripts de recopilación de datos y almacena los datos. \\
+%\rowcolor[rgb]{0.937,0.937,0.937} \textbf{Excepciones} & Si no puede recopilar los datos envía mensaje al usuario. \\
+%\textbf{Importancia} & Alta \\\hline\\
+%\caption{CU-01 - Obtención de datos}\\ 
+%\end{longtable}

@@ -1,0 +1,648 @@
+\documentclass[a4paper,12pt,twoside]{memoir}
+
+% Castellano
+\usepackage[spanish,es-tabla]{babel}
+\selectlanguage{spanish}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern} % scalable font
+\usepackage{microtype}
+\usepackage{placeins}
+\usepackage{csquotes}
+\usepackage{lscape} 
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{graphicx}
+\usepackage{float} %required for the placement specifier H
+
+\usepackage{makecell}
+
+\renewcommand\theadalign{bc}
+\renewcommand\theadfont{\bfseries}
+\renewcommand\theadgape{\Gape[4pt]}
+\renewcommand\cellgape{\Gape[4pt]}
+
+% Landscape
+\usepackage{pdflscape}
+
+% Mathematic font
+\usepackage{amsfonts}
+
+\RequirePackage{booktabs}
+\RequirePackage[table]{xcolor}
+\RequirePackage{xtab}
+\RequirePackage{multirow}
+
+% Multi-page tables using
+\nouppercaseheads
+\usepackage{longtable}
+\usepackage{tabularx}
+
+% Cell with line break (e.g. \specialcell{Foo\\bar})
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}
+
+% Links
+\PassOptionsToPackage{hyphens}{url}\usepackage[colorlinks]{hyperref}
+\hypersetup{
+	allcolors = {blue}
+}
+
+% Ecuaciones
+\usepackage{amsmath}
+
+% Rutas de fichero / paquete
+\newcommand{\ruta}[1]{{\sffamily #1}}
+
+% Párrafos
+\nonzeroparskip
+
+% Huérfanas y viudas
+\widowpenalty100000
+\clubpenalty100000
+
+% Evitar solapes en el header
+%\nouppercaseheads
+
+% Imagenes
+\usepackage{graphicx}
+\newcommand{\imagen}[2]{
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.9\textwidth]{#1}
+		\caption{#2}\label{fig:#1}
+	\end{figure}
+	\FloatBarrier
+}
+
+\newcommand{\imagenflotante}[2]{
+	\begin{figure}%[!h]
+		\centering
+		\includegraphics[width=0.9\textwidth]{#1}
+		\caption{#2}\label{fig:#1}
+	\end{figure}
+}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+\definecolor{maroon}{cmyk}{0, 0.87, 0.68, 0.32}
+\definecolor{halfgray}{gray}{0.55}
+\definecolor{ipython_frame}{RGB}{207, 207, 207}
+\definecolor{ipython_bg}{RGB}{247, 247, 247}
+\definecolor{ipython_red}{RGB}{186, 33, 33}
+\definecolor{ipython_green}{RGB}{0, 128, 0}
+\definecolor{ipython_cyan}{RGB}{64, 128, 128}
+\definecolor{ipython_purple}{RGB}{170, 34, 255}
+
+\lstdefinelanguage{python}{
+    morekeywords={access,and,break,class,continue,def,del,elif,else,except,exec,finally,for,from,global,if,import,in,is,lambda,not,or,pass,print,raise,return,try,while},
+    morekeywords=[2]{abs,all,any,basestring,bin,bool,bytearray,callable,chr,classmethod,cmp,compile,complex,delattr,dict,dir,divmod,enumerate,eval,execfile,file,filter,float,format,frozenset,getattr,globals,hasattr,hash,help,hex,id,input,int,isinstance,issubclass,iter,len,list,locals,long,map,max,memoryview,min,next,object,oct,open,ord,pow,property,range,raw_input,reduce,reload,repr,reversed,round,set,setattr,slice,sorted,staticmethod,str,sum,super,tuple,type,unichr,unicode,vars,xrange,zip,apply,buffer,coerce,intern},
+    sensitive=true,
+    morecomment=[l]\#,
+    morestring=[b]',
+    morestring=[b]",
+    morestring=[s]{'''}{'''},
+    morestring=[s]{"""}{"""},
+    morestring=[s]{r'}{'},
+    morestring=[s]{r"}{"},
+    morestring=[s]{r'''}{'''},
+    morestring=[s]{r"""}{"""},
+    morestring=[s]{u'}{'},
+    morestring=[s]{u"}{"},
+    morestring=[s]{u'''}{'''},
+    morestring=[s]{u"""}{"""},
+    % {replace}{replacement}{lenght of replace}
+    % *{-}{-}{1} will not replace in comments and so on
+    literate=
+    {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+    {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+    {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+    {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+    {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+    {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+    {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+    {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+    {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+    {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+    {€}{{\EUR}}1 {£}{{\pounds}}1
+    %
+    {^}{{{\color{ipython_purple}\^{}}}}1
+    {=}{{{\color{ipython_purple}=}}}1
+    %
+    {+}{{{\color{ipython_purple}+}}}1
+    {*}{{{\color{ipython_purple}$^\ast$}}}1
+    {/}{{{\color{ipython_purple}/}}}1
+    %
+    {+=}{{{+=}}}1
+    {-=}{{{-=}}}1
+    {*=}{{{$^\ast$=}}}1
+    {/=}{{{/=}}}1,
+    literate=
+    *{-}{{{\color{ipython_purple}-}}}1
+     {?}{{{\color{ipython_purple}?}}}1,
+    %
+    identifierstyle=\color{black}\ttfamily,
+    commentstyle=\color{ipython_cyan}\ttfamily,
+    stringstyle=\color{ipython_red}\ttfamily,
+    keepspaces=true,
+    showspaces=false,
+    showstringspaces=false,
+    rulecolor=\color{ipython_frame},
+    frame=single,
+    frameround={t}{t}{t}{t},
+    framexleftmargin=6mm,
+    numbers=left,
+    numberstyle=\tiny\color{halfgray},
+    backgroundcolor=\color{ipython_bg},
+    % extendedchars=true,
+    basicstyle=\scriptsize,
+    keywordstyle=\color{ipython_green}\ttfamily,
+}
+
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+\lstdefinelanguage{ccc}{
+    backgroundcolor=\color{lbcolor},
+    tabsize=4,    
+    language=[GNU]C++,
+    basicstyle=\scriptsize,
+    upquote=true,
+    aboveskip={1.5\baselineskip},
+    columns=fixed,
+    showstringspaces=false,
+    extendedchars=false,
+    breaklines=true,
+    prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=single,
+    numbers=left,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    identifierstyle=\ttfamily,
+    keywordstyle=\color[rgb]{0,0,1},
+    commentstyle=\color[rgb]{0.026,0.112,0.095},
+    stringstyle=\color[rgb]{0.627,0.126,0.941},
+    numberstyle=\color[rgb]{0.205, 0.142, 0.73},
+}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{dred}{rgb}{0.545,0,0}
+\definecolor{dblue}{rgb}{0,0,0.545}
+\definecolor{lgrey}{rgb}{0.9,0.9,0.9}
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\lstdefinelanguage{cpp}{
+      backgroundcolor=\color{lgrey},  
+      basicstyle=\footnotesize \ttfamily \color{black} \bfseries,   
+      breakatwhitespace=false,       
+      breaklines=true,               
+      captionpos=b,                   
+      commentstyle=\color{dkgreen},   
+      deletekeywords={...},          
+      escapeinside={\%*}{*)},                  
+      frame=single,                  
+      language=C++,                
+      keywordstyle=\color{purple},  
+      morekeywords={BRIEFDescriptorConfig,string,TiXmlNode,DetectorDescriptorConfigContainer,istringstream,cerr,exit}, 
+      identifierstyle=\color{black},
+      stringstyle=\color{blue},      
+      numbers=right,                 
+      numbersep=5pt,                  
+      numberstyle=\tiny\color{black}, 
+      rulecolor=\color{black},        
+      showspaces=false,               
+      showstringspaces=false,        
+      showtabs=false,                
+      stepnumber=1,                   
+      tabsize=5,                     
+      title=\lstname,                 
+    }
+
+%---------------------------------------------------------
+%\usepackage{xcolor}
+
+\definecolor{azulon}{rgb}{0,95,175}
+\definecolor{dgreen}{RGB}{0, 153, 0}
+
+\lstdefinelanguage{sh}
+{morekeywords={locate,ls,man,cmp,diff,mkdir,cp,more,chgrp,mv,chmod,chown,rm,file,rmdir,find,tail,grep,umask,head,wc,info,whatis,less,whereis,date,halt,shutdown,reboot,break,case,cat,cd,continue,do,done,elif,else,exec,exit,export,expr,false,fi,for,function,if,in,kill,login,new,nohup,ps,read,readonly,return,then,true,type,wait,while,as,command,declare,help,history,jobs,logout,printf,pushd,popd,readarray,select,set,type,wait,sleep,path,pwd,out,systemctl,nano,Install,Service,Unit}, 
+morecomment=[l]\#,
+morestring=[d]",
+morekeywords=[2]{sudo,bash,sh ,python3,\$,\{,\},\(,\),pip,pip3,gpio,stop,start,always,never,zero,enable,disable,default,install,echo}, %Lanzamientos
+morekeywords=[3]{bool,int,str,string,'\n','\t',+,-,*,/,=,\%,\$path,mode,User,ExecStart,WorkingDirectory,WantedBy,Restart,RestartSec,StartLimitIntervalSec,Description,After,Type  }, %operaciones
+%
+backgroundcolor=\color{lgrey},
+basicstyle=\scriptsize\ttfamily,
+identifierstyle=\color{black}\ttfamily,
+keywordstyle=\ttfamily \color{dgreen}, %dblue
+keywordstyle={[2]\ttfamily\color{red}},
+keywordstyle={[3]\ttfamily\color{olive}},
+frame=tlb,% the frame is open on the right side
+resetmargins=false,
+rulesepcolor=\color{black}\ttfamily,
+numbers=left,% % left
+numberstyle=\tiny\ttfamily,
+numbersep=5pt,
+extendedchars=true, 
+firstnumber=1,
+stepnumber=1,
+columns=fixed,% % to prevent inserting spaces
+fontadjust=true,
+keepspaces=true,
+basewidth=0.5em,
+captionpos=t,
+abovecaptionskip=\smallskipamount\ttfamily,% same amount as default
+belowcaptionskip=\smallskipamount\ttfamily,% in caption package
+stringstyle=\color{black}\ttfamily,
+commentstyle=\color{teal}\ttfamily
+}[keywords,comments,strings]
+
+\renewcommand{\lstlistingname}{Código}%
+
+%---------------------------------------------------------
+
+% El comando \figura nos permite insertar figuras comodamente, y utilizando
+% siempre el mismo formato. Los parametros son:
+% 1 -> Porcentaje del ancho de página que ocupará la figura (de 0 a 1)
+% 2 --> Fichero de la imagen
+% 3 --> Texto a pie de imagen
+% 4 --> Etiqueta (label) para referencias
+% 5 --> Opciones que queramos pasarle al \includegraphics
+% 6 --> Opciones de posicionamiento a pasarle a \begin{figure}
+\newcommand{\figuraConPosicion}[6]{%
+  \setlength{\anchoFloat}{#1\textwidth}%
+  \addtolength{\anchoFloat}{-4\fboxsep}%
+  \setlength{\anchoFigura}{\anchoFloat}%
+  \begin{figure}[#6]
+    \begin{center}%
+      \Ovalbox{%
+        \begin{minipage}{\anchoFloat}%
+          \begin{center}%
+            \includegraphics[width=\anchoFigura,#5]{#2}%
+            \caption{#3}%
+            \label{#4}%
+          \end{center}%
+        \end{minipage}
+      }%
+    \end{center}%
+  \end{figure}%
+}
+
+%
+% Comando para incluir imágenes en formato apaisado (sin marco).
+\newcommand{\figuraApaisadaSinMarco}[5]{%
+  \begin{figure}%
+    \begin{center}%
+    \includegraphics[angle=90,height=#1\textheight,#5]{#2}%
+    \caption{#3}%
+    \label{#4}%
+    \end{center}%
+  \end{figure}%
+}
+% Para las tablas
+\newcommand{\otoprule}{\midrule [\heavyrulewidth]}
+%
+% Nuevo comando para tablas pequeñas (menos de una página).
+\newcommand{\tablaSmall}[5]{%
+ \begin{table}
+  \begin{center}
+   \rowcolors {2}{gray!35}{}
+   \begin{tabular}{#2}
+    \toprule
+    #4
+    \otoprule
+    #5
+    \bottomrule
+   \end{tabular}
+   \caption{#1}
+   \label{tabla:#3}
+  \end{center}
+ \end{table}
+}
+
+%
+%Para el float H de tablaSmallSinColores
+\usepackage{float}
+
+%
+% Nuevo comando para tablas pequeñas (menos de una página).
+\newcommand{\tablaSmallSinColores}[5]{%
+ \begin{table}[H]
+  \begin{center}
+   \begin{tabular}{#2}
+    \toprule
+    #4
+    \otoprule
+    #5
+    \bottomrule
+   \end{tabular}
+   \caption{#1}
+   \label{tabla:#3}
+  \end{center}
+ \end{table}
+}
+
+\newcommand{\tablaApaisadaSmall}[5]{%
+\begin{landscape}
+  \begin{table}
+   \begin{center}
+    \rowcolors {2}{gray!35}{}
+    \begin{tabular}{#2}
+     \toprule
+     #4
+     \otoprule
+     #5
+     \bottomrule
+    \end{tabular}
+    \caption{#1}
+    \label{tabla:#3}
+   \end{center}
+  \end{table}
+\end{landscape}
+}
+
+%
+% Nuevo comando para tablas grandes con cabecera y filas alternas coloreadas en gris.
+\newcommand{\tabla}[6]{%
+  \begin{center}
+    \tablefirsthead{
+      \toprule
+      #5
+      \otoprule
+    }
+    \tablehead{
+      \multicolumn{#3}{l}{\small\sl continúa desde la página anterior}\\
+      \toprule
+      #5
+      \otoprule
+    }
+    \tabletail{
+      \hline
+      \multicolumn{#3}{r}{\small\sl continúa en la página siguiente}\\
+    }
+    \tablelasttail{
+      \hline
+    }
+    \bottomcaption{#1}
+    \rowcolors {2}{gray!35}{}
+    \begin{xtabular}{#2}
+      #6
+      \bottomrule
+    \end{xtabular}
+    \label{tabla:#4}
+  \end{center}
+}
+
+%
+% Nuevo comando para tablas grandes con cabecera.
+\newcommand{\tablaSinColores}[6]{%
+  \begin{center}
+    \tablefirsthead{
+      \toprule
+      #5
+      \otoprule
+    }
+    \tablehead{
+      \multicolumn{#3}{l}{\small\sl continúa desde la página anterior}\\
+      \toprule
+      #5
+      \otoprule
+    }
+    \tabletail{
+      \hline
+      \multicolumn{#3}{r}{\small\sl continúa en la página siguiente}\\
+    }
+    \tablelasttail{
+      \hline
+    }
+    \bottomcaption{#1}
+    \begin{xtabular}{#2}
+      #6
+      \bottomrule
+    \end{xtabular}
+    \label{tabla:#4}
+  \end{center}
+}
+
+%
+% Nuevo comando para tablas grandes sin cabecera.
+\newcommand{\tablaSinCabecera}[5]{%
+  \begin{center}
+    \tablefirsthead{
+      \toprule
+    }
+    \tablehead{
+      \multicolumn{#3}{l}{\small\sl continúa desde la página anterior}\\
+      \hline
+    }
+    \tabletail{
+      \hline
+      \multicolumn{#3}{r}{\small\sl continúa en la página siguiente}\\
+    }
+    \tablelasttail{
+      \hline
+    }
+    \bottomcaption{#1}
+  \begin{xtabular}{#2}
+    #5
+   \bottomrule
+  \end{xtabular}
+  \label{tabla:#4}
+  \end{center}
+}
+
+
+
+\definecolor{cgoLight}{HTML}{EEEEEE}
+\definecolor{cgoExtralight}{HTML}{FFFFFF}
+
+%
+% Nuevo comando para tablas grandes sin cabecera.
+\newcommand{\tablaSinCabeceraConBandas}[5]{%
+  \begin{center}
+    \tablefirsthead{
+      \toprule
+    }
+    \tablehead{
+      \multicolumn{#3}{l}{\small\sl continúa desde la página anterior}\\
+      \hline
+    }
+    \tabletail{
+      \hline
+      \multicolumn{#3}{r}{\small\sl continúa en la página siguiente}\\
+    }
+    \tablelasttail{
+      \hline
+    }
+    \bottomcaption{#1}
+    \rowcolors[]{1}{cgoExtralight}{cgoLight}
+
+  \begin{xtabular}{#2}
+    #5
+   \bottomrule
+  \end{xtabular}
+  \label{tabla:#4}
+  \end{center}
+}
+
+
+
+
+\graphicspath{ {./img/} }
+
+% Capítulos
+\chapterstyle{bianchi}
+\newcommand{\capitulo}[2]{
+	\setcounter{chapter}{#1}
+	\setcounter{section}{0}
+	\setcounter{figure}{0}
+	\setcounter{table}{0}
+	\chapter*{#2}
+	\addcontentsline{toc}{chapter}{#2}
+	\markboth{#2}{#2}
+}
+
+% Apéndices
+\renewcommand{\appendixname}{Apéndice}
+\renewcommand*\cftappendixname{\appendixname}
+
+\newcommand{\apendice}[1]{
+	%\renewcommand{\thechapter}{A}
+	\chapter{#1}
+}
+
+\renewcommand*\cftappendixname{\appendixname\ }
+
+% Formato de portada
+\makeatletter
+\usepackage{xcolor}
+\newcommand{\tutor}[1]{\def\@tutor{#1}}
+\newcommand{\tutors}[1]{\def\@tutors{#1}}
+\newcommand{\course}[1]{\def\@course{#1}}
+\definecolor{cpardoBox}{HTML}{E6E6FF}
+\def\maketitle{
+  \null
+  \thispagestyle{empty}
+  % Cabecera ----------------
+\noindent\includegraphics[width=\textwidth]{cabecera}\vspace{1cm}%
+  \vfill
+  % Título proyecto y escudo informática ----------------
+  \colorbox{cpardoBox}{%
+    \begin{minipage}{.8\textwidth}
+      \vspace{.5cm}\Large
+      \begin{center}
+      \textbf{TFG del Grado en Ingeniería Informática}\vspace{.6cm}\\
+      \textbf{\LARGE\@title{}}
+      \end{center}
+      \vspace{.2cm}
+    \end{minipage}
+
+  }%
+  \hfill\begin{minipage}{.20\textwidth}
+    \includegraphics[width=\textwidth]{escudoInfor}
+  \end{minipage}
+  \vfill
+  % Datos de alumno, curso y tutores ------------------
+  \begin{center}%
+  {%
+    \noindent\LARGE
+    Presentado por \@author{}\\ 
+    en Universidad de Burgos --- \@date{}\\
+    Tutor: \@tutor{}\\
+	Tutor: \@tutors{}\\
+  }%
+  \end{center}%
+  \null
+  \cleardoublepage
+  }
+\makeatother
+
+
+% Datos de portada
+\title{Diseño de un sistema económico IoT de monitorización de invernaderos de cannabis medicinal. \\Documentación Técnica}
+\author{José Luis Caballero Martínez-Quintanilla.}
+\tutor{Alejandro Merino Gómez}
+\tutors{Carlos Cambra Baseca}
+\date{16 de febrero de 2024}
+
+\begin{document}
+
+\maketitle
+
+
+
+\cleardoublepage
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\frontmatter
+
+
+\clearpage
+
+% Indices
+\tableofcontents
+
+\clearpage
+
+\listoffigures
+
+\clearpage
+
+\listoftables
+
+\clearpage
+
+\mainmatter
+
+\appendix
+
+\include{./tex/A_Plan_proyecto}
+\include{./tex/B_Requisitos}
+%\include{./tex/C_Diseno}
+\include{./tex/D_Manual_programador}
+\include{./tex/E_Manual_usuario}
+%\include{./tex/F_ODS}
+
+
+\bibliographystyle{plain}
+\bibliography{bibliografiaAnexos}
+
+\end{document}
