@@ -6,6 +6,30 @@ from sh1106 import SH1106_I2C  # Importa la clase SH1106_I2C para manejar la pan
 from config import utelegram_config, umbrales_sensores, mqtt_config  # Importa variables de configuración específicas (para Telegram y umbrales de sensores) desde un archivo de configuración 'config.py'.
 import gc
 
+# Diccionario de acciones de LED para cada sensor
+led_actions = {
+    "temperatura": {
+        "alta": lambda: (temp_pin_led_rojo.high(), temp_pin_led_azul.low()),
+        "baja": lambda: (temp_pin_led_rojo.low(), temp_pin_led_azul.high()),
+        "normal": lambda: (temp_pin_led_rojo.low(), temp_pin_led_azul.low())
+    },
+    "humedad_ambiente": {
+        "alta": lambda: (humambiente_pin_led_rojo.high(), humambiente_pin_led_azul.low()),
+        "baja": lambda: (humambiente_pin_led_rojo.low(), humambiente_pin_led_azul.high()),
+        "normal": lambda: (humambiente_pin_led_rojo.low(), humambiente_pin_led_azul.low())
+    },
+    "luminosidad": {
+        "alta": lambda: (lum_pin_led_rojo.high(), lum_pin_led_azul.low()),
+        "baja": lambda: (lum_pin_led_rojo.low(), lum_pin_led_azul.high()),
+        "normal": lambda: (lum_pin_led_rojo.low(), lum_pin_led_azul.low())
+    },
+    "humedad_suelo": {
+        "alta": lambda: (humsuelo_pin_led_rojo.high(), humsuelo_pin_led_azul.low()),
+        "baja": lambda: (humsuelo_pin_led_rojo.low(), humsuelo_pin_led_azul.high()),
+        "normal": lambda: (humsuelo_pin_led_rojo.low(), humsuelo_pin_led_azul.low())
+    }
+}
+
 # Importar umbrales desde config.py
 TEMPERATURA_MINIMA = umbrales_sensores['TEMPERATURA_MINIMA']  # Establece el umbral mínimo de temperatura a partir de la configuración importada de 'config.py'.
 HUMEDAD_MINIMA = umbrales_sensores['HUMEDAD_MINIMA']  # Establece el umbral mínimo de humedad a partir de la configuración importada de 'config.py'.
@@ -96,67 +120,9 @@ next_send = utime.time() + send_interval
 API_URL = "https://api.telegram.org/bot" + utelegram_config['token']
 
 def control_led(sensor, estado):
-    # Esta función se utiliza para controlar los LEDs en función del estado de los sensores.
-
-    if sensor == "temperatura":
-        # Controla los LEDs para el sensor de temperatura.
-        if estado == "alta":
-            # Si la temperatura es alta, enciende el LED rojo y apaga el azul.
-            temp_pin_led_rojo.high()
-            temp_pin_led_azul.low()
-        elif estado == "baja":
-            # Si la temperatura es baja, enciende el LED azul y apaga el rojo.
-            temp_pin_led_rojo.low()
-            temp_pin_led_azul.high()
-        else:  # estado normal
-            # Si la temperatura está en un rango normal, apaga ambos LEDs.
-            temp_pin_led_rojo.low()
-            temp_pin_led_azul.low()
-
-    elif sensor == "humedad_ambiente":
-        # Controla los LEDs para el sensor de humedad ambiente.
-        if estado == "alta":
-            # Si la humedad ambiente es alta, enciende el LED rojo y apaga el azul.
-            humambiente_pin_led_rojo.high()
-            humambiente_pin_led_azul.low()
-        elif estado == "baja":
-            # Si la humedad ambiente es baja, enciende el LED azul y apaga el rojo.
-            humambiente_pin_led_rojo.low()
-            humambiente_pin_led_azul.high()
-        else:  # estado normal
-            # Si la humedad ambiente está en un rango normal, apaga ambos LEDs.
-            humambiente_pin_led_rojo.low()
-            humambiente_pin_led_azul.low()
-
-    elif sensor == "luminosidad":
-        # Controla los LEDs para el sensor de luminosidad.
-        if estado == "alta":
-            # Si la luminosidad es alta, enciende el LED rojo y apaga el azul.
-            lum_pin_led_rojo.high()
-            lum_pin_led_azul.low()
-        elif estado == "baja":
-            # Si la luminosidad es baja, enciende el LED azul y apaga el rojo.
-            lum_pin_led_rojo.low()
-            lum_pin_led_azul.high()
-        else:  # estado normal
-            # Si la luminosidad está en un rango normal, apaga ambos LEDs.
-            lum_pin_led_rojo.low()
-            lum_pin_led_azul.low()
-
-    elif sensor == "humedad_suelo":
-        # Controla los LEDs para el sensor de humedad del suelo.
-        if estado == "alta":
-            # Si la humedad del suelo es alta, enciende el LED rojo y apaga el azul.
-            humsuelo_pin_led_rojo.high()
-            humsuelo_pin_led_azul.low()
-        elif estado == "baja":
-            # Si la humedad del suelo es baja, enciende el LED azul y apaga el rojo.
-            humsuelo_pin_led_rojo.low()
-            humsuelo_pin_led_azul.high()
-        else:  # estado normal
-            # Si la humedad del suelo está en un rango normal, apaga ambos LEDs.
-            humsuelo_pin_led_rojo.low()
-            humsuelo_pin_led_azul.low()
+    # Ejecutar la acción correspondiente del LED basado en el sensor y estado.
+    action = led_actions.get(sensor, {}).get(estado, lambda: None)
+    action()
 
 def enviar_alertas_telegram(temp, hum, lux, porcentaje_humedad_suelo, bot):
     # Declaración de variables globales para mantener el estado de los sensores.
