@@ -117,7 +117,7 @@ class SH1106(framebuf.FrameBuffer):
         self.init_display()
 
     def init_display(self):
-        self.reset()
+        #self.reset()
         self.fill(0)
         self.show()
         self.poweron()
@@ -230,14 +230,14 @@ class SH1106(framebuf.FrameBuffer):
         for page in range(start_page, end_page+1):
             self.pages_to_update |= 1 << page
 
-    def reset(self, res):
-        if res is not None:
-            res(1)
-            time.sleep_ms(1)
-            res(0)
-            time.sleep_ms(20)
-            res(1)
-            time.sleep_ms(20)
+    #def reset(self, res):
+        #if res is not None:
+            #res(1)
+            #time.sleep_ms(1)
+            #res(0)
+            #time.sleep_ms(20)
+            #res(1)
+            #time.sleep_ms(20)
 
 
 class SH1106_I2C(SH1106):
@@ -260,8 +260,8 @@ class SH1106_I2C(SH1106):
     def write_data(self, buf):
         self.i2c.writeto(self.addr, b'\x40'+buf)
 
-    def reset(self):
-        super().reset(self.res)
+    #def reset(self):
+        #super().reset(self.res)
 
 
 class SH1106_SPI(SH1106):
@@ -301,6 +301,6 @@ class SH1106_SPI(SH1106):
             self.dc(1)
             self.spi.write(buf)
 
-    def reset(self):
-        super().reset(self.res)
+    #def reset(self):
+        #super().reset(self.res)
 
