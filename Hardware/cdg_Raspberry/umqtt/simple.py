@@ -12,14 +12,13 @@ class MQTTClient:
         self,
         client_id,
         server,
-        port=0,
+        port=1883,
         user=None,
         password=None,
         keepalive=0,
         ssl=False,
         ssl_params={},
     ):
-        port = 1883
         self.client_id = client_id
         self.sock = None
         self.server = server
