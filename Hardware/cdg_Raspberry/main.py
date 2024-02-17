@@ -6,6 +6,21 @@ from sh1106 import SH1106_I2C  # Importa la clase SH1106_I2C para manejar la pan
 from config import utelegram_config, umbrales_sensores, mqtt_config  # Importa variables de configuración específicas (para Telegram y umbrales de sensores) desde un archivo de configuración 'config.py'.
 import gc
 
+# Declaración de umbrales y estados iniciales
+umbrales = {
+    'temperatura': {'min': TEMPERATURA_MINIMA, 'max': TEMPERATURA_MAXIMA},
+    'humedad_ambiente': {'min': HUMEDAD_MINIMA, 'max': HUMEDAD_MAXIMA},
+    'luminosidad': {'min': LUMINOSIDAD_MINIMA, 'max': LUMINOSIDAD_MAXIMA},
+    'humedad_suelo': {'min': HUMEDAD_SUELO_MINIMA, 'max': HUMEDAD_SUELO_MAXIMA}
+}
+
+estados_sensores = {
+    'temperatura': estado_temperatura,
+    'humedad_ambiente': estado_humedad,
+    'luminosidad': estado_luminosidad,
+    'humedad_suelo': estado_humedad_suelo
+}
+
 # Diccionario de acciones de LED para cada sensor
 led_actions = {
     "temperatura": {
@@ -124,49 +139,37 @@ def control_led(sensor, estado):
     action = led_actions.get(sensor, {}).get(estado, lambda: None)
     action()
 
+# Función para determinar el nuevo estado
+def determinar_estado(sensor, valor):
+    umbrales_sensor = umbrales[sensor]
+    if valor > umbrales_sensor['max']:
+        return 'alta'
+    elif valor < umbrales_sensor['min']:
+        return 'baja'
+    else:
+        return 'normal'
+
+# Función refactorizada
 def enviar_alertas_telegram(temp, hum, lux, porcentaje_humedad_suelo, bot):
-    # Declaración de variables globales para mantener el estado de los sensores.
     global estado_temperatura, estado_humedad, estado_luminosidad, estado_humedad_suelo
-    
-    # Verificar y actualizar estado de la temperatura
-    nuevo_estado_temperatura = "alta" if temp > TEMPERATURA_MAXIMA else "baja" if temp < TEMPERATURA_MINIMA else "normal"
-    if nuevo_estado_temperatura != estado_temperatura:
-        # Actualizar el estado de la temperatura y controlar el LED correspondiente.
-        estado_temperatura = nuevo_estado_temperatura
-        control_led("temperatura", estado_temperatura)
-        # Crear y enviar el mensaje de Telegram con el estado actual de la temperatura.
-        mensaje_temp = f"La temperatura es {estado_temperatura}: {temp} °C" if estado_temperatura == "normal" else f"Alerta, la temperatura es {estado_temperatura}: {temp} °C"
-        bot.send(utelegram_config['chat_id'], mensaje_temp)
 
-    # Verificar y actualizar estado de la humedad ambiente
-    nuevo_estado_humedad = "alta" if hum > HUMEDAD_MAXIMA else "baja" if hum < HUMEDAD_MINIMA else "normal"
-    if nuevo_estado_humedad != estado_humedad:
-        # Actualizar el estado de la humedad ambiente y controlar el LED correspondiente.
-        estado_humedad = nuevo_estado_humedad
-        control_led("humedad_ambiente", estado_humedad)
-        # Crear y enviar el mensaje de Telegram con el estado actual de la humedad ambiente.
-        mensaje_hum = f"La humedad ambiente es {estado_humedad}: {hum} %" if estado_humedad == "normal" else f"Alerta, la humedad ambiente es {estado_humedad}: {hum} %"
-        bot.send(utelegram_config['chat_id'], mensaje_hum)
+    valores_sensores = {
+        'temperatura': temp,
+        'humedad_ambiente': hum,
+        'luminosidad': lux,
+        'humedad_suelo': porcentaje_humedad_suelo
+    }
 
-    # Verificar y actualizar estado de la luminosidad
-    nuevo_estado_luminosidad = "alta" if lux > LUMINOSIDAD_MAXIMA else "baja" if lux < LUMINOSIDAD_MINIMA else "normal"
-    if nuevo_estado_luminosidad != estado_luminosidad:
-        # Actualizar el estado de la luminosidad y controlar el LED correspondiente.
-        estado_luminosidad = nuevo_estado_luminosidad
-        control_led("luminosidad", estado_luminosidad)
-        # Crear y enviar el mensaje de Telegram con el estado actual de la luminosidad.
-        mensaje_luz = f"La luminosidad es {estado_luminosidad}: {lux} lux" if estado_luminosidad == "normal" else f"Alerta, la luminosidad es {estado_luminosidad}: {lux} lux"
-        bot.send(utelegram_config['chat_id'], mensaje_luz)
+    for sensor, valor in valores_sensores.items():
+        nuevo_estado = determinar_estado(sensor, valor)
+        if nuevo_estado != estados_sensores[sensor]:
+            estados_sensores[sensor] = nuevo_estado
+            control_led(sensor, nuevo_estado)
+            mensaje = f"Alerta, {sensor.replace('_', ' ')} es {nuevo_estado}: {valor}" if nuevo_estado != "normal" else f"La {sensor.replace('_', ' ')} es {nuevo_estado}: {valor}"
+            bot.send(utelegram_config['chat_id'], mensaje)
 
-    # Verificar y actualizar estado de la humedad del suelo
-    nuevo_estado_humedad_suelo = "alta" if porcentaje_humedad_suelo > HUMEDAD_SUELO_MAXIMA else "baja" if porcentaje_humedad_suelo < HUMEDAD_SUELO_MINIMA else "normal"
-    if nuevo_estado_humedad_suelo != estado_humedad_suelo:
-        # Actualizar el estado de la humedad del suelo y controlar el LED correspondiente.
-        estado_humedad_suelo = nuevo_estado_humedad_suelo
-        control_led("humedad_suelo", estado_humedad_suelo)
-        # Crear y enviar el mensaje de Telegram con el estado actual de la humedad del suelo.
-        mensaje_hum_suelo = f"La humedad del suelo es {estado_humedad_suelo}: {porcentaje_humedad_suelo} %" if estado_humedad_suelo == "normal" else f"Alerta, la humedad del suelo es {estado_humedad_suelo}: {porcentaje_humedad_suelo} %"
-        bot.send(utelegram_config['chat_id'], mensaje_hum_suelo)
+    # Actualizar los estados globales con los nuevos valores
+    estado_temperatura, estado_humedad, estado_luminosidad, estado_humedad_suelo = estados_sensores['temperatura'], estados_sensores['humedad_ambiente'], estados_sensores['luminosidad'], estados_sensores['humedad_suelo']
 
 def apagar_todo():
     # Iterar sobre cada LED definido para apagarlos.
