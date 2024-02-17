@@ -10,8 +10,7 @@ led_integrado = machine.Pin("LED", machine.Pin.OUT)
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
 
-wlan.ifconfig(('192.168.1.232', '255.255.255.0', '192.168.1.1', '8.8.8.8')) # Wifi Luz
-#wlan.ifconfig(('172.20.10.13', '255.255.255.240', '172.20.10.1', '8.8.8.8')) # Wifi iPhone
+wlan.ifconfig(('192.168.1.232', '255.255.255.0', '192.168.1.1', '8.8.8.8')) # Mi wifi, ip estática para agilizar conexión.
 
 wlan.connect(wifi_config['ssid'], wifi_config['password'])
 
