@@ -12,7 +12,7 @@ wlan.active(True)
 
 wlan.ifconfig(('xxx', 'xxx', 'xxx', 'xxx')) # Mi wifi, ip estática para agilizar conexión.
 
-wlan.connect(wifi_config['ssid'], wifi_config['password'])
+wlan.connect(wifi_config['ssid'], wifi_config['p'])
 
 # Intenta conectarte a la WiFi y verifica la conexión
 tiempo_maximo = 20  # Tiempo máximo en segundos para intentar la conexión
