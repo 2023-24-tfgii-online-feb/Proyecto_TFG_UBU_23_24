@@ -311,6 +311,8 @@ def manage_sending(next_send):
     # Se suma el intervalo de envío a la hora actual para programar el próximo envío.
     next_send = utime.time() + send_interval
 
+    return next_send  # Devuelve el nuevo valor de next_send
+
 def send_message(chat_id, message):
     # Esta función se utiliza para enviar mensajes a través del bot de Telegram.
 
@@ -455,8 +457,7 @@ def main_loop():
 
             # Enviar datos y alertas si es el momento
             if current_time >= next_send:
-                manage_sending(next_send)
-                next_send = current_time + send_interval
+            next_send = manage_sending(temp, hum, lux, porcentaje_humedad_suelo, bot, next_send)  # Actualiza next_send con el valor devuelto
 
             # Verificar mensajes MQTT
             client_sub.check_msg()
