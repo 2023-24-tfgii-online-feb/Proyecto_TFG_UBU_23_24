@@ -1,7 +1,7 @@
 # Diccionario de configuración para la conexión WiFi
 wifi_config = {
     'ssid':'xxx', # El SSID (nombre) de la red WiFi a la que se conectará el dispositivo
-    'password':'xxx' # La contraseña de la red WiFi
+    'p':'xxx' # La contraseña de la red WiFi
 }
 
 # Diccionario de configuración para el bot de Telegram
