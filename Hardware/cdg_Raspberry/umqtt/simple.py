@@ -17,14 +17,12 @@ class MQTTClient:
         password=None,
         keepalive=0,
         ssl=False,
-        ssl_params={},
     ):
         self.client_id = client_id
         self.sock = None
         self.server = server
         self.port = port
         self.ssl = ssl
-        self.ssl_params = ssl_params
         self.pid = 0
         self.cb = None
         self.user = user
