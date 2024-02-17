@@ -19,7 +19,7 @@ class MQTTClient:
         ssl=False,
         ssl_params={},
     ):
-        port = 1883 if ssl else 1883
+        port = 1883
         self.client_id = client_id
         self.sock = None
         self.server = server
