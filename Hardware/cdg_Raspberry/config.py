@@ -1,15 +1,13 @@
 # Diccionario de configuración para la conexión WiFi
 wifi_config = {
-    'ssid':'Luzdelejos', # El SSID (nombre) de la red WiFi a la que se conectará el dispositivo
-    'password':'luzNV75@' # La contraseña de la red WiFi
-    #'ssid':'iPhone de JoseLuisCMQ',
-    #'password':'fiat1028'
+    'ssid':'xxx', # El SSID (nombre) de la red WiFi a la que se conectará el dispositivo
+    'password':'xxx' # La contraseña de la red WiFi
 }
 
 # Diccionario de configuración para el bot de Telegram
 utelegram_config = {
-    'token': '6638292008:AAGFpvByHl_omYf-nNnKRaYX_isnJdFJ_Eg', # El token del bot de Telegram.
-    'chat_id': '1922244044' # El ID del chat en Telegram donde el bot enviará y recibirá mensajes.
+    'token': 'xxx', # El token del bot de Telegram.
+    'chat_id': 'xxx' # El ID del chat en Telegram donde el bot enviará y recibirá mensajes.
 }
 
 # Diccionario de configuración para los umbrales de los sensores
