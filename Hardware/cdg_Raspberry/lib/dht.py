@@ -21,12 +21,16 @@ class DHTBase:
         self.pin = pin
         self.buf = bytearray(5)
 
-    def measure(self):
-        buf = self.buf
-        dht_readinto(self.pin, buf)
-        if (buf[0] + buf[1] + buf[2] + buf[3]) & 0xFF != buf[4]:
-            raise Exception("checksum error")
+# Definición de la clase de excepción personalizada
+class ChecksumError(Exception):
+    pass
 
+def measure(self):
+    buf = self.buf
+    dht_readinto(self.pin, buf)
+    if (buf[0] + buf[1] + buf[2] + buf[3]) & 0xFF != buf[4]:
+        # Lanzar la excepción específica en lugar de la genérica
+        raise ChecksumError("checksum error")
 
 class DHT11(DHTBase):
     def humidity(self):
