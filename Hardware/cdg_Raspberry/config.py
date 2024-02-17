@@ -24,8 +24,8 @@ umbrales_sensores = {
 
 # Configuración MQTT
 mqtt_config = {
-    'server': '46.24.8.196',
-    'port': 1883,
+    'server': 'xxx', # ip del servidor
+    'port': xxxx, # puerto del servidor
     'topic_pub': 'invernadero/sensores',
     'topic_sub': 'invernadero/ordenes',
     'client_id_pub': 'TFG_UBU_mqtt_id_pub',
